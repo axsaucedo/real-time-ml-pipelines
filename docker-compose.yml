@@ -1,0 +1,107 @@
+version: "2.1"
+services:
+  jobmanager:
+    image: flink:1.7.2-alpine
+    container_name: jobmanager
+    expose:
+      - "6123"
+      - "9249"
+    ports:
+      - "8081:8081"
+      - "9250:9249"
+    command: > 
+        bash -c 'echo "metrics.reporter: prom" >> /opt/flink/conf/flink-conf.yaml
+        && echo "metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter" >> /opt/flink/conf/flink-conf.yaml 
+        && echo "metrics.reporter.prom.port: 9249" >> /opt/flink/conf/flink-conf.yaml 
+        && cp /opt/flink/opt/flink-metrics-prometheus-*.jar /opt/flink/lib
+        &&  /docker-entrypoint.sh jobmanager'
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    volumes:
+      - state:/state
+
+  taskmanager:
+    image: flink:1.7.2-alpine
+    container_name: taskmanager
+    expose:
+      - "6121"
+      - "6122"
+      - "9249"
+    ports:
+      - "9249:9249"
+    depends_on:
+      - jobmanager
+    command: > 
+        bash -c 'echo "metrics.reporter: prom" >> /opt/flink/conf/flink-conf.yaml
+        && echo "metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter" >> /opt/flink/conf/flink-conf.yaml 
+        && echo "metrics.reporter.prom.port: 9249" >> /opt/flink/conf/flink-conf.yaml 
+        && cp /opt/flink/opt/flink-metrics-prometheus-*.jar /opt/flink/lib
+        &&  /docker-entrypoint.sh taskmanager '
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    links:
+      - "jobmanager:jobmanager"
+    volumes:
+      - state:/state
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181"
+    hostname: zookeeper
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    command: [start-kafka.sh]
+    expose:
+      - "8080"
+    ports:
+      - "9092:9092"
+      - "8080:8080"
+    hostname: kafka
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.3.1.jar=8080:/prometheus/kafka-0-8-2.yml 
+    volumes:
+      - ./kafka:/prometheus
+    depends_on:
+      - "zookeeper"
+
+  kafka_manager:
+    image: hlebalbau/kafka-manager:1.3.3.18
+    container_name: kafka_manager
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: "zookeeper:2181"
+      APPLICATION_SECRET: "random-secret"
+    command: -Dpidfile.path=/dev/null
+
+  prometheus:
+    image: prom/prometheus:v2.8.1
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/flink.rules.yml:/etc/prometheus/flink.rules.yml
+
+  grafana:
+    image: grafana/grafana:6.1.1
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=flink
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    depends_on:
+      - prometheus
+
+volumes:
+  state:
+
