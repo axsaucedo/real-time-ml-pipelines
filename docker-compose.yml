@@ -13,12 +13,13 @@ services:
         bash -c 'echo "metrics.reporter: prom" >> /opt/flink/conf/flink-conf.yaml
         && echo "metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter" >> /opt/flink/conf/flink-conf.yaml 
         && echo "metrics.reporter.prom.port: 9249" >> /opt/flink/conf/flink-conf.yaml 
+        && echo "state.checkpoints.dir: /state" >> /opt/flink/conf/flink-conf.yaml 
         && cp /opt/flink/opt/flink-metrics-prometheus-*.jar /opt/flink/lib
         &&  /docker-entrypoint.sh jobmanager'
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
     volumes:
-      - state:/state
+      - kafka_flink:/state
 
   taskmanager:
     image: flink:1.7.2-alpine
@@ -35,6 +36,7 @@ services:
         bash -c 'echo "metrics.reporter: prom" >> /opt/flink/conf/flink-conf.yaml
         && echo "metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter" >> /opt/flink/conf/flink-conf.yaml 
         && echo "metrics.reporter.prom.port: 9249" >> /opt/flink/conf/flink-conf.yaml 
+        && echo "state.checkpoints.dir: /state" >> /opt/flink/conf/flink-conf.yaml 
         && cp /opt/flink/opt/flink-metrics-prometheus-*.jar /opt/flink/lib
         &&  /docker-entrypoint.sh taskmanager '
     environment:
@@ -42,7 +44,7 @@ services:
     links:
       - "jobmanager:jobmanager"
     volumes:
-      - state:/state
+      - kafka_flink:/state
 
   zookeeper:
     image: wurstmeister/zookeeper
@@ -50,6 +52,8 @@ services:
     ports:
       - "2181"
     hostname: zookeeper
+    volumes:
+      - kafka_zookeeper:/opt/zookeeper-3.4.13/data
 
   kafka:
     image: wurstmeister/kafka
@@ -68,6 +72,7 @@ services:
       KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.3.1.jar=8080:/prometheus/kafka-0-8-2.yml 
     volumes:
       - ./kafka:/prometheus
+      - kafka_kafka:/opt/kafka_2.12-2.2.0/logs
     depends_on:
       - "zookeeper"
 
@@ -103,5 +108,7 @@ services:
       - prometheus
 
 volumes:
-  state:
+  kafka_flink:
+  kafka_zookeeper:
+  kafka_kafka:
 
