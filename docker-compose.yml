@@ -50,7 +50,7 @@ services:
     image: wurstmeister/zookeeper
     container_name: zookeeper
     ports:
-      - "2181"
+      - "2181:2181"
     hostname: zookeeper
     volumes:
       - kafka_zookeeper:/opt/zookeeper-3.4.13/data
