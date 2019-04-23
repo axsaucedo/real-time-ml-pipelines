@@ -1,0 +1,268 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Simple Kafka Producer",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:54:57.926",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eSimple Kafka Producer\u003c/h1\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020497922_1807838521",
+      "id": "20171108-084210_1882269229",
+      "dateCreated": "2019-04-23 11:54:57.922",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## Put your ip below and change the topic you want to produce in (one of `train`, `test` or `predict`)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:54:57.932",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePut your ip below and change the topic you want to produce in (one of \u003ccode\u003etrain\u003c/code\u003e, \u003ccode\u003etest\u003c/code\u003e or \u003ccode\u003epredict\u003c/code\u003e)\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020497932_1365218877",
+      "id": "20171108-084300_1763093848",
+      "dateCreated": "2019-04-23 11:54:57.932",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%dep\nz.load(\"org.apache.spark:spark-streaming-kafka-0-10_2.11:2.1.0\")\nz.load(\"org.apache.kafka:kafka_2.11:0.10.0.0\")\nz.load(\"org.elasticsearch:elasticsearch-spark-20_2.11:5.6.3\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:00:42.202",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@51eca124\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020730385_-1447085833",
+      "id": "20190423-115850_573516856",
+      "dateCreated": "2019-04-23 11:58:50.385",
+      "dateStarted": "2019-04-23 12:00:42.255",
+      "dateFinished": "2019-04-23 12:01:12.611",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myIP \u003d \"172.25.0.12\"\nval topic\u003d\"train\"",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:01:15.206",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "myIP: String \u003d 172.25.0.12\ntopic: String \u003d train\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020497933_-2123789123",
+      "id": "20171106-075404_586913146",
+      "dateCreated": "2019-04-23 11:54:57.933",
+      "dateStarted": "2019-04-23 12:01:15.248",
+      "dateFinished": "2019-04-23 12:01:31.328",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## Let\u0027s produce some input data\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:54:57.934",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLet\u0026rsquo;s produce some input data\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020497934_2110888266",
+      "id": "20171108-084306_853891979",
+      "dateCreated": "2019-04-23 11:54:57.934",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import java.util.Properties\nimport scala.util.Random\nimport org.apache.kafka.clients.producer._\n\n// Create the producer properties\nval  props \u003d new Properties()\nprops.put(\"bootstrap.servers\", s\"$myIP:9092\")\nprops.put(\"key.serializer\", \"org.apache.kafka.common.serialization.StringSerializer\")\nprops.put(\"value.serializer\", \"org.apache.kafka.common.serialization.StringSerializer\")\n\n// Init the producer\nval producer \u003d new KafkaProducer[String, String](props)\n\n// Number of consecutive value from 0 to N to create\nval n \u003d 100\n\n// For each value\n(0 to n).foreach{ i\u003d\u003e\n    // Create some noise (can be increased by multiplying the random part)\n    val noisyValue \u003d i+Random.nextGaussian()\n    // Create a Key-Value record\n    val record \u003d new ProducerRecord(topic, s\"$i\", s\"$noisyValue\")\n    // Send it\n    producer.send(record)\n}\n// Will trigger the flush\nproducer.close()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:01:53.754",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import java.util.Properties\nimport scala.util.Random\nimport org.apache.kafka.clients.producer._\nprops: java.util.Properties \u003d {}\nres6: Object \u003d null\nres7: Object \u003d null\nres8: Object \u003d null\nproducer: org.apache.kafka.clients.producer.KafkaProducer[String,String] \u003d org.apache.kafka.clients.producer.KafkaProducer@53fff02b\nn: Int \u003d 100\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020497935_1090127528",
+      "id": "20171106-075335_1851503240",
+      "dateCreated": "2019-04-23 11:54:57.935",
+      "dateStarted": "2019-04-23 12:01:53.808",
+      "dateFinished": "2019-04-23 12:01:59.608",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:54:57.936",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020497935_-1537817725",
+      "id": "20171106-075509_1570655735",
+      "dateCreated": "2019-04-23 11:54:57.936",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "KafkaProducer",
+  "id": "2EAQDV3CJ",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

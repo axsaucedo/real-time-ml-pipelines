@@ -1,0 +1,634 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Streaming machine learning",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:55:10.167",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eStreaming machine learning\u003c/h1\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510161_555878201",
+      "id": "20171108-082423_839563490",
+      "dateCreated": "2019-04-23 11:55:10.161",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## Put your ip below",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:02:44.850",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePut your ip below\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510168_950964886",
+      "id": "20171103-140505_1790236293",
+      "dateCreated": "2019-04-23 11:55:10.168",
+      "dateStarted": "2019-04-23 12:02:44.851",
+      "dateFinished": "2019-04-23 12:02:48.101",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myIP \u003d \"172.25.0.12\"",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:02:59.139",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "myIP: String \u003d 172.25.0.12\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510169_-723050419",
+      "id": "20171103-140523_635139247",
+      "dateCreated": "2019-04-23 11:55:10.169",
+      "dateStarted": "2019-04-23 12:02:59.201",
+      "dateFinished": "2019-04-23 12:02:59.600",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## Let\u0027s create a Streaming Context\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:55:10.169",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLet\u0026rsquo;s create a Streaming Context\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510169_242988765",
+      "id": "20171108-082447_128463663",
+      "dateCreated": "2019-04-23 11:55:10.169",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.spark._\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.StreamingContext._\n\n// This streaming context will be doing 5 seconds batches\nval ssc \u003d new StreamingContext(sc, Seconds(5))",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:03:03.862",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark._\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.StreamingContext._\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@57328bde\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510170_1074046918",
+      "id": "20171103-131952_1212526556",
+      "dateCreated": "2019-04-23 11:55:10.170",
+      "dateStarted": "2019-04-23 12:03:03.925",
+      "dateFinished": "2019-04-23 12:03:05.466",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## Let\u0027s consume the kafka streams£",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:55:10.170",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLet\u0026rsquo;s consume the kafka streams\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510170_761190864",
+      "id": "20171108-082502_1709125459",
+      "dateCreated": "2019-04-23 11:55:10.170",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.kafka.clients.consumer.ConsumerRecord\nimport org.apache.kafka.common.serialization.StringDeserializer\nimport org.apache.spark.streaming.kafka010._\nimport org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent\nimport org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe\n\n// Kafka parameters\nval kafkaParams \u003d Map(\n    \"bootstrap.servers\" -\u003e s\"$myIP:9092\",\n    \"value.deserializer\" -\u003eclassOf[StringDeserializer],\n    \"key.deserializer\" -\u003e classOf[StringDeserializer],\n    \"auto.offset.reset\" -\u003e \"latest\",\n    \"enable.auto.commit\" -\u003e (false: java.lang.Boolean)\n    )\n    \n// Consume the \"train\" topic  \nval trainInputStream \u003d KafkaUtils.createDirectStream[String, String](\n  ssc,\n  PreferConsistent,\n  Subscribe[String, String](Array(\"train\"), kafkaParams + (\"group.id\" -\u003e \"group1\"))\n)\n\n// Consume the \"test\" topic\nval testInputStream \u003d KafkaUtils.createDirectStream[String, String](\n  ssc,\n  PreferConsistent,\n  Subscribe[String, String](Array(\"test\"), kafkaParams + (\"group.id\" -\u003e \"group2\"))\n)\n\n// Consume the \"predict\" topic\nval predictInputStream \u003d KafkaUtils.createDirectStream[String, String](\n  ssc,\n  PreferConsistent,\n  Subscribe[String, String](Array(\"predict\"), kafkaParams + (\"group.id\" -\u003e \"group3\"))\n)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:03:40.343",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.kafka.clients.consumer.ConsumerRecord\nimport org.apache.kafka.common.serialization.StringDeserializer\nimport org.apache.spark.streaming.kafka010._\nimport org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent\nimport org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe\nkafkaParams: scala.collection.immutable.Map[String,java.io.Serializable] \u003d Map(key.deserializer -\u003e class org.apache.kafka.common.serialization.StringDeserializer, auto.offset.reset -\u003e latest, bootstrap.servers -\u003e 172.25.0.12:9092, enable.auto.commit -\u003e false, value.deserializer -\u003e class org.apache.kafka.common.serialization.StringDeserializer)\ntrainInputStream: org.apache.spark.streaming.dstream.InputDStream[org.apache.kafka.clients.consumer.ConsumerRecord[String,String]] \u003d org.apache.spark.streaming.kafka010.DirectKafkaInputDStream@a00ef0e\ntestInputStream: org.apache.spark.streaming.dstream.InputDStream[org.apache.kafka.clients.consumer.ConsumerRecord[String,String]] \u003d org.apache.spark.streaming.kafka010.DirectKafkaInputDStream@11d4f049\npredictInputStream: org.apache.spark.streaming.dstream.InputDStream[org.apache.kafka.clients.consumer.ConsumerRecord[String,String]] \u003d org.apache.spark.streaming.kafka010.DirectKafkaInputDStream@366cad54\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510171_1466941735",
+      "id": "20171103-140026_1709125459",
+      "dateCreated": "2019-04-23 11:55:10.171",
+      "dateStarted": "2019-04-23 12:03:40.413",
+      "dateFinished": "2019-04-23 12:03:46.388",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## Let\u0027s do some pre-processing on the streams for them to be usable by MLLib\n\n* Each (k:String, v:String) coming from kafka represents a 2D point (x,y)\n* Each message also has meta-data attached that uniquely identifies a message (topic, partition, offset)\n* In the end, we create a Key-Value pair where the Key identifies the message and the value is a [LabeledPoint](http://spark.apache.org/docs/2.1.0/api/scala/index.html#org.apache.spark.mllib.regression.LabeledPoint)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:55:10.171",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLet\u0026rsquo;s do some pre-processing on the streams for them to be usable by MLLib\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003eEach (k:String, v:String) coming from kafka represents a 2D point (x,y)\u003c/li\u003e\n  \u003cli\u003eEach message also has meta-data attached that uniquely identifies a message (topic, partition, offset)\u003c/li\u003e\n  \u003cli\u003eIn the end, we create a Key-Value pair where the Key identifies the message and the value is a \u003ca href\u003d\"http://spark.apache.org/docs/2.1.0/api/scala/index.html#org.apache.spark.mllib.regression.LabeledPoint\"\u003eLabeledPoint\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510171_218209026",
+      "id": "20171108-082810_172866301",
+      "dateCreated": "2019-04-23 11:55:10.171",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.spark.mllib.linalg.Vectors\nimport org.apache.spark.mllib.regression.LabeledPoint\n\n//Transform the train stream to k,v\nval trainStream \u003d trainInputStream.map(record \u003d\u003e \n    (\n        (record.topic, record.partition, record.offset),\n        LabeledPoint(record.key.toDouble, Vectors.dense(record.value.toDouble))\n    )\n)\n//Transform the test stream \nval testStream \u003d testInputStream.map(record \u003d\u003e \n    (\n        (record.topic, record.partition, record.offset),\n        LabeledPoint(record.key.toDouble, Vectors.dense(record.value.toDouble))\n    )\n)\n//Transform the predict stream. Put a dummy label since we want predictions !\nval predictStream \u003d predictInputStream.map(record \u003d\u003e \n    (\n        (record.topic, record.partition, record.offset),\n        LabeledPoint( 0.0 , Vectors.dense(record.value.toDouble))\n    )\n)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:03:55.312",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.mllib.linalg.Vectors\nimport org.apache.spark.mllib.regression.LabeledPoint\ntrainStream: org.apache.spark.streaming.dstream.DStream[((String, Int, Long), org.apache.spark.mllib.regression.LabeledPoint)] \u003d org.apache.spark.streaming.dstream.MappedDStream@4597dde2\ntestStream: org.apache.spark.streaming.dstream.DStream[((String, Int, Long), org.apache.spark.mllib.regression.LabeledPoint)] \u003d org.apache.spark.streaming.dstream.MappedDStream@3ca270e5\npredictStream: org.apache.spark.streaming.dstream.DStream[((String, Int, Long), org.apache.spark.mllib.regression.LabeledPoint)] \u003d org.apache.spark.streaming.dstream.MappedDStream@531a795d\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510172_473873151",
+      "id": "20171103-141537_549291714",
+      "dateCreated": "2019-04-23 11:55:10.172",
+      "dateStarted": "2019-04-23 12:03:55.371",
+      "dateFinished": "2019-04-23 12:03:58.229",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## We are now ready to build the model",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:04:00.464",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "fontSize": 9.0,
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eWe are now ready to build the model\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510172_1781607292",
+      "id": "20171108-083542_1870300499",
+      "dateCreated": "2019-04-23 11:55:10.172",
+      "dateStarted": "2019-04-23 12:04:00.466",
+      "dateFinished": "2019-04-23 12:04:00.490",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.spark.mllib.regression.StreamingLinearRegressionWithSGD\n\n// Init the model\nval slaSGD \u003d new StreamingLinearRegressionWithSGD() \n\nslaSGD.setInitialWeights( Vectors.dense(0.0)) \nslaSGD.setStepSize(.0001)\nslaSGD.algorithm.setIntercept(true)\n\n// Set up the stream it trains on  \nslaSGD.trainOn(trainStream.map(_._2))\n\n//Join all the streams together for predictions\nval allStreams \u003d trainStream\nallStreams.union(testStream)\nallStreams.union(predictStream)\n\n//This will output a Key-Value where the key still uniquely identifies an input message and the value is the prediction\nval predictions \u003d slaSGD.predictOnValues(allStreams.mapValues(_.features))\n\n//Join back with the initial data of the message.\n//We now have the the labeled point along with its prediction\nval predAndReal \u003d allStreams.join(predictions)\n\n//Transform each Key-Value to a simple Map structure (can be easily translated to a JSON for Elasticsearch)\nval toESStream \u003d predAndReal.map{\n    case ((topic, partition, offset), (point, prediction)) \u003d\u003e\n        Map(\n            \"topic\"-\u003e topic,\n            \"partition\" -\u003e partition,\n            \"offset\" -\u003e offset,\n            \"y\" -\u003e point.features(0),\n            \"x\" -\u003e point.label,\n            \"pred\" -\u003e prediction\n        )\n}",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:05:08.596",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.mllib.regression.StreamingLinearRegressionWithSGD\nslaSGD: org.apache.spark.mllib.regression.StreamingLinearRegressionWithSGD \u003d org.apache.spark.mllib.regression.StreamingLinearRegressionWithSGD@68b3ce47\nres39: slaSGD.type \u003d org.apache.spark.mllib.regression.StreamingLinearRegressionWithSGD@68b3ce47\nres40: slaSGD.type \u003d org.apache.spark.mllib.regression.StreamingLinearRegressionWithSGD@68b3ce47\nres41: slaSGD.algorithm.type \u003d org.apache.spark.mllib.regression.LinearRegressionWithSGD@5efc31d3\nallStreams: org.apache.spark.streaming.dstream.DStream[((String, Int, Long), org.apache.spark.mllib.regression.LabeledPoint)] \u003d org.apache.spark.streaming.dstream.MappedDStream@4597dde2\nres45: org.apache.spark.streaming.dstream.DStream[((String, Int, Long), org.apache.spark.mllib.regression.LabeledPoint)] \u003d org.apache.spark.streaming.dstream.UnionDStream@5b7fa2d3\nres46: org.apache.spark.streaming.dstream.DStream[((String, Int, Long), org.apache.spark.mllib.regression.LabeledPoint)] \u003d org.apache.spark.streaming.dstream.UnionDStream@2c434c4d\npredictions: org.apache.spark.streaming.dstream.DStream[((String, Int, Long), Double)] \u003d org.apache.spark.streaming.dstream.MapValuedDStream@517832fa\npredAndReal: org.apache.spark.streaming.dstream.DStream[((String, Int, Long), (org.apache.spark.mllib.regression.LabeledPoint, Double))] \u003d org.apache.spark.streaming.dstream.TransformedDStream@717f3c67\ntoESStream: org.apache.spark.streaming.dstream.DStream[scala.collection.immutable.Map[String,Any]] \u003d org.apache.spark.streaming.dstream.MappedDStream@44531cd5\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510173_-1843885420",
+      "id": "20171103-132219_752317564",
+      "dateCreated": "2019-04-23 11:55:10.173",
+      "dateStarted": "2019-04-23 12:05:08.662",
+      "dateFinished": "2019-04-23 12:05:13.960",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "predAndReal",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 12:06:01.162",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res52: org.apache.spark.streaming.dstream.DStream[((String, Int, Long), (org.apache.spark.mllib.regression.LabeledPoint, Double))] \u003d org.apache.spark.streaming.dstream.TransformedDStream@717f3c67\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556021151306_542291965",
+      "id": "20190423-120551_1005596336",
+      "dateCreated": "2019-04-23 12:05:51.306",
+      "dateStarted": "2019-04-23 12:06:01.220",
+      "dateFinished": "2019-04-23 12:06:01.697",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.elasticsearch.spark.streaming._\n\n//Save the predictions\ntoESStream.saveToEs(\"spark/docs\",  Map(\"es.nodes\" -\u003e \"elk\", \"es.port\" -\u003e \"9200\"))\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:55:10.173",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport org.elasticsearch.spark.streaming._\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510173_942588747",
+      "id": "20171103-132811_1900830255",
+      "dateCreated": "2019-04-23 11:55:10.173",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "//Start the stream\nssc.start()\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:55:10.174",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510174_1915824782",
+      "id": "20171103-152155_498430584",
+      "dateCreated": "2019-04-23 11:55:10.174",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## Note:\n\n### This last cell can be un-commented in order to stop the streaming context (and all streams built on top of it) without stopping the underlying SparkContext, that way the whole notebook can be re-run",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:55:10.174",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eNote:\u003c/h2\u003e\n\u003ch3\u003eThis last cell can be un-commented in order to stop the streaming context (and all streams built on top of it) without stopping the underlying SparkContext, that way the whole notebook can be re-run\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510174_920225319",
+      "id": "20171108-083957_1447233452",
+      "dateCreated": "2019-04-23 11:55:10.174",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "//ssc.stop(false)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:55:10.175",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510175_820851085",
+      "id": "20171103-152605_312515462",
+      "dateCreated": "2019-04-23 11:55:10.175",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 11:55:10.175",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1556020510175_-1165139662",
+      "id": "20171106-084226_1854730434",
+      "dateCreated": "2019-04-23 11:55:10.175",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "StreamingML",
+  "id": "2E8DD3UUJ",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "python:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
