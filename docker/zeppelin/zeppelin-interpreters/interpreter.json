@@ -975,7 +975,7 @@
         },
         "spark.cores.max": {
           "name": "spark.cores.max",
-          "value": "8",
+          "value": "",
           "type": "number"
         },
         "spark.executor.memory": {
@@ -1000,7 +1000,7 @@
         },
         "zeppelin.spark.ui.hidden": {
           "name": "zeppelin.spark.ui.hidden",
-          "value": false,
+          "value": true,
           "type": "checkbox"
         },
         "master": {
@@ -1044,7 +1044,7 @@
           "type": "textarea"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "spark",
@@ -1357,7 +1357,7 @@
         },
         "shell.command.timeout.millisecs": {
           "name": "shell.command.timeout.millisecs",
-          "value": "60000",
+          "value": "600000",
           "type": "number"
         }
       },
@@ -1378,6 +1378,8 @@
       "option": {
         "remote": true,
         "port": -1,
+        "perNote": "shared",
+        "perUser": "shared",
         "isExistingProcess": false,
         "setPermission": false,
         "owners": [],
@@ -1544,7 +1546,7 @@
           "type": "textarea"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "spark",
@@ -1884,7 +1886,7 @@
           "type": "textarea"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "spark",
