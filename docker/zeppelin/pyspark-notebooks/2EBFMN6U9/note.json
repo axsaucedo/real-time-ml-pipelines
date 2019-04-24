@@ -1,0 +1,1100 @@
+{
+  "paragraphs": [
+    {
+      "text": "%dep\n\nz.load(\"JohnSnowLabs:spark-nlp:2.0.1\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 09:45:38.497",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@77ffa773\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556040657283_-1330756823",
+      "id": "20190423-173057_1819333331",
+      "dateCreated": "2019-04-23 17:30:57.284",
+      "dateStarted": "2019-04-24 09:45:38.538",
+      "dateFinished": "2019-04-24 09:45:55.095",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\npip install spark-nlp\npython -m spacy download en_core_web_sm",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 10:10:09.935",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Requirement already satisfied (use --upgrade to upgrade): spark-nlp in /opt/conda/lib/python2.7/site-packages\nYou are using pip version 8.1.2, however version 19.0.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\nRequirement already satisfied (use --upgrade to upgrade): en_core_web_sm\u003d\u003d2.1.0 from https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz#egg\u003den_core_web_sm\u003d\u003d2.1.0 in /opt/conda/lib/python2.7/site-packages\nYou are using pip version 8.1.2, however version 19.0.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n\u001b[38;5;2m[+] Download and installation successful\u001b[0m\nYou can now load the model via spacy.load(\u0027en_core_web_sm\u0027)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556044125611_1266883969",
+      "id": "20190423-182845_473888658",
+      "dateCreated": "2019-04-23 18:28:45.611",
+      "dateStarted": "2019-04-24 10:10:10.003",
+      "dateFinished": "2019-04-24 10:10:12.273",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\npip install spacy",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 10:03:19.444",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Requirement already satisfied (use --upgrade to upgrade): spacy in /opt/conda/lib/python2.7/site-packages\nRequirement already satisfied (use --upgrade to upgrade): pathlib\u003d\u003d1.0.1; python_version \u003c \"3.4\" in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): wasabi\u003c1.1.0,\u003e\u003d0.2.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): blis\u003c0.3.0,\u003e\u003d0.2.2 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): plac\u003c1.0.0,\u003e\u003d0.9.6 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): murmurhash\u003c1.1.0,\u003e\u003d0.28.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): requests\u003c3.0.0,\u003e\u003d2.13.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): numpy\u003e\u003d1.15.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): srsly\u003c1.1.0,\u003e\u003d0.0.5 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): cymem\u003c2.1.0,\u003e\u003d2.0.2 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): preshed\u003c2.1.0,\u003e\u003d2.0.1 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): jsonschema\u003c3.0.0,\u003e\u003d2.6.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): thinc\u003c7.1.0,\u003e\u003d7.0.2 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): functools32; python_version \u003d\u003d \"2.7\" in /opt/conda/lib/python2.7/site-packages (from jsonschema\u003c3.0.0,\u003e\u003d2.6.0-\u003espacy)\nRequirement already satisfied (use --upgrade to upgrade): tqdm\u003c5.0.0,\u003e\u003d4.10.0 in /opt/conda/lib/python2.7/site-packages (from thinc\u003c7.1.0,\u003e\u003d7.0.2-\u003espacy)\nYou are using pip version 8.1.2, however version 19.0.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556099212438_399560176",
+      "id": "20190424-094652_336305029",
+      "dateCreated": "2019-04-24 09:46:52.438",
+      "dateStarted": "2019-04-24 10:03:19.752",
+      "dateFinished": "2019-04-24 10:03:23.862",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# import re\n\n# # Double quote that is not at the beginning or end of file\n# quote_re \u003d re.compile(r\u0027(.)\"\"(.)\u0027, re.IGNORECASE)\n\n# file \u003d sc.textFile(\"/machinelearning/reddit_200k_train.csv\")\n# # csvFixedRdd \u003d file.map(lambda x: quote_re.sub(\u0027\\g\u003c1\u003e\\\\\"\\g\u003c2\u003e\u0027, x))\n# csvFixedRdd \u003d file.map(lambda x: x.replace(\u0027\"\"\u0027, \u0027\\\\\"\u0027))\n# csvFixedRdd.saveAsTextFile(\"/machinelearning/reddit_200k_train_spark.csv\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 09:46:07.087",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556095919293_1845754734",
+      "id": "20190424-085159_1799957000",
+      "dateCreated": "2019-04-24 08:51:59.293",
+      "dateStarted": "2019-04-24 09:10:26.919",
+      "dateFinished": "2019-04-24 09:10:33.368",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.sql.functions import array_contains,when\nfrom pyspark.sql.functions import col\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"quoteMode\",\"ALL\")\n        .option(\"multiLine\",\"true\")\n        .option(\"wholeFile\",\"true\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/machinelearning/reddit_200k.csv\")\n        # .withColumn(\"sentiment_label\", when(col(\"REMOVED\") \u003d\u003d False, \"negative\").otherwise(\"positive\"))\n        )\n        \ndf.cache()\ndf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:01:27.296",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d0",
+            "http://172.25.0.19:4040/jobs/job?id\u003d1",
+            "http://172.25.0.19:4040/jobs/job?id\u003d2"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556038381328_-835348963",
+      "id": "20190423-165301_2107108866",
+      "dateCreated": "2019-04-23 16:53:01.328",
+      "dateStarted": "2019-04-24 12:01:27.359",
+      "dateFinished": "2019-04-24 12:01:56.812",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nclass SpacyMagic(object):\n    \"\"\"\n    Simple Spacy Magic to minimize loading time.\n    \u003e\u003e\u003e SpacyMagic.get(\"en\")\n    \u003cspacy.lang.en.English ...\n    \"\"\"\n    _spacys \u003d {}\n\n    @classmethod\n    def get(cls, lang):\n        if lang not in cls._spacys:\n            import spacy\n            cls._spacys[lang] \u003d spacy.load(lang, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        return cls._spacys[lang]\n\ndef tokenize(text):\n    # import spacy\n    # nlp \u003d spacy.load(\"en\", disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n    # nlp \u003d spacy.blank(\"en\").from_bytes(nlp_br)\n    nlp \u003d SpacyMagic.get(\"en\")\n    doc \u003d nlp(text, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n    tokens \u003d []\n    for token in doc:\n        if token.like_url:\n            clean_token \u003d \"URL\"\n        else:\n            clean_token \u003d token.lemma_.lower().strip()\n            if len(clean_token) \u003c 1 or clean_token in \\\n                    set(\"!$%^\u0026*()_+|~-\u003d`{}[]:\\\";\u0027\u003c\u003e?,./-\"): \n                continue\n        tokens.append(clean_token)\n    return tokens\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:02:01.912",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556099175205_1560529696",
+      "id": "20190424-094615_936570425",
+      "dateCreated": "2019-04-24 09:46:15.205",
+      "dateStarted": "2019-04-24 12:02:01.969",
+      "dateFinished": "2019-04-24 12:02:02.063",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom pyspark.sql.functions import col, udf\nfrom pyspark.sql.types import ArrayType, StringType\n\ntokenize_udf \u003d udf(lambda x: tokenize(x), ArrayType(StringType()))\n\ndf_tokenized \u003d df.limit(20000).withColumn(\n    \"body_tokenized\",\n    tokenize_udf(col(\"body\")))\n\ndf_tokenized.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:08:58.445",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d12"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556104558021_-306238969",
+      "id": "20190424-111558_804869693",
+      "dateCreated": "2019-04-24 11:15:58.022",
+      "dateStarted": "2019-04-24 12:08:58.497",
+      "dateFinished": "2019-04-24 12:09:19.158",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.feature import NGram\n\nngram \u003d NGram(inputCol\u003d\u0027body_tokenized\u0027, outputCol\u003d\u0027body_ngram\u0027, n\u003d3)\ndf_ngram \u003d ngram.transform(df_tokenized)\ndf_ngram.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:09:22.656",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|          body_ngram|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|[-pron- have alwa...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|[as a ece, a ece ...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|[monday drug comp...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|[i learn that, le...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|[well i be, i be ...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|[so when we, when...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|[keep go so, go s...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|[rains here just,...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|[that explain it,...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|[hi bocceballer42...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|[kinda what happe...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|[this sound like,...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|[if nothing come,...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|[if medicine keep...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|[do you think, yo...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|[i do not, do not...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|[i dislike the, d...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|[i look forward, ...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|[my visible tatto...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|[3 week why, week...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d13"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556104574063_-2031193949",
+      "id": "20190424-111614_1710459625",
+      "dateCreated": "2019-04-24 11:16:14.063",
+      "dateStarted": "2019-04-24 12:09:22.707",
+      "dateFinished": "2019-04-24 12:10:02.151",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.feature import CountVectorizer\n\ncv \u003d CountVectorizer(inputCol\u003d\u0027body_ngram\u0027, outputCol\u003d\u0027body_tf\u0027)\ncv_model \u003d cv.fit(df_ngram)\ndf_tf \u003d cv_model.transform(df_ngram)\n\ndf_tf.show()\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:13:02.954",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d14",
+            "http://172.25.0.19:4040/jobs/job?id\u003d15"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556107815631_210268408",
+      "id": "20190424-121015_82852057",
+      "dateCreated": "2019-04-24 12:10:15.631",
+      "dateStarted": "2019-04-24 12:10:30.268",
+      "dateFinished": "2019-04-24 12:11:00.772",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.feature import IDF\n\nidf \u003d IDF().setInputCol(\u0027body_tf\u0027).setOutputCol(\u0027body_tfidf\u0027)\nidf_model \u003d idf.fit(df_tf)\ndf_tfidf \u003d idf_model.transform(df_tf)\n\ndf_tfidf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:11:03.510",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|[-pron- have alwa...|(262144,[101,251,...|(262144,[101,251,...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|[as a ece, a ece ...|(262144,[129,167,...|(262144,[129,167,...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|[monday drug comp...|(262144,[17932,85...|(262144,[17932,85...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|[i learn that, le...|(262144,[1032,873...|(262144,[1032,873...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|[well i be, i be ...|(262144,[2237,240...|(262144,[2237,240...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|[so when we, when...|(262144,[1024,767...|(262144,[1024,767...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|[keep go so, go s...|(262144,[2793,211...|(262144,[2793,211...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|[rains here just,...|(262144,[1277,343...|(262144,[1277,343...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|[that explain it,...|(262144,[508,1064...|(262144,[508,1064...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|[hi bocceballer42...|(262144,[25,42,46...|(262144,[25,42,46...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|[kinda what happe...|(262144,[0,4,11,1...|(262144,[0,4,11,1...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|[this sound like,...|(262144,[725,1287...|(262144,[725,1287...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|[if nothing come,...|(262144,[31395,36...|(262144,[31395,36...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|[if medicine keep...|(262144,[37,344,5...|(262144,[37,344,5...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|[do you think, yo...|(262144,[21,56,76...|(262144,[21,56,76...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|[i do not, do not...|(262144,[0,158,17...|(262144,[0,158,17...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|[i dislike the, d...|(262144,[900,1195...|(262144,[900,1195...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|[i look forward, ...|(262144,[88,323,5...|(262144,[88,323,5...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|[my visible tatto...|(262144,[17,103,9...|(262144,[17,103,9...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|[3 week why, week...|(262144,[122663,1...|(262144,[122663,1...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d16",
+            "http://172.25.0.19:4040/jobs/job?id\u003d17"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556105044620_368373304",
+      "id": "20190424-112404_1308508179",
+      "dateCreated": "2019-04-24 11:24:04.620",
+      "dateStarted": "2019-04-24 12:11:03.559",
+      "dateFinished": "2019-04-24 12:12:51.269",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndf_tfidf.show()\ndf_tfidf.cache()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:36:32.987",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|[-pron- have alwa...|(262144,[101,251,...|(262144,[101,251,...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|[as a ece, a ece ...|(262144,[129,167,...|(262144,[129,167,...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|[monday drug comp...|(262144,[17932,85...|(262144,[17932,85...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|[i learn that, le...|(262144,[1032,873...|(262144,[1032,873...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|[well i be, i be ...|(262144,[2237,240...|(262144,[2237,240...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|[so when we, when...|(262144,[1024,767...|(262144,[1024,767...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|[keep go so, go s...|(262144,[2793,211...|(262144,[2793,211...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|[rains here just,...|(262144,[1277,343...|(262144,[1277,343...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|[that explain it,...|(262144,[508,1064...|(262144,[508,1064...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|[hi bocceballer42...|(262144,[25,42,46...|(262144,[25,42,46...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|[kinda what happe...|(262144,[0,4,11,1...|(262144,[0,4,11,1...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|[this sound like,...|(262144,[725,1287...|(262144,[725,1287...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|[if nothing come,...|(262144,[31395,36...|(262144,[31395,36...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|[if medicine keep...|(262144,[37,344,5...|(262144,[37,344,5...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|[do you think, yo...|(262144,[21,56,76...|(262144,[21,56,76...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|[i do not, do not...|(262144,[0,158,17...|(262144,[0,158,17...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|[i dislike the, d...|(262144,[900,1195...|(262144,[900,1195...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|[i look forward, ...|(262144,[88,323,5...|(262144,[88,323,5...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|[my visible tatto...|(262144,[17,103,9...|(262144,[17,103,9...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|[3 week why, week...|(262144,[122663,1...|(262144,[122663,1...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\nDataFrame[prev_idx: int, body: string, score: string, parent_id: string, id: string, created_date: string, retrieved_date: string, removed: string, body_tokenized: array\u003cstring\u003e, body_ngram: array\u003cstring\u003e, body_tf: vector, body_tfidf: vector]"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d23"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556108909390_1832389293",
+      "id": "20190424-122829_1935798046",
+      "dateCreated": "2019-04-24 12:28:29.390",
+      "dateStarted": "2019-04-24 12:36:33.051",
+      "dateFinished": "2019-04-24 12:38:08.352",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.sql.types import IntegerType\n\n\n#####\n\n# tokenize_udf \u003d udf(lambda x: tokenize(x), ArrayType(StringType()))\n\n# df_tokenized \u003d df.limit(20000).withColumn(\n#     \"body_tokenized\",\n#     tokenize_udf(col(\"body\")))\n\n# punct_remover \u003d udf(lambda x: remove_punct(x))\n# rating_convert \u003d udf(lambda x: convert_rating(x))\n\n# resultDF \u003d df.select(\u0027review_id\u0027, punct_remover(\u0027text\u0027), rating_convert(\u0027stars\u0027)).limit(1500000)\n\n##################################################\n\ndef binary_label(x):\n    if x \u003d\u003d \"True\":\n        return 1\n    else:\n        return 0\n\nlabel_udf \u003d udf(lambda x: binary_label(x), IntegerType())\n\ndf_input \u003d df_tfidf.withColumn(\n    \"label\",\n    label_udf(col(\"removed\")))\n\ndf_input.show()\ndf_input.cache()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:42:01.941",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+-----+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|label|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+-----+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|[-pron- have alwa...|(262144,[101,251,...|(262144,[101,251,...|    0|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|[as a ece, a ece ...|(262144,[129,167,...|(262144,[129,167,...|    1|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|[monday drug comp...|(262144,[17932,85...|(262144,[17932,85...|    1|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|[i learn that, le...|(262144,[1032,873...|(262144,[1032,873...|    0|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|[well i be, i be ...|(262144,[2237,240...|(262144,[2237,240...|    0|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|[so when we, when...|(262144,[1024,767...|(262144,[1024,767...|    0|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|[keep go so, go s...|(262144,[2793,211...|(262144,[2793,211...|    1|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|[rains here just,...|(262144,[1277,343...|(262144,[1277,343...|    1|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|[that explain it,...|(262144,[508,1064...|(262144,[508,1064...|    1|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|[hi bocceballer42...|(262144,[25,42,46...|(262144,[25,42,46...|    0|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|[kinda what happe...|(262144,[0,4,11,1...|(262144,[0,4,11,1...|    0|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|[this sound like,...|(262144,[725,1287...|(262144,[725,1287...|    1|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|[if nothing come,...|(262144,[31395,36...|(262144,[31395,36...|    0|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|[if medicine keep...|(262144,[37,344,5...|(262144,[37,344,5...|    0|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|[do you think, yo...|(262144,[21,56,76...|(262144,[21,56,76...|    0|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|[i do not, do not...|(262144,[0,158,17...|(262144,[0,158,17...|    0|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|[i dislike the, d...|(262144,[900,1195...|(262144,[900,1195...|    1|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|[i look forward, ...|(262144,[88,323,5...|(262144,[88,323,5...|    0|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|[my visible tatto...|(262144,[17,103,9...|(262144,[17,103,9...|    0|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|[3 week why, week...|(262144,[122663,1...|(262144,[122663,1...|    1|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+-----+\nonly showing top 20 rows\n\nDataFrame[prev_idx: int, body: string, score: string, parent_id: string, id: string, created_date: string, retrieved_date: string, removed: string, body_tokenized: array\u003cstring\u003e, body_ngram: array\u003cstring\u003e, body_tf: vector, body_tfidf: vector, label: int]"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d25"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556108207770_2038504226",
+      "id": "20190424-121647_580543641",
+      "dateCreated": "2019-04-24 12:16:47.770",
+      "dateStarted": "2019-04-24 12:42:01.997",
+      "dateFinished": "2019-04-24 12:42:03.250",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nsplits \u003d df_input.select([\u0027body_tfidf\u0027, \u0027label\u0027]).randomSplit([0.8,0.2],seed\u003d100)\ntrain \u003d splits[0].cache()\ntest \u003d splits[1].cache()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:42:06.698",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556107967909_1030280264",
+      "id": "20190424-121247_530364756",
+      "dateCreated": "2019-04-24 12:12:47.909",
+      "dateStarted": "2019-04-24 12:42:06.752",
+      "dateFinished": "2019-04-24 12:42:06.911",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n\nlambda_par \u003d 0.02\nalpha_par \u003d 0.3\nlr \u003d LogisticRegression().\\\n        setLabelCol(\u0027label\u0027).\\\n        setFeaturesCol(\u0027body_tfidf\u0027).\\\n        setRegParam(lambda_par).\\\n        setMaxIter(100).\\\n        setElasticNetParam(alpha_par)\n        \nlr_model \u003d lr.fit(train)\nlr_pred \u003d lr_model.transform(test)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:47:57.872",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d26",
+            "http://172.25.0.19:4040/jobs/job?id\u003d27",
+            "http://172.25.0.19:4040/jobs/job?id\u003d28",
+            "http://172.25.0.19:4040/jobs/job?id\u003d29",
+            "http://172.25.0.19:4040/jobs/job?id\u003d30",
+            "http://172.25.0.19:4040/jobs/job?id\u003d31",
+            "http://172.25.0.19:4040/jobs/job?id\u003d32",
+            "http://172.25.0.19:4040/jobs/job?id\u003d33",
+            "http://172.25.0.19:4040/jobs/job?id\u003d34",
+            "http://172.25.0.19:4040/jobs/job?id\u003d35",
+            "http://172.25.0.19:4040/jobs/job?id\u003d36",
+            "http://172.25.0.19:4040/jobs/job?id\u003d37",
+            "http://172.25.0.19:4040/jobs/job?id\u003d38",
+            "http://172.25.0.19:4040/jobs/job?id\u003d39",
+            "http://172.25.0.19:4040/jobs/job?id\u003d40",
+            "http://172.25.0.19:4040/jobs/job?id\u003d41",
+            "http://172.25.0.19:4040/jobs/job?id\u003d42",
+            "http://172.25.0.19:4040/jobs/job?id\u003d43",
+            "http://172.25.0.19:4040/jobs/job?id\u003d44",
+            "http://172.25.0.19:4040/jobs/job?id\u003d45",
+            "http://172.25.0.19:4040/jobs/job?id\u003d46",
+            "http://172.25.0.19:4040/jobs/job?id\u003d47",
+            "http://172.25.0.19:4040/jobs/job?id\u003d48",
+            "http://172.25.0.19:4040/jobs/job?id\u003d49",
+            "http://172.25.0.19:4040/jobs/job?id\u003d50",
+            "http://172.25.0.19:4040/jobs/job?id\u003d51",
+            "http://172.25.0.19:4040/jobs/job?id\u003d52",
+            "http://172.25.0.19:4040/jobs/job?id\u003d53",
+            "http://172.25.0.19:4040/jobs/job?id\u003d54",
+            "http://172.25.0.19:4040/jobs/job?id\u003d55",
+            "http://172.25.0.19:4040/jobs/job?id\u003d56",
+            "http://172.25.0.19:4040/jobs/job?id\u003d57",
+            "http://172.25.0.19:4040/jobs/job?id\u003d58",
+            "http://172.25.0.19:4040/jobs/job?id\u003d59",
+            "http://172.25.0.19:4040/jobs/job?id\u003d60",
+            "http://172.25.0.19:4040/jobs/job?id\u003d61",
+            "http://172.25.0.19:4040/jobs/job?id\u003d62",
+            "http://172.25.0.19:4040/jobs/job?id\u003d63",
+            "http://172.25.0.19:4040/jobs/job?id\u003d64",
+            "http://172.25.0.19:4040/jobs/job?id\u003d65",
+            "http://172.25.0.19:4040/jobs/job?id\u003d66",
+            "http://172.25.0.19:4040/jobs/job?id\u003d67",
+            "http://172.25.0.19:4040/jobs/job?id\u003d68",
+            "http://172.25.0.19:4040/jobs/job?id\u003d69",
+            "http://172.25.0.19:4040/jobs/job?id\u003d70",
+            "http://172.25.0.19:4040/jobs/job?id\u003d71",
+            "http://172.25.0.19:4040/jobs/job?id\u003d72",
+            "http://172.25.0.19:4040/jobs/job?id\u003d73",
+            "http://172.25.0.19:4040/jobs/job?id\u003d74",
+            "http://172.25.0.19:4040/jobs/job?id\u003d75",
+            "http://172.25.0.19:4040/jobs/job?id\u003d76",
+            "http://172.25.0.19:4040/jobs/job?id\u003d77",
+            "http://172.25.0.19:4040/jobs/job?id\u003d78",
+            "http://172.25.0.19:4040/jobs/job?id\u003d79",
+            "http://172.25.0.19:4040/jobs/job?id\u003d80",
+            "http://172.25.0.19:4040/jobs/job?id\u003d81",
+            "http://172.25.0.19:4040/jobs/job?id\u003d82",
+            "http://172.25.0.19:4040/jobs/job?id\u003d83",
+            "http://172.25.0.19:4040/jobs/job?id\u003d84",
+            "http://172.25.0.19:4040/jobs/job?id\u003d85",
+            "http://172.25.0.19:4040/jobs/job?id\u003d86",
+            "http://172.25.0.19:4040/jobs/job?id\u003d87",
+            "http://172.25.0.19:4040/jobs/job?id\u003d88",
+            "http://172.25.0.19:4040/jobs/job?id\u003d89",
+            "http://172.25.0.19:4040/jobs/job?id\u003d90",
+            "http://172.25.0.19:4040/jobs/job?id\u003d91",
+            "http://172.25.0.19:4040/jobs/job?id\u003d92",
+            "http://172.25.0.19:4040/jobs/job?id\u003d93",
+            "http://172.25.0.19:4040/jobs/job?id\u003d94",
+            "http://172.25.0.19:4040/jobs/job?id\u003d95",
+            "http://172.25.0.19:4040/jobs/job?id\u003d96",
+            "http://172.25.0.19:4040/jobs/job?id\u003d97",
+            "http://172.25.0.19:4040/jobs/job?id\u003d98",
+            "http://172.25.0.19:4040/jobs/job?id\u003d99",
+            "http://172.25.0.19:4040/jobs/job?id\u003d100",
+            "http://172.25.0.19:4040/jobs/job?id\u003d101",
+            "http://172.25.0.19:4040/jobs/job?id\u003d102",
+            "http://172.25.0.19:4040/jobs/job?id\u003d103",
+            "http://172.25.0.19:4040/jobs/job?id\u003d104",
+            "http://172.25.0.19:4040/jobs/job?id\u003d105",
+            "http://172.25.0.19:4040/jobs/job?id\u003d106",
+            "http://172.25.0.19:4040/jobs/job?id\u003d107",
+            "http://172.25.0.19:4040/jobs/job?id\u003d108",
+            "http://172.25.0.19:4040/jobs/job?id\u003d109",
+            "http://172.25.0.19:4040/jobs/job?id\u003d110",
+            "http://172.25.0.19:4040/jobs/job?id\u003d111",
+            "http://172.25.0.19:4040/jobs/job?id\u003d112",
+            "http://172.25.0.19:4040/jobs/job?id\u003d113",
+            "http://172.25.0.19:4040/jobs/job?id\u003d114",
+            "http://172.25.0.19:4040/jobs/job?id\u003d115",
+            "http://172.25.0.19:4040/jobs/job?id\u003d116",
+            "http://172.25.0.19:4040/jobs/job?id\u003d117",
+            "http://172.25.0.19:4040/jobs/job?id\u003d118",
+            "http://172.25.0.19:4040/jobs/job?id\u003d119",
+            "http://172.25.0.19:4040/jobs/job?id\u003d120",
+            "http://172.25.0.19:4040/jobs/job?id\u003d121",
+            "http://172.25.0.19:4040/jobs/job?id\u003d122",
+            "http://172.25.0.19:4040/jobs/job?id\u003d123",
+            "http://172.25.0.19:4040/jobs/job?id\u003d124",
+            "http://172.25.0.19:4040/jobs/job?id\u003d125",
+            "http://172.25.0.19:4040/jobs/job?id\u003d126",
+            "http://172.25.0.19:4040/jobs/job?id\u003d127",
+            "http://172.25.0.19:4040/jobs/job?id\u003d128",
+            "http://172.25.0.19:4040/jobs/job?id\u003d129",
+            "http://172.25.0.19:4040/jobs/job?id\u003d130",
+            "http://172.25.0.19:4040/jobs/job?id\u003d131",
+            "http://172.25.0.19:4040/jobs/job?id\u003d132",
+            "http://172.25.0.19:4040/jobs/job?id\u003d133",
+            "http://172.25.0.19:4040/jobs/job?id\u003d134",
+            "http://172.25.0.19:4040/jobs/job?id\u003d135",
+            "http://172.25.0.19:4040/jobs/job?id\u003d136",
+            "http://172.25.0.19:4040/jobs/job?id\u003d137",
+            "http://172.25.0.19:4040/jobs/job?id\u003d138",
+            "http://172.25.0.19:4040/jobs/job?id\u003d139",
+            "http://172.25.0.19:4040/jobs/job?id\u003d140",
+            "http://172.25.0.19:4040/jobs/job?id\u003d141",
+            "http://172.25.0.19:4040/jobs/job?id\u003d142",
+            "http://172.25.0.19:4040/jobs/job?id\u003d143",
+            "http://172.25.0.19:4040/jobs/job?id\u003d144",
+            "http://172.25.0.19:4040/jobs/job?id\u003d145",
+            "http://172.25.0.19:4040/jobs/job?id\u003d146",
+            "http://172.25.0.19:4040/jobs/job?id\u003d147",
+            "http://172.25.0.19:4040/jobs/job?id\u003d148",
+            "http://172.25.0.19:4040/jobs/job?id\u003d149",
+            "http://172.25.0.19:4040/jobs/job?id\u003d150",
+            "http://172.25.0.19:4040/jobs/job?id\u003d151",
+            "http://172.25.0.19:4040/jobs/job?id\u003d152"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556108056948_373468350",
+      "id": "20190424-121416_1680948410",
+      "dateCreated": "2019-04-24 12:14:16.948",
+      "dateStarted": "2019-04-24 12:42:08.257",
+      "dateFinished": "2019-04-24 12:44:37.404",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.evaluation import MulticlassClassificationEvaluator\n\nmodel_eval \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\nlr_score \u003d model_eval.evaluate(lr_pred)\nprint(\"Score: %.4f\" % lr_score)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 12:48:08.622",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Score: 0.6215\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d158",
+            "http://172.25.0.19:4040/jobs/job?id\u003d159"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556109914197_372257927",
+      "id": "20190424-124514_390313954",
+      "dateCreated": "2019-04-24 12:45:14.198",
+      "dateStarted": "2019-04-24 12:48:08.675",
+      "dateFinished": "2019-04-24 12:48:09.578",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom sparknlp.base import DocumentAssembler\n\ndocument_assembler \u003d DocumentAssembler() \\\n            .setInputCol(\"body\")\\\n            .setOutputCol(\"document\")\n            \nassembled \u003d document_assembler.transform(df)\nassembled.show(5)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 09:27:14.344",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+---------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|sentiment_label|            document|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+---------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|       negative|[[document,0,124,...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|       positive|[[document,0,229,...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|       positive|[[document,0,60,M...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|       negative|[[document,0,138,...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|       negative|[[document,0,82,W...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+---------------+--------------------+\nonly showing top 5 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556043557695_1418465139",
+      "id": "20190423-181917_1980050246",
+      "dateCreated": "2019-04-23 18:19:17.695",
+      "dateStarted": "2019-04-24 09:27:14.385",
+      "dateFinished": "2019-04-24 09:27:14.767",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark \nfrom sparknlp.annotator import SentenceDetector\n\nsentence_detector \u003d SentenceDetector() \\\n    .setInputCols([\"document\"]) \\\n    .setOutputCol(\"sentence\")\n    \nsentence_data \u003d sentence_detector.transform(assembled)\nsentence_data.show(5)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 09:27:18.622",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+---------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|sentiment_label|            document|            sentence|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+---------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|       negative|[[document,0,124,...|[[document,0,65,I...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|       positive|[[document,0,229,...|[[document,0,192,...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|       positive|[[document,0,60,M...|[[document,0,60,M...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|       negative|[[document,0,138,...|[[document,0,138,...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|       negative|[[document,0,82,W...|[[document,0,40,W...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+---------------+--------------------+--------------------+\nonly showing top 5 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556044538853_-792923756",
+      "id": "20190423-183538_718243191",
+      "dateCreated": "2019-04-23 18:35:38.853",
+      "dateStarted": "2019-04-24 09:27:18.662",
+      "dateFinished": "2019-04-24 09:27:19.073",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom sparknlp.annotator import Tokenizer\n\ntokenizer \u003d Tokenizer() \\\n            .setInputCols([\"sentence\"]) \\\n            .setOutputCol(\"token\")\n            \ntokenized \u003d tokenizer.transform(sentence_data)\ntokenized.show(5)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 09:27:21.685",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+---------------+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|sentiment_label|            document|            sentence|               token|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+---------------+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|       negative|[[document,0,124,...|[[document,0,65,I...|[[token,0,0,I,Map...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|       positive|[[document,0,229,...|[[document,0,192,...|[[token,0,0,\",Map...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|       positive|[[document,0,60,M...|[[document,0,60,M...|[[token,0,5,Monda...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|       negative|[[document,0,138,...|[[document,0,138,...|[[token,0,0,i,Map...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|       negative|[[document,0,82,W...|[[document,0,40,W...|[[token,0,3,Well,...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+---------------+--------------------+--------------------+--------------------+\nonly showing top 5 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556044723940_2127047954",
+      "id": "20190423-183843_1674512132",
+      "dateCreated": "2019-04-23 18:38:43.940",
+      "dateStarted": "2019-04-24 09:27:21.726",
+      "dateFinished": "2019-04-24 09:27:22.264",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom sparknlp.annotator import Normalizer, NorvigSweetingApproach\n\nnormalizer \u003d Normalizer() \\\n            .setInputCols([\"token\"]) \\\n            .setOutputCol(\"normal\")\n            \nspell_checker \u003d NorvigSweetingApproach() \\\n            .setInputCols([\"normal\"]) \\\n            .setOutputCol(\"spell\") \\\n            .setDictionary(\"/tmp/words.txt\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 09:27:25.190",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556044808933_-1233610334",
+      "id": "20190423-184008_1048291066",
+      "dateCreated": "2019-04-23 18:40:08.933",
+      "dateStarted": "2019-04-24 09:27:25.237",
+      "dateFinished": "2019-04-24 09:27:25.395",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom sparknlp.annotator import ViveknSentimentApproach\n\nsentiment_detector \u003d ViveknSentimentApproach() \\\n    .setInputCols([\"spell\", \"sentence\"]) \\\n    .setOutputCol(\"sentiment\") \\\n    .setSentimentCol(\"sentiment_label\") \\\n    .setPruneCorpus(0) \\",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 09:27:28.751",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556044897373_-779724433",
+      "id": "20190423-184137_1957218371",
+      "dateCreated": "2019-04-23 18:41:37.374",
+      "dateStarted": "2019-04-24 09:27:28.788",
+      "dateFinished": "2019-04-24 09:27:28.882",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom sparknlp.base import Finisher\n\nfinisher \u003d Finisher() \\\n    .setInputCols([\"sentiment\"]) \\\n    .setIncludeMetadata(False)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 09:27:32.856",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556044922117_-372703924",
+      "id": "20190423-184202_862761497",
+      "dateCreated": "2019-04-23 18:42:02.117",
+      "dateStarted": "2019-04-24 09:27:32.891",
+      "dateFinished": "2019-04-24 09:27:32.975",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml import Pipeline, PipelineModel\nimport time\n\npipeline \u003d Pipeline(stages\u003d[\n    document_assembler,\n    sentence_detector,\n    tokenizer,\n    normalizer,\n    spell_checker,\n    sentiment_detector,\n    finisher\n])\n\nstart \u003d time.time()\nsentiment_data \u003d pipeline.fit(df).transform(df)\n\nend \u003d time.time()\nprint(\"Time elapsed pipeline process: \" + str(end - start))",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 09:29:28.291",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mPy4JJavaError\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-482-481754a0c096\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     13\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     14\u001b[0m \u001b[0mstart\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mtime\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtime\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 15\u001b[0;31m \u001b[0msentiment_data\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mpipeline\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtransform\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     16\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     17\u001b[0m \u001b[0mend\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mtime\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtime\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/ml/base.py\u001b[0m in \u001b[0;36mfit\u001b[0;34m(self, dataset, params)\u001b[0m\n\u001b[1;32m     62\u001b[0m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcopy\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mparams\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_fit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdataset\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     63\u001b[0m             \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 64\u001b[0;31m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_fit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdataset\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     65\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     66\u001b[0m             raise ValueError(\"Params must be either a param map or a list/tuple of param maps, \"\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/ml/pipeline.py\u001b[0m in \u001b[0;36m_fit\u001b[0;34m(self, dataset)\u001b[0m\n\u001b[1;32m    106\u001b[0m                     \u001b[0mdataset\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mstage\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtransform\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdataset\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    107\u001b[0m                 \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m  \u001b[0;31m# must be an Estimator\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 108\u001b[0;31m                     \u001b[0mmodel\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mstage\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdataset\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    109\u001b[0m                     \u001b[0mtransformers\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mappend\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmodel\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    110\u001b[0m                     \u001b[0;32mif\u001b[0m \u001b[0mi\u001b[0m \u001b[0;34m\u003c\u001b[0m \u001b[0mindexOfLastEstimator\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/ml/base.py\u001b[0m in \u001b[0;36mfit\u001b[0;34m(self, dataset, params)\u001b[0m\n\u001b[1;32m     62\u001b[0m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcopy\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mparams\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_fit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdataset\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     63\u001b[0m             \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 64\u001b[0;31m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_fit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdataset\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     65\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     66\u001b[0m             raise ValueError(\"Params must be either a param map or a list/tuple of param maps, \"\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/ml/wrapper.py\u001b[0m in \u001b[0;36m_fit\u001b[0;34m(self, dataset)\u001b[0m\n\u001b[1;32m    263\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    264\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0m_fit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mdataset\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 265\u001b[0;31m         \u001b[0mjava_model\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_fit_java\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdataset\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    266\u001b[0m         \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_create_model\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mjava_model\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    267\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/ml/wrapper.py\u001b[0m in \u001b[0;36m_fit_java\u001b[0;34m(self, dataset)\u001b[0m\n\u001b[1;32m    260\u001b[0m         \"\"\"\n\u001b[1;32m    261\u001b[0m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_transfer_params_to_java\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 262\u001b[0;31m         \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_java_obj\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdataset\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jdf\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    263\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    264\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0m_fit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mdataset\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36m__call__\u001b[0;34m(self, *args)\u001b[0m\n\u001b[1;32m   1131\u001b[0m         \u001b[0manswer\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgateway_client\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msend_command\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcommand\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1132\u001b[0m         return_value \u003d get_return_value(\n\u001b[0;32m-\u003e 1133\u001b[0;31m             answer, self.gateway_client, self.target_id, self.name)\n\u001b[0m\u001b[1;32m   1134\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1135\u001b[0m         \u001b[0;32mfor\u001b[0m \u001b[0mtemp_arg\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mtemp_args\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/sql/utils.py\u001b[0m in \u001b[0;36mdeco\u001b[0;34m(*a, **kw)\u001b[0m\n\u001b[1;32m     61\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mdeco\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     62\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 63\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     64\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mpy4j\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mprotocol\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mPy4JJavaError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     65\u001b[0m             \u001b[0ms\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjava_exception\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtoString\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/protocol.py\u001b[0m in \u001b[0;36mget_return_value\u001b[0;34m(answer, gateway_client, target_id, name)\u001b[0m\n\u001b[1;32m    317\u001b[0m                 raise Py4JJavaError(\n\u001b[1;32m    318\u001b[0m                     \u001b[0;34m\"An error occurred while calling {0}{1}{2}.\\n\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 319\u001b[0;31m                     format(target_id, \".\", name), value)\n\u001b[0m\u001b[1;32m    320\u001b[0m             \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    321\u001b[0m                 raise Py4JError(\n\n\u001b[0;31mPy4JJavaError\u001b[0m: An error occurred while calling o4979.fit.\n: org.apache.spark.SparkException: Job 422 cancelled because SparkContext was shut down\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$cleanUpAfterSchedulerStop$1.apply(DAGScheduler.scala:820)\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$cleanUpAfterSchedulerStop$1.apply(DAGScheduler.scala:818)\n\tat scala.collection.mutable.HashSet.foreach(HashSet.scala:78)\n\tat org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:818)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:1750)\n\tat org.apache.spark.util.EventLoop.stop(EventLoop.scala:83)\n\tat org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:1669)\n\tat org.apache.spark.SparkContext$$anonfun$stop$8.apply$mcV$sp(SparkContext.scala:1928)\n\tat org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1317)\n\tat org.apache.spark.SparkContext.stop(SparkContext.scala:1927)\n\tat org.apache.spark.SparkContext$$anonfun$2.apply$mcV$sp(SparkContext.scala:581)\n\tat org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:216)\n\tat org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(ShutdownHookManager.scala:188)\n\tat org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1$$anonfun$apply$mcV$sp$1.apply(ShutdownHookManager.scala:188)\n\tat org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1$$anonfun$apply$mcV$sp$1.apply(ShutdownHookManager.scala:188)\n\tat org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1948)\n\tat org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1.apply$mcV$sp(ShutdownHookManager.scala:188)\n\tat org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1.apply(ShutdownHookManager.scala:188)\n\tat org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1.apply(ShutdownHookManager.scala:188)\n\tat scala.util.Try$.apply(Try.scala:192)\n\tat org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)\n\tat org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)\n\tat org.apache.hadoop.util.ShutdownHookManager$1.run(ShutdownHookManager.java:54)\n\tat org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:630)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2029)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2050)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2069)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2094)\n\tat org.apache.spark.rdd.RDD$$anonfun$foreach$1.apply(RDD.scala:918)\n\tat org.apache.spark.rdd.RDD$$anonfun$foreach$1.apply(RDD.scala:916)\n\tat org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n\tat org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\n\tat org.apache.spark.rdd.RDD.withScope(RDD.scala:362)\n\tat org.apache.spark.rdd.RDD.foreach(RDD.scala:916)\n\tat org.apache.spark.sql.Dataset$$anonfun$foreach$1.apply$mcV$sp(Dataset.scala:2322)\n\tat org.apache.spark.sql.Dataset$$anonfun$foreach$1.apply(Dataset.scala:2322)\n\tat org.apache.spark.sql.Dataset$$anonfun$foreach$1.apply(Dataset.scala:2322)\n\tat org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:65)\n\tat org.apache.spark.sql.Dataset.withNewExecutionId(Dataset.scala:2828)\n\tat org.apache.spark.sql.Dataset.foreach(Dataset.scala:2321)\n\tat com.johnsnowlabs.nlp.annotators.sda.vivekn.ViveknSentimentApproach.train(ViveknSentimentApproach.scala:74)\n\tat com.johnsnowlabs.nlp.annotators.sda.vivekn.ViveknSentimentApproach.train(ViveknSentimentApproach.scala:14)\n\tat com.johnsnowlabs.nlp.AnnotatorApproach.fit(AnnotatorApproach.scala:75)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:280)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:214)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556044972682_-637060185",
+      "id": "20190423-184252_120643639",
+      "dateCreated": "2019-04-23 18:42:52.682",
+      "dateStarted": "2019-04-24 09:29:28.335",
+      "dateFinished": "2019-04-24 09:43:52.967",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nsentiment_data.show(5,False)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-23 18:43:18.656",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1556044996149_1478481969",
+      "id": "20190423-184316_201744224",
+      "dateCreated": "2019-04-23 18:43:16.149",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Model Development",
+  "id": "2EBFMN6U9",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

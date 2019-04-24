@@ -1,0 +1,6 @@
+site_name: wc.py - WordCount Python
+site_url: https://github.com/axsauze/wcpy
+repo_name: GitHub
+site_description: WordCount in Python with a lot more functionality
+copyright: MIT
+theme: 'material'
