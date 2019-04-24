@@ -1,9 +1,255 @@
 {
   "paragraphs": [
     {
+      "text": "%sh\npip install kafka-python",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 17:09:16.785",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Collecting kafka-python\n  Downloading https://files.pythonhosted.org/packages/82/39/aebe3ad518513bbb2260dd84ac21e5c30af860cc4c95b32acbd64b9d9d0d/kafka_python-1.4.6-py2.py3-none-any.whl (259kB)\nInstalling collected packages: kafka-python\nSuccessfully installed kafka-python-1.4.6\nYou are using pip version 8.1.2, however version 19.0.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556125734883_1828507477",
+      "id": "20190424-170854_1492947490",
+      "dateCreated": "2019-04-24 17:08:54.883",
+      "dateStarted": "2019-04-24 17:09:16.823",
+      "dateFinished": "2019-04-24 17:09:18.483",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%producer.pyspark\nfrom pyspark.sql.types import IntegerType\nfrom pyspark.sql.functions import udf, col\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"quoteMode\",\"ALL\")\n        .option(\"multiLine\",\"true\")\n        .option(\"wholeFile\",\"true\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/machinelearning/reddit_200k.csv\")).limit(2000)\n        \ndf_list \u003d df.collect()\ndf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 17:11:24.610",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d14",
+            "http://172.25.0.19:4040/jobs/job?id\u003d15",
+            "http://172.25.0.19:4040/jobs/job?id\u003d16",
+            "http://172.25.0.19:4040/jobs/job?id\u003d17"
+          ],
+          "interpreterSettingId": "producer"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556120282490_1275576273",
+      "id": "20190424-153802_2004623441",
+      "dateCreated": "2019-04-24 15:38:02.490",
+      "dateStarted": "2019-04-24 16:56:44.498",
+      "dateFinished": "2019-04-24 16:56:46.214",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%producer.pyspark\nfirst \u003d df_list[0]\nprint(first)\nprint(first[\"body\"])",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 17:01:27.810",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Row(prev_idx\u003d1, body\u003du\"I\u0027ve always been taught it emerged from the earth after an impace. That is why it has similar elemental distribution to earth\", score\u003du\u00272\u0027, parent_id\u003du\u0027t3_81u15i\u0027, id\u003du\u0027dv551g6\u0027, created_date\u003du\u00271520121101\u0027, retrieved_date\u003du\u00271524782256\u0027, removed\u003du\u0027False\u0027)\nI\u0027ve always been taught it emerged from the earth after an impace. That is why it has similar elemental distribution to earth\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556125132106_-1022648648",
+      "id": "20190424-165852_1014499771",
+      "dateCreated": "2019-04-24 16:58:52.106",
+      "dateStarted": "2019-04-24 17:01:27.845",
+      "dateFinished": "2019-04-24 17:01:27.914",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%producer.pyspark\nimport time\nimport json\n\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\n\nKAFKA_BROKER \u003d \"172.25.0.12:9092\"\nREDDIT_TOPIC \u003d \"reddit_stream\"\n\nproducer \u003d KafkaProducer(bootstrap_servers\u003d[KAFKA_BROKER])\nindex \u003d 0\n\nwhile True:\n    \n    reddit_row \u003d df_list[index]\n    \n    reddit_id \u003d reddit_row[\"id\"]\n    \n    reddit_dict \u003d {\n        \"body\": reddit_row[\"body\"],\n        \"score\": reddit_row[\"score\"],\n        \"id\": reddit_id,\n        \"parent_id\": reddit_row[\"parent_id\"],\n        \"created_date\": reddit_row[\"created_date\"]\n    }\n    \n    future \u003d producer.send(\n        topic\u003dREDDIT_TOPIC, \n        key\u003dreddit_id.encode(\"utf-8\"),\n        value\u003djson.dumps(reddit_dict).encode(\"utf-8\"))\n    \n    try:\n        record_metadata \u003d future.get(timeout\u003d10)\n    except KafkaError:\n        # Decide what to do if produce request failed...\n        log.exception()\n        pass\n    \n    index +\u003d 1\n    time.sleep(1)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 17:09:29.202",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mKeyboardInterrupt\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-38-9f8ec4d86ae3\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     38\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     39\u001b[0m     \u001b[0mindex\u001b[0m \u001b[0;34m+\u003d\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 40\u001b[0;31m     \u001b[0mtime\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msleep\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\n\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556124778874_694089528",
+      "id": "20190424-165258_808657351",
+      "dateCreated": "2019-04-24 16:52:58.874",
+      "dateStarted": "2019-04-24 17:09:29.245",
+      "dateFinished": "2019-04-24 17:11:09.590",
+      "status": "ABORT",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%consumer.pyspark\nfrom pyspark.ml import PipelineModel\n\npipeline_model \u003d PipelineModel.load(\"/machinelearning/spark_pipeline.model\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 16:44:26.591",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "runtimeInfos": {},
+      "apps": [],
+      "jobName": "paragraph_1556120316432_903153975",
+      "id": "20190424-153836_823235289",
+      "dateCreated": "2019-04-24 15:38:36.432",
+      "dateStarted": "2019-04-24 16:44:26.629",
+      "dateFinished": "2019-04-24 16:44:34.408",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%consumer.pyspark\n\npipeline_pred \u003d pipeline_model.transform(df.limit(100))\npipeline_pred.select([\"body\", \"probability\", \"prediction\", \"removed\"]).show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 17:15:35.465",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+--------------------+----------+-------+\n|                body|         probability|prediction|removed|\n+--------------------+--------------------+----------+-------+\n|I\u0027ve always been ...|[0.97890806118386...|       0.0|  False|\n|\"As an ECE, my fi...|[0.05519537654861...|       1.0|   True|\n|Monday: Drug comp...|[0.22263249881830...|       1.0|   True|\n|i learned that al...|[0.62228857104400...|       0.0|  False|\n|Well i was wantin...|[0.64161513275353...|       0.0|  False|\n|So when we can re...|[0.99421944220081...|       0.0|  False|\n|Keep going! So cl...|[0.25107944048936...|       1.0|   True|\n|Rains here just s...|[0.63600451049168...|       0.0|   True|\n|That explains it,...|[0.62228857104400...|       0.0|   True|\n|Hi BocceBaller42,...|[0.65555868754690...|       0.0|  False|\n|Kinda what happen...|[0.98998335513379...|       0.0|  False|\n|This sounds like ...|[0.00289053182273...|       1.0|   True|\n|If nothing comes ...|[0.99943412443999...|       0.0|  False|\n|If medicine keeps...|[0.99855570624868...|       0.0|  False|\n|do you think the ...|[0.98908706474745...|       0.0|  False|\n|I don\u0027t understan...|[0.65286353161492...|       0.0|  False|\n|I dislike the ton...|[0.00769434050898...|       1.0|   True|\n|I look forward to...|[0.99498457095559...|       0.0|  False|\n|My visible tattoo...|[0.99349613513265...|       0.0|  False|\n|3 weeks?  Why onl...|[0.62228857104400...|       0.0|   True|\n+--------------------+--------------------+----------+-------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {},
+      "apps": [],
+      "jobName": "paragraph_1556120581420_-171954364",
+      "id": "20190424-154301_725115891",
+      "dateCreated": "2019-04-24 15:43:01.420",
+      "dateStarted": "2019-04-24 16:47:47.291",
+      "dateFinished": "2019-04-24 16:47:48.845",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "text": "%consumer.pyspark\n\nfrom pyspark.streaming import StreamingContext\n\n# SparkContext Config\nsc.setLogLevel(\"WARN\")\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass\n\nssc \u003d StreamingContext(sc, batchDuration\u003d2)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-23 16:45:02.071",
+      "dateUpdated": "2019-04-24 15:27:07.868",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -29,15 +275,15 @@
       "jobName": "paragraph_1556023399287_172318548",
       "id": "20190423-124319_905844445",
       "dateCreated": "2019-04-23 12:43:19.287",
-      "dateStarted": "2019-04-23 15:43:45.341",
-      "dateFinished": "2019-04-23 15:43:45.403",
+      "dateStarted": "2019-04-24 15:27:07.932",
+      "dateFinished": "2019-04-24 15:27:31.162",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%consumer.pyspark\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\nfrom pyspark.streaming.kafka import KafkaUtils\n\ntopic \u003d \"train\"\nbrokers \u003d \"172.25.0.12:9092,172.25.0.13:9092\"\n\n\nkvs \u003d KafkaUtils.createDirectStream(ssc, [topic], {\"metadata.broker.list\": brokers})\n\nlines \u003d kvs.map(lambda x: x[1])\n\nwords \u003d lines.flatMap(lambda line: line.split(\" \"))\n\nword_counts \u003d words.map(lambda word: (word, 1)) \\\n                 .reduceByKey(lambda a, b: a+b)\n\n# word_counts.pprint()\n\n\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\n\ndef send_to_kafka(x):\n    producer \u003d KafkaProducer(bootstrap_servers\u003d[\"172.25.0.12:9092\"])\n    future \u003d producer.send(\"test\", str(x).encode(\"utf-8\"))\n    try:\n        record_metadata \u003d future.get(timeout\u003d10)\n    except KafkaError:\n        # Decide what to do if produce request failed...\n        log.exception()\n        pass\n\nword_counts.foreachRDD(lambda x: x.foreach(send_to_kafka))\n\nssc.start()\nssc.awaitTermination()",
+      "text": "%consumer.pyspark\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\nfrom pyspark.streaming.kafka import KafkaUtils\n\ntopic \u003d \"train\"\nbrokers \u003d \"172.25.0.12:9092,172.25.0.13:9092\"\n\nkvs \u003d KafkaUtils.createDirectStream(ssc, [topic], {\"metadata.broker.list\": brokers})\n\nlines \u003d kvs.map(lambda x: x[1])\n\nwords \u003d lines.flatMap(lambda line: line.split(\" \"))\n\nword_counts \u003d words.map(lambda word: (word, 1)) \\\n                 .reduceByKey(lambda a, b: a+b)\n\n# word_counts.pprint()\n\n\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\n\ndef send_to_kafka(x):\n    producer \u003d KafkaProducer(bootstrap_servers\u003d[\"172.25.0.12:9092\"])\n    future \u003d producer.send(\"test\", str(x).encode(\"utf-8\"))\n    try:\n        record_metadata \u003d future.get(timeout\u003d10)\n    except KafkaError:\n        # Decide what to do if produce request failed...\n        log.exception()\n        pass\n\nword_counts.foreachRDD(lambda x: x.foreach(send_to_kafka))\n\nssc.start()\nssc.awaitTermination()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-23 15:43:50.599",
+      "dateUpdated": "2019-04-24 15:28:28.404",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -74,21 +320,21 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%producer.pyspark\nimport time\nimport random\n\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\n\n# SparkContext Config\nsc.setLogLevel(\"WARN\")\n\nwhile True:\n    producer \u003d KafkaProducer(bootstrap_servers\u003d[\"172.25.0.12:9092\"])\n    \n    chosen \u003d random.choice([\"hello\", \"my\", \"name\", \"is\", \"test\"])\n    future \u003d producer.send(\"train\", chosen.encode(\"utf-8\"))\n    try:\n        record_metadata \u003d future.get(timeout\u003d10)\n    except KafkaError:\n        # Decide what to do if produce request failed...\n        log.exception()\n        pass\n    \n    time.sleep(1)",
+      "text": "",
       "user": "anonymous",
-      "dateUpdated": "2019-04-23 16:45:12.538",
+      "dateUpdated": "2019-04-24 16:53:09.822",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "python",
+          "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/python"
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},
@@ -173,10 +419,8 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "md:shared_process": [],
-    "python:shared_process": [],
     "producer:shared_process": [],
-    "spark:shared_process": [],
+    "sh:shared_process": [],
     "consumer:shared_process": []
   },
   "config": {

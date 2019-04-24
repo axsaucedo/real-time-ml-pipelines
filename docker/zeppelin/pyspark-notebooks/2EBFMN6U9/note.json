@@ -118,9 +118,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\nfrom pyspark.sql.functions import array_contains,when\nfrom pyspark.sql.functions import col\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"quoteMode\",\"ALL\")\n        .option(\"multiLine\",\"true\")\n        .option(\"wholeFile\",\"true\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/machinelearning/reddit_200k.csv\")).limit(1000)\n        \ndf.cache()\ndf.show()",
+      "text": "%pyspark\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"quoteMode\",\"ALL\")\n        .option(\"multiLine\",\"true\")\n        .option(\"wholeFile\",\"true\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/machinelearning/reddit_200k.csv\")).limit(20000)\n        \ndf.cache()\ndf.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:22:56.733",
+      "dateUpdated": "2019-04-24 15:46:54.100",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -151,15 +151,15 @@
       "jobName": "paragraph_1556038381328_-835348963",
       "id": "20190423-165301_2107108866",
       "dateCreated": "2019-04-23 16:53:01.328",
-      "dateStarted": "2019-04-24 15:22:56.786",
-      "dateFinished": "2019-04-24 15:22:59.032",
+      "dateStarted": "2019-04-24 15:46:54.155",
+      "dateFinished": "2019-04-24 15:47:33.255",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\nfrom pyspark.sql.types import IntegerType\n\nlabel_udf \u003d udf(lambda x: 1 if x \u003d\u003d \"True\" else 0, IntegerType())\n\ndf_input \u003d df.withColumn(\n    \"label\",\n    label_udf(col(\"removed\")))\n\ndf_input.cache()\ndf_input.show()",
+      "text": "%pyspark\n\nfrom pyspark.sql.types import IntegerType\nfrom pyspark.sql.functions import udf, col\n\nlabel_udf \u003d udf(lambda x: 1 if x \u003d\u003d \"True\" else 0, IntegerType())\n\ndf_input \u003d df.withColumn(\n    \"label\",\n    label_udf(col(\"removed\")))\n\ndf_input.cache()\ndf_input.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:23:01.885",
+      "dateUpdated": "2019-04-24 15:48:02.908",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -190,15 +190,15 @@
       "jobName": "paragraph_1556116634821_-1256431770",
       "id": "20190424-143714_1757490237",
       "dateCreated": "2019-04-24 14:37:14.821",
-      "dateStarted": "2019-04-24 15:23:01.946",
-      "dateFinished": "2019-04-24 15:23:02.236",
+      "dateStarted": "2019-04-24 15:48:02.955",
+      "dateFinished": "2019-04-24 15:48:05.311",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n\nfrom pyspark import keyword_only \nfrom pyspark.ml import Transformer\nfrom pyspark.ml.param.shared import HasInputCol, HasOutputCol, Param\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import ArrayType, StringType\nfrom pyspark.ml.wrapper import JavaParams\nfrom pyspark.ml.feature import Tokenizer\n\nimport spacy\n\nclass SpacyMagic(object):\n    \"\"\"\n    Simple Spacy Magic to minimize loading time.\n    \u003e\u003e\u003e SpacyMagic.get(\"en\")\n    \u003cspacy.lang.en.English ...\n    \"\"\"\n    _spacys \u003d {}\n    _symbols \u003d set(\"!$%^\u0026*()_+|~-\u003d`{}[]:\\\";\u0027\u003c\u003e?,./-\")\n\n    @classmethod\n    def get(cls, lang):\n        if lang not in cls._spacys:\n            import spacy\n            cls._spacys[lang] \u003d spacy.load(lang, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        return cls._spacys[lang]\n\n    @staticmethod\n    def tokenize(text):\n        nlp \u003d SpacyMagic.get(\"en\")\n        doc \u003d nlp(text, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        tokens \u003d []\n        for token in doc:\n            if token.like_url:\n                clean_token \u003d \"URL\"\n            else:\n                clean_token \u003d token.lemma_.lower().strip()\n                if len(clean_token) \u003c 1 or clean_token in \\\n                        SpacyMagic._symbols: \n                    continue\n            tokens.append(clean_token)\n        return tokens\n\n\nclass SpacyTokenizer(Tokenizer):\n\n    def transform(self, dataset):\n        \n        tokenize_udf \u003d udf(lambda x: SpacyMagic.tokenize(x), \n                                ArrayType(StringType()))\n\n        out_col \u003d self.getOutputCol()\n        in_col \u003d self.getInputCol()\n\n        dataset_tokenized \u003d dataset.withColumn(\n            out_col,\n            tokenize_udf(col(in_col)))\n        \n        return dataset_tokenized\n    ",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:24:16.779",
+      "dateUpdated": "2019-04-24 15:48:10.229",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -224,8 +224,8 @@
       "jobName": "paragraph_1556114731533_-803425142",
       "id": "20190424-140531_246570498",
       "dateCreated": "2019-04-24 14:05:31.533",
-      "dateStarted": "2019-04-24 15:24:16.821",
-      "dateFinished": "2019-04-24 15:24:16.951",
+      "dateStarted": "2019-04-24 15:48:10.279",
+      "dateFinished": "2019-04-24 15:48:11.232",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -347,9 +347,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\nfrom pyspark.ml.feature import IDF\n\nidf \u003d IDF().setInputCol(\u0027body_tf\u0027).setOutputCol(\u0027body_tfidf\u0027)\nidf_model \u003d idf.fit(df_tf)\ndf_tfidf \u003d idf_model.transform(df_tf)\n\ndf_tfidf.cache()\ndf_tfidf.show()",
+      "text": "%pyspark\nfrom pyspark.ml.feature import IDF\n\nidf \u003d IDF(inputCol\u003d\u0027body_tf\u0027, outputCol\u003d\u0027body_tfidf\u0027)\nidf_model \u003d idf.fit(df_tf)\ndf_tfidf \u003d idf_model.transform(df_tf)\n\ndf_tfidf.cache()\ndf_tfidf.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:39:47.098",
+      "dateUpdated": "2019-04-24 15:51:36.410",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -420,9 +420,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n\nmax_iter \u003d 10\nreg_param \u003d 0.3\nelastic_net_param \u003d 0.8\n\nlr \u003d LogisticRegression().\\\n        setLabelCol(\u0027label\u0027).\\\n        setFeaturesCol(\u0027body_tfidf\u0027).\\\n        setRegParam(reg_param).\\\n        setMaxIter(max_iter).\\\n        setElasticNetParam(elastic_net_param)\n        \nlr_model \u003d lr.fit(train)\nlr_pred \u003d lr_model.transform(test)",
+      "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n\nmax_iter \u003d 10\nreg_param \u003d 0.3\nelastic_net_param \u003d 0.8\n\nlr \u003d LogisticRegression(featuresCol\u003d\u0027body_tfidf\u0027, maxIter\u003d10)\n        \nlr_model \u003d lr.fit(train)\nlr_pred \u003d lr_model.transform(test)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:40:05.871",
+      "dateUpdated": "2019-04-24 15:54:38.668",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -493,9 +493,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\nfrom pyspark.ml import Pipeline\n\npipeline \u003d Pipeline(stages\u003d[\n    tokenizer, \n    ngram, \n    cv, \n    idf,\n    lr])\n    \n\nsplits \u003d df_input.randomSplit([0.8,0.2], seed\u003d100)\ntrain \u003d splits[0].cache()\ntest \u003d splits[1].cache()",
+      "text": "%pyspark\nfrom pyspark.ml import Pipeline\nfrom pyspark.ml.feature import NGram, CountVectorizer, IDF\nfrom pyspark.ml.classification import LogisticRegression\n\npipeline \u003d Pipeline(stages\u003d[\n    SpacyTokenizer(inputCol\u003d\"body\", outputCol\u003d\"body_tokenized\"), \n    NGram(inputCol\u003d\u0027body_tokenized\u0027, outputCol\u003d\u0027body_ngram\u0027, n\u003d3), \n    CountVectorizer(inputCol\u003d\u0027body_ngram\u0027, outputCol\u003d\u0027body_tf\u0027), \n    IDF(inputCol\u003d\u0027body_tf\u0027, outputCol\u003d\u0027body_tfidf\u0027),\n    LogisticRegression(featuresCol\u003d\u0027body_tfidf\u0027, maxIter\u003d10)])\n    \n\nsplits \u003d df_input.randomSplit([0.8,0.2], seed\u003d100)\ntrain \u003d splits[0].cache()\ntest \u003d splits[1].cache()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:24:23.347",
+      "dateUpdated": "2019-04-24 15:54:19.353",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -521,15 +521,15 @@
       "jobName": "paragraph_1556110966630_1699574621",
       "id": "20190424-130246_910680063",
       "dateCreated": "2019-04-24 13:02:46.630",
-      "dateStarted": "2019-04-24 15:24:23.394",
-      "dateFinished": "2019-04-24 15:24:23.518",
+      "dateStarted": "2019-04-24 15:54:19.400",
+      "dateFinished": "2019-04-24 15:54:19.596",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\npipeline_model \u003d pipeline.fit(train)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:24:25.287",
+      "dateUpdated": "2019-04-24 15:54:22.008",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -555,49 +555,15 @@
       "jobName": "paragraph_1556117262549_-1833139638",
       "id": "20190424-144742_1374770811",
       "dateCreated": "2019-04-24 14:47:42.549",
-      "dateStarted": "2019-04-24 15:24:25.339",
-      "dateFinished": "2019-04-24 15:24:32.427",
+      "dateStarted": "2019-04-24 15:54:22.071",
+      "dateFinished": "2019-04-24 15:55:42.272",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\npipeline_pred \u003d pipeline_model.transform(test)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:12:50.101",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
-      "apps": [],
-      "jobName": "paragraph_1556117278624_402507066",
-      "id": "20190424-144758_1037030750",
-      "dateCreated": "2019-04-24 14:47:58.624",
-      "dateStarted": "2019-04-24 15:12:50.155",
-      "dateFinished": "2019-04-24 15:12:50.394",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\npipeline_eval \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\npipeline_score \u003d pipeline_eval.evaluate(pipeline_pred)\nprint(\"Score: %.4f\" % pipeline_score)",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:12:55.756",
+      "dateUpdated": "2019-04-24 15:57:47.378",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -620,7 +586,85 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Score: 0.6167\n"
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+----------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|       rawPrediction|         probability|prediction|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+----------+\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|(262144,[2050,281...|(262144,[2050,281...|[-1.6801771956811...|[0.15707200668228...|       1.0|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|(262144,[1061,453...|(262144,[1061,453...|[1.39379371046033...|[0.80119719682442...|       0.0|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|(262144,[504,1178...|(262144,[504,1178...|[0.47017179182358...|[0.61542441640582...|       0.0|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|(262144,[30,61,63...|(262144,[30,61,63...|[8.32119843849355...|[0.99975675507805...|       0.0|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|(262144,[0,167,18...|(262144,[0,167,18...|[1.63951250676852...|[0.83746859321900...|       0.0|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|      (262144,[],[])|      (262144,[],[])|[0.49927343712794...|[0.62228857104400...|       0.0|\n|      22|New study shows 9...|   18|t3_7a2pmo|dp6rpcw|  1509542898|    1512014062|   True|    1|[new, study, show...|[new study show, ...|(262144,[760,1878...|(262144,[760,1878...|[-4.1058282714566...|[0.01620929598344...|       1.0|\n|      26|Thank goodness, t...|    2|t3_5rhzw9|dd835v5|  1486012935|    1488495268|   True|    1|[thank, goodness,...|[thank goodness t...|(262144,[15,2229,...|(262144,[15,2229,...|[0.95425867015701...|[0.72197082397532...|       0.0|\n|      27|The post title is...|   43|t3_8axsbq|dx2ce5e|  1523274548|    1526127980|  False|    0|[the, post, title...|[the post title, ...|(262144,[95,132,1...|(262144,[95,132,1...|[14.0253131076134...|[0.99999918925634...|       0.0|\n|      35|\u0027Max Planck from ...|   15|t3_80psqz|duxc8nz|  1519765498|    1520318924|  False|    0|[max, planck, fro...|[max planck from,...|(262144,[247,841,...|(262144,[247,841,...|[2.89779330842830...|[0.94773724441548...|       0.0|\n|      36|Yeah that\u0027s what ...|   -5|t3_8hj5o8|dyk75cx|  1525651444|    1527161414|   True|    1|[yeah, that, have...|[yeah that have, ...|(262144,[0,218,41...|(262144,[0,218,41...|[1.20027998367868...|[0.76857458729422...|       0.0|\n|      41|\"My Strong app ha...|    2|t3_8ivgqb|dyuwanv|  1526126637|    1527378492|  False|    0|[my, strong, app,...|[my strong app, s...|(262144,[86,309,6...|(262144,[86,309,6...|[2.13742324798880...|[0.89448766504480...|       0.0|\n|      50|How did you choos...|    2|t3_81dvbs|dv2q55a|  1520006350|    1524739051|  False|    0|[how, do, you, ch...|[how do you, do y...|(262144,[40,1021,...|(262144,[40,1021,...|[2.44818142400976...|[0.92042836011668...|       0.0|\n|      53|The thumbnail loo...|    2|t3_6qfl2m|dkxz5tl|  1501457255|    1501985168|   True|    1|[the, thumbnail, ...|[the thumbnail lo...|(262144,[116,6471...|(262144,[116,6471...|[-0.3421830781795...|[0.41527927893229...|       1.0|\n|      58|Lipstick as birth...|    2|t3_6mfd6a|dk1l9j6|  1499721082|    1501129496|   True|    1|[lipstick, a, bir...|[lipstick a birth...|(262144,[22893],[...|(262144,[22893],[...|[0.17651307368556...|[0.54401404940302...|       0.0|\n|      63|   My question is...|   -1|t3_6ll02s|djuzmjw|  1499359162|    1501007322|  False|    0|[my, question, be...|[my question be, ...|(262144,[289,1057...|(262144,[289,1057...|[3.24896978401304...|[0.96263607564559...|       0.0|\n|      73|My children will ...|    6|t3_71q0q2|dncphu2|  1506085704|    1506999701|  False|    0|[my, child, will,...|[my child will, c...|(262144,[8462,223...|(262144,[8462,223...|[4.01468326375975...|[0.98227130898572...|       0.0|\n|      75|a more simplified...|   11|t3_7454xh|dnvmhci|  1507084744|    1509286643|   True|    1|[a, much, simplif...|[a much simplify,...|(262144,[3,439,69...|(262144,[3,439,69...|[2.98754239756838...|[0.95200815030676...|       0.0|\n|      85|what if a woman d...|    0|t3_6flqpj|dijtdm0|  1496783902|    1499122474|  False|    0|[what, if, a, wom...|[what if a, if a ...|(262144,[18,376,1...|(262144,[18,376,1...|[2.08998682317081...|[0.88992613487344...|       0.0|\n|      88|Thinking back to ...|    2|t3_6xl6ch|dmgt0bu|  1504358856|    1506427511|   True|    1|[thinking, back, ...|[thinking back to...|(262144,[656,8403...|(262144,[656,8403...|[-0.8706467895190...|[0.29511973638163...|       1.0|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+----------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556117278624_402507066",
+      "id": "20190424-144758_1037030750",
+      "dateCreated": "2019-04-24 14:47:58.624",
+      "dateStarted": "2019-04-24 15:55:45.135",
+      "dateFinished": "2019-04-24 15:56:23.407",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\npipeline_pred.select([\"body\", \"probability\", \"prediction\"]).show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 15:58:10.504",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+--------------------+----------+\n|                body|         probability|prediction|\n+--------------------+--------------------+----------+\n|Well i was wantin...|[0.15707200668228...|       1.0|\n|Rains here just s...|[0.80119719682442...|       0.0|\n|That explains it,...|[0.61542441640582...|       0.0|\n|Hi BocceBaller42,...|[0.99975675507805...|       0.0|\n|I don\u0027t understan...|[0.83746859321900...|       0.0|\n|3 weeks?  Why onl...|[0.62228857104400...|       0.0|\n|New study shows 9...|[0.01620929598344...|       1.0|\n|Thank goodness, t...|[0.72197082397532...|       0.0|\n|The post title is...|[0.99999918925634...|       0.0|\n|\u0027Max Planck from ...|[0.94773724441548...|       0.0|\n|Yeah that\u0027s what ...|[0.76857458729422...|       0.0|\n|\"My Strong app ha...|[0.89448766504480...|       0.0|\n|How did you choos...|[0.92042836011668...|       0.0|\n|The thumbnail loo...|[0.41527927893229...|       1.0|\n|Lipstick as birth...|[0.54401404940302...|       0.0|\n|   My question is...|[0.96263607564559...|       0.0|\n|My children will ...|[0.98227130898572...|       0.0|\n|a more simplified...|[0.95200815030676...|       0.0|\n|what if a woman d...|[0.88992613487344...|       0.0|\n|Thinking back to ...|[0.29511973638163...|       1.0|\n+--------------------+--------------------+----------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556121460325_1024954747",
+      "id": "20190424-155740_1487288527",
+      "dateCreated": "2019-04-24 15:57:40.325",
+      "dateStarted": "2019-04-24 15:58:10.557",
+      "dateFinished": "2019-04-24 15:58:22.961",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.evaluation import MulticlassClassificationEvaluator\n\npipeline_eval \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\npipeline_score \u003d pipeline_eval.evaluate(pipeline_pred)\nprint(\"Score: %.4f\" % pipeline_score)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 15:58:50.025",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Score: 0.6036\n"
           }
         ]
       },
@@ -628,15 +672,15 @@
       "jobName": "paragraph_1556117338993_-1207294821",
       "id": "20190424-144858_1610760957",
       "dateCreated": "2019-04-24 14:48:58.993",
-      "dateStarted": "2019-04-24 15:12:55.807",
-      "dateFinished": "2019-04-24 15:13:02.456",
+      "dateStarted": "2019-04-24 15:58:50.078",
+      "dateFinished": "2019-04-24 15:59:03.394",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\npipeline_model.save(\"/machinelearning/spark_pipeline.model\")",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:24:34.468",
+      "dateUpdated": "2019-04-24 15:59:52.782",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -662,8 +706,8 @@
       "jobName": "paragraph_1556117464354_-618245016",
       "id": "20190424-145104_1024882918",
       "dateCreated": "2019-04-24 14:51:04.354",
-      "dateStarted": "2019-04-24 15:24:34.517",
-      "dateFinished": "2019-04-24 15:24:38.546",
+      "dateStarted": "2019-04-24 15:59:52.842",
+      "dateFinished": "2019-04-24 15:59:57.161",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
