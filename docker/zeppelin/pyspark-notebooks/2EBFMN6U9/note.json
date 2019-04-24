@@ -79,22 +79,6 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sh\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:25:23.489",
-      "config": {},
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "jobName": "paragraph_1556112323480_1482055873",
-      "id": "20190424-132523_873672191",
-      "dateCreated": "2019-04-24 13:25:23.481",
-      "status": "READY",
-      "progressUpdateIntervalMs": 500
-    },
-    {
       "text": "%sh\npip install spacy",
       "user": "anonymous",
       "dateUpdated": "2019-04-24 10:03:19.444",
@@ -134,43 +118,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n# import re\n\n# # Double quote that is not at the beginning or end of file\n# quote_re \u003d re.compile(r\u0027(.)\"\"(.)\u0027, re.IGNORECASE)\n\n# file \u003d sc.textFile(\"/machinelearning/reddit_200k_train.csv\")\n# # csvFixedRdd \u003d file.map(lambda x: quote_re.sub(\u0027\\g\u003c1\u003e\\\\\"\\g\u003c2\u003e\u0027, x))\n# csvFixedRdd \u003d file.map(lambda x: x.replace(\u0027\"\"\u0027, \u0027\\\\\"\u0027))\n# csvFixedRdd.saveAsTextFile(\"/machinelearning/reddit_200k_train_spark.csv\")\n",
+      "text": "%pyspark\nfrom pyspark.sql.functions import array_contains,when\nfrom pyspark.sql.functions import col\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"quoteMode\",\"ALL\")\n        .option(\"multiLine\",\"true\")\n        .option(\"wholeFile\",\"true\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/machinelearning/reddit_200k.csv\")).limit(1000)\n        \ndf.cache()\ndf.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 09:46:07.087",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
-      "apps": [],
-      "jobName": "paragraph_1556095919293_1845754734",
-      "id": "20190424-085159_1799957000",
-      "dateCreated": "2019-04-24 08:51:59.293",
-      "dateStarted": "2019-04-24 09:10:26.919",
-      "dateFinished": "2019-04-24 09:10:33.368",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\nfrom pyspark.sql.functions import array_contains,when\nfrom pyspark.sql.functions import col\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"quoteMode\",\"ALL\")\n        .option(\"multiLine\",\"true\")\n        .option(\"wholeFile\",\"true\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/machinelearning/reddit_200k.csv\")).limit(10000)\n        \ndf.cache()\ndf.show()\nprint(\"DONE; Caching\")\nprint(\"FINISHED\")",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:34:40.346",
+      "dateUpdated": "2019-04-24 15:22:56.733",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -193,7 +143,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\nonly showing top 20 rows\n\nDONE; Caching\nFINISHED\n"
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\nonly showing top 20 rows\n\n"
           }
         ]
       },
@@ -201,15 +151,54 @@
       "jobName": "paragraph_1556038381328_-835348963",
       "id": "20190423-165301_2107108866",
       "dateCreated": "2019-04-23 16:53:01.328",
-      "dateStarted": "2019-04-24 14:34:40.393",
-      "dateFinished": "2019-04-24 14:34:42.094",
+      "dateStarted": "2019-04-24 15:22:56.786",
+      "dateFinished": "2019-04-24 15:22:59.032",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\nfrom pyspark import keyword_only \nfrom pyspark.ml import Transformer\nfrom pyspark.ml.param.shared import HasInputCol, HasOutputCol, Param\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import ArrayType, StringType\n\nimport spacy\n\nclass SpacyMagic(object):\n    \"\"\"\n    Simple Spacy Magic to minimize loading time.\n    \u003e\u003e\u003e SpacyMagic.get(\"en\")\n    \u003cspacy.lang.en.English ...\n    \"\"\"\n    _spacys \u003d {}\n    _symbols \u003d set(\"!$%^\u0026*()_+|~-\u003d`{}[]:\\\";\u0027\u003c\u003e?,./-\")\n\n    @classmethod\n    def get(cls, lang):\n        if lang not in cls._spacys:\n            import spacy\n            cls._spacys[lang] \u003d spacy.load(lang, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        return cls._spacys[lang]\n\n    @staticmethod\n    def tokenize(text):\n        nlp \u003d SpacyMagic.get(\"en\")\n        doc \u003d nlp(text, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        tokens \u003d []\n        for token in doc:\n            if token.like_url:\n                clean_token \u003d \"URL\"\n            else:\n                clean_token \u003d token.lemma_.lower().strip()\n                if len(clean_token) \u003c 1 or clean_token in \\\n                        SpacyMagic._symbols: \n                    continue\n            tokens.append(clean_token)\n        return tokens\n\n\nclass SpacyTokenizer(Transformer, HasInputCol, HasOutputCol):\n\n    @keyword_only\n    def __init__(self, inputCol\u003dNone, outputCol\u003dNone):\n        super(SpacyTokenizer, self).__init__()\n        kwargs \u003d self._input_kwargs\n        self.setParams(**kwargs)\n\n    @keyword_only\n    def setParams(self, inputCol\u003dNone, outputCol\u003dNone):\n        kwargs \u003d self._input_kwargs\n        return self._set(**kwargs)\n\n    def _transform(self, dataset):\n        \n        tokenize_udf \u003d udf(lambda x: SpacyMagic.tokenize(x), \n                                ArrayType(StringType()))\n\n        out_col \u003d self.getOutputCol()\n        in_col \u003d self.getInputCol()\n\n        dataset_tokenized \u003d dataset.withColumn(\n            out_col,\n            tokenize_udf(col(in_col)))\n        \n        return dataset_tokenized\n    ",
+      "text": "%pyspark\n\nfrom pyspark.sql.types import IntegerType\n\nlabel_udf \u003d udf(lambda x: 1 if x \u003d\u003d \"True\" else 0, IntegerType())\n\ndf_input \u003d df.withColumn(\n    \"label\",\n    label_udf(col(\"removed\")))\n\ndf_input.cache()\ndf_input.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:34:49.044",
+      "dateUpdated": "2019-04-24 15:23:01.885",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556116634821_-1256431770",
+      "id": "20190424-143714_1757490237",
+      "dateCreated": "2019-04-24 14:37:14.821",
+      "dateStarted": "2019-04-24 15:23:01.946",
+      "dateFinished": "2019-04-24 15:23:02.236",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom pyspark import keyword_only \nfrom pyspark.ml import Transformer\nfrom pyspark.ml.param.shared import HasInputCol, HasOutputCol, Param\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import ArrayType, StringType\nfrom pyspark.ml.wrapper import JavaParams\nfrom pyspark.ml.feature import Tokenizer\n\nimport spacy\n\nclass SpacyMagic(object):\n    \"\"\"\n    Simple Spacy Magic to minimize loading time.\n    \u003e\u003e\u003e SpacyMagic.get(\"en\")\n    \u003cspacy.lang.en.English ...\n    \"\"\"\n    _spacys \u003d {}\n    _symbols \u003d set(\"!$%^\u0026*()_+|~-\u003d`{}[]:\\\";\u0027\u003c\u003e?,./-\")\n\n    @classmethod\n    def get(cls, lang):\n        if lang not in cls._spacys:\n            import spacy\n            cls._spacys[lang] \u003d spacy.load(lang, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        return cls._spacys[lang]\n\n    @staticmethod\n    def tokenize(text):\n        nlp \u003d SpacyMagic.get(\"en\")\n        doc \u003d nlp(text, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        tokens \u003d []\n        for token in doc:\n            if token.like_url:\n                clean_token \u003d \"URL\"\n            else:\n                clean_token \u003d token.lemma_.lower().strip()\n                if len(clean_token) \u003c 1 or clean_token in \\\n                        SpacyMagic._symbols: \n                    continue\n            tokens.append(clean_token)\n        return tokens\n\n\nclass SpacyTokenizer(Tokenizer):\n\n    def transform(self, dataset):\n        \n        tokenize_udf \u003d udf(lambda x: SpacyMagic.tokenize(x), \n                                ArrayType(StringType()))\n\n        out_col \u003d self.getOutputCol()\n        in_col \u003d self.getInputCol()\n\n        dataset_tokenized \u003d dataset.withColumn(\n            out_col,\n            tokenize_udf(col(in_col)))\n        \n        return dataset_tokenized\n    ",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 15:24:16.779",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -235,15 +224,15 @@
       "jobName": "paragraph_1556114731533_-803425142",
       "id": "20190424-140531_246570498",
       "dateCreated": "2019-04-24 14:05:31.533",
-      "dateStarted": "2019-04-24 14:34:49.091",
-      "dateFinished": "2019-04-24 14:34:49.233",
+      "dateStarted": "2019-04-24 15:24:16.821",
+      "dateFinished": "2019-04-24 15:24:16.951",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\ntokenizer \u003d SpacyTokenizer(inputCol\u003d\"body\", outputCol\u003d\"body_tokenized\")\ndf_tokenized \u003d tokenizer.transform(df)\ndf_tokenized.show()",
+      "text": "%pyspark\ntokenizer \u003d SpacyTokenizer(inputCol\u003d\"body\", outputCol\u003d\"body_tokenized\")\ndf_tokenized \u003d tokenizer.transform(df_input)\ndf_tokenized.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:34:50.883",
+      "dateUpdated": "2019-04-24 15:24:06.751",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -266,7 +255,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+\nonly showing top 20 rows\n\n"
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+\nonly showing top 20 rows\n\n"
           }
         ]
       },
@@ -274,15 +263,132 @@
       "jobName": "paragraph_1556115403161_2089011894",
       "id": "20190424-141643_1633520699",
       "dateCreated": "2019-04-24 14:16:43.161",
-      "dateStarted": "2019-04-24 14:34:50.939",
-      "dateFinished": "2019-04-24 14:35:00.423",
+      "dateStarted": "2019-04-24 15:24:06.798",
+      "dateFinished": "2019-04-24 15:24:09.543",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\nclass SpacyMagic(object):\n    \"\"\"\n    Simple Spacy Magic to minimize loading time.\n    \u003e\u003e\u003e SpacyMagic.get(\"en\")\n    \u003cspacy.lang.en.English ...\n    \"\"\"\n    _spacys \u003d {}\n\n    @classmethod\n    def get(cls, lang):\n        if lang not in cls._spacys:\n            import spacy\n            cls._spacys[lang] \u003d spacy.load(lang, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        return cls._spacys[lang]\n\ndef tokenize(text):\n    nlp \u003d SpacyMagic.get(\"en\")\n    doc \u003d nlp(text, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n    tokens \u003d []\n    for token in doc:\n        if token.like_url:\n            clean_token \u003d \"URL\"\n        else:\n            clean_token \u003d token.lemma_.lower().strip()\n            if len(clean_token) \u003c 1 or clean_token in \\\n                    set(\"!$%^\u0026*()_+|~-\u003d`{}[]:\\\";\u0027\u003c\u003e?,./-\"): \n                continue\n        tokens.append(clean_token)\n    return tokens\n\n",
+      "text": "%pyspark\nfrom pyspark.ml.feature import NGram\n\nngram \u003d NGram(inputCol\u003d\u0027body_tokenized\u0027, outputCol\u003d\u0027body_ngram\u0027, n\u003d3)\ndf_ngram \u003d ngram.transform(df_tokenized)\n\ndf_ngram.cache()\ndf_ngram.show()\nprint(\"DONE caching\")\n\n# df_tokenized.unpersist()\n# print(\"FINISHED\")",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:56:40.008",
+      "dateUpdated": "2019-04-24 14:39:03.462",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|[-pron- have alwa...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|[as a ece, a ece ...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|[monday drug comp...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|[i learn that, le...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|[so when we, when...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|[keep go so, go s...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|[kinda what happe...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|[this sound like,...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|[if nothing come,...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|[if medicine keep...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|[do you think, yo...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|[i dislike the, d...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|[i look forward, ...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|[my visible tatto...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+\nonly showing top 20 rows\n\nDONE caching\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556104574063_-2031193949",
+      "id": "20190424-111614_1710459625",
+      "dateCreated": "2019-04-24 11:16:14.063",
+      "dateStarted": "2019-04-24 14:39:03.504",
+      "dateFinished": "2019-04-24 14:39:22.888",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.feature import CountVectorizer\n\ncv \u003d CountVectorizer(inputCol\u003d\u0027body_ngram\u0027, outputCol\u003d\u0027body_tf\u0027)\ncv_model \u003d cv.fit(df_ngram)\ndf_tf \u003d cv_model.transform(df_ngram)\n\ndf_tf.cache()\ndf_tf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 14:39:42.388",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|             body_tf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|[-pron- have alwa...|(262144,[154,490,...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|[as a ece, a ece ...|(262144,[90,151,3...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|[monday drug comp...|(262144,[18022,44...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|[i learn that, le...|(262144,[641,3511...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|(262144,[1374,192...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|[so when we, when...|(262144,[940,7987...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|[keep go so, go s...|(262144,[2036,124...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|(262144,[1351,416...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|(262144,[311,769,...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|(262144,[25,41,44...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|[kinda what happe...|(262144,[0,6,11,2...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|[this sound like,...|(262144,[514,852,...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|[if nothing come,...|(262144,[23661,43...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|[if medicine keep...|(262144,[34,402,6...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|[do you think, yo...|(262144,[24,47,11...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|(262144,[0,285,19...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|[i dislike the, d...|(262144,[967,1000...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|[i look forward, ...|(262144,[100,320,...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|[my visible tatto...|(262144,[15,149,1...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|(262144,[67786,11...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\nDONE caching\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556107815631_210268408",
+      "id": "20190424-121015_82852057",
+      "dateCreated": "2019-04-24 12:10:15.631",
+      "dateStarted": "2019-04-24 14:39:26.922",
+      "dateFinished": "2019-04-24 14:39:35.253",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.feature import IDF\n\nidf \u003d IDF().setInputCol(\u0027body_tf\u0027).setOutputCol(\u0027body_tfidf\u0027)\nidf_model \u003d idf.fit(df_tf)\ndf_tfidf \u003d idf_model.transform(df_tf)\n\ndf_tfidf.cache()\ndf_tfidf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 14:39:47.098",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|[-pron- have alwa...|(262144,[154,490,...|(262144,[154,490,...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|[as a ece, a ece ...|(262144,[90,151,3...|(262144,[90,151,3...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|[monday drug comp...|(262144,[18022,44...|(262144,[18022,44...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|[i learn that, le...|(262144,[641,3511...|(262144,[641,3511...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|(262144,[1374,192...|(262144,[1374,192...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|[so when we, when...|(262144,[940,7987...|(262144,[940,7987...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|[keep go so, go s...|(262144,[2036,124...|(262144,[2036,124...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|(262144,[1351,416...|(262144,[1351,416...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|(262144,[311,769,...|(262144,[311,769,...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|(262144,[25,41,44...|(262144,[25,41,44...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|[kinda what happe...|(262144,[0,6,11,2...|(262144,[0,6,11,2...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|[this sound like,...|(262144,[514,852,...|(262144,[514,852,...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|[if nothing come,...|(262144,[23661,43...|(262144,[23661,43...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|[if medicine keep...|(262144,[34,402,6...|(262144,[34,402,6...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|[do you think, yo...|(262144,[24,47,11...|(262144,[24,47,11...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|(262144,[0,285,19...|(262144,[0,285,19...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|[i dislike the, d...|(262144,[967,1000...|(262144,[967,1000...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|[i look forward, ...|(262144,[100,320,...|(262144,[100,320,...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|[my visible tatto...|(262144,[15,149,1...|(262144,[15,149,1...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|(262144,[67786,11...|(262144,[67786,11...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556105044620_368373304",
+      "id": "20190424-112404_1308508179",
+      "dateCreated": "2019-04-24 11:24:04.620",
+      "dateStarted": "2019-04-24 14:39:47.136",
+      "dateFinished": "2019-04-24 14:39:48.789",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nsplits \u003d df_tfidf.select([\u0027body_tfidf\u0027, \u0027label\u0027]).randomSplit([0.8,0.2],seed\u003d100)\ntrain \u003d splits[0].cache()\ntest \u003d splits[1].cache()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 14:40:00.025",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -305,252 +411,18 @@
         "msg": []
       },
       "apps": [],
-      "jobName": "paragraph_1556099175205_1560529696",
-      "id": "20190424-094615_936570425",
-      "dateCreated": "2019-04-24 09:46:15.205",
-      "dateStarted": "2019-04-24 13:56:40.060",
-      "dateFinished": "2019-04-24 13:56:40.140",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\n\nfrom pyspark.sql.functions import col, udf\nfrom pyspark.sql.types import ArrayType, StringType\n\ntokenize_udf \u003d udf(lambda x: tokenize(x), ArrayType(StringType()))\n\ndf_tokenized \u003d df.withColumn(\n    \"body_tokenized\",\n    tokenize_udf(col(\"body\")))\n\ndf_tokenized.cache()\ndf_tokenized.show()\nprint(\"DONE; Caching\")\n\n# df.unpersist()\n# print(\"FINISHED\")",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:57:11.735",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+\nonly showing top 20 rows\n\nDONE; Caching\n[(95, JavaObject id\u003do212), (88, JavaObject id\u003do213), (77, JavaObject id\u003do214)]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556104558021_-306238969",
-      "id": "20190424-111558_804869693",
-      "dateCreated": "2019-04-24 11:15:58.022",
-      "dateStarted": "2019-04-24 13:56:56.477",
-      "dateFinished": "2019-04-24 13:56:59.223",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\nfrom pyspark.ml.feature import NGram\n\nngram \u003d NGram(inputCol\u003d\u0027body_tokenized\u0027, outputCol\u003d\u0027body_ngram\u0027, n\u003d3)\ndf_ngram \u003d ngram.transform(df_tokenized)\n\ndf_ngram.cache()\ndf_ngram.show()\nprint(\"DONE caching\")\n\n# df_tokenized.unpersist()\n# print(\"FINISHED\")",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:57:26.161",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|          body_ngram|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|[-pron- have alwa...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|[as a ece, a ece ...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|[monday drug comp...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|[i learn that, le...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|[well i be, i be ...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|[so when we, when...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|[keep go so, go s...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|[rains here just,...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|[that explain it,...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|[hi bocceballer42...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|[kinda what happe...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|[this sound like,...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|[if nothing come,...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|[if medicine keep...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|[do you think, yo...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|[i do not, do not...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|[i dislike the, d...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|[i look forward, ...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|[my visible tatto...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|[3 week why, week...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+\nonly showing top 20 rows\n\nDONE caching\n[(95, JavaObject id\u003do250), (88, JavaObject id\u003do251), (100, JavaObject id\u003do252), (77, JavaObject id\u003do253)]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556104574063_-2031193949",
-      "id": "20190424-111614_1710459625",
-      "dateCreated": "2019-04-24 11:16:14.063",
-      "dateStarted": "2019-04-24 13:57:14.398",
-      "dateFinished": "2019-04-24 13:57:14.833",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\nfrom pyspark.ml.feature import CountVectorizer\n\ncv \u003d CountVectorizer(inputCol\u003d\u0027body_ngram\u0027, outputCol\u003d\u0027body_tf\u0027)\ncv_model \u003d cv.fit(df_ngram)\ndf_tf \u003d cv_model.transform(df_ngram)\n\ndf_tf.cache()\ndf_tf.show()\nprint(\"DONE caching\")\n\n# df_ngram.unpersist()\n# print(\"FINISHED\")",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:57:44.859",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|          body_ngram|             body_tf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|[-pron- have alwa...|(29111,[105,206,5...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|[as a ece, a ece ...|(29111,[90,153,18...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|[monday drug comp...|(29111,[12229,177...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|[i learn that, le...|(29111,[8170,9091...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|[well i be, i be ...|(29111,[663,4870,...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|[so when we, when...|(29111,[362,625,9...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|[keep go so, go s...|(29111,[757,1267,...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|[rains here just,...|(29111,[455,2783,...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|[that explain it,...|(29111,[94,221,26...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|[hi bocceballer42...|(29111,[16,23,25,...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|[kinda what happe...|(29111,[0,4,17,38...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|[this sound like,...|(29111,[188,520,2...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|[if nothing come,...|(29111,[1879,5415...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|[if medicine keep...|(29111,[17,287,99...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|[do you think, yo...|(29111,[6,13,247,...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|[i do not, do not...|(29111,[0,1069,10...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|[i dislike the, d...|(29111,[128,331,1...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|[i look forward, ...|(29111,[30,134,30...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|[my visible tatto...|(29111,[8,44,2050...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|[3 week why, week...|(29111,[2137,3487...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\nDONE caching\n[(88, JavaObject id\u003do299), (77, JavaObject id\u003do300), (95, JavaObject id\u003do301), (114, JavaObject id\u003do302), (100, JavaObject id\u003do303)]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556107815631_210268408",
-      "id": "20190424-121015_82852057",
-      "dateCreated": "2019-04-24 12:10:15.631",
-      "dateStarted": "2019-04-24 13:57:28.201",
-      "dateFinished": "2019-04-24 13:57:31.073",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\nfrom pyspark.ml.feature import IDF\n\nidf \u003d IDF().setInputCol(\u0027body_tf\u0027).setOutputCol(\u0027body_tfidf\u0027)\nidf_model \u003d idf.fit(df_tf)\ndf_tfidf \u003d idf_model.transform(df_tf)\n\ndf_tfidf.cache()\ndf_tfidf.show()\nprint(\"DONE caching\")\n\n# df_tf.unpersist()\n# print(\"FINISHED\")\nprint(list(spark.sparkContext._jsc.getPersistentRDDs().items()))",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:57:46.888",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|[-pron- have alwa...|(29111,[105,206,5...|(29111,[105,206,5...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|[as a ece, a ece ...|(29111,[90,153,18...|(29111,[90,153,18...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|[monday drug comp...|(29111,[12229,177...|(29111,[12229,177...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|[i learn that, le...|(29111,[8170,9091...|(29111,[8170,9091...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|[well i be, i be ...|(29111,[663,4870,...|(29111,[663,4870,...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|[so when we, when...|(29111,[362,625,9...|(29111,[362,625,9...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|[keep go so, go s...|(29111,[757,1267,...|(29111,[757,1267,...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|[rains here just,...|(29111,[455,2783,...|(29111,[455,2783,...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|[that explain it,...|(29111,[94,221,26...|(29111,[94,221,26...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|[hi bocceballer42...|(29111,[16,23,25,...|(29111,[16,23,25,...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|[kinda what happe...|(29111,[0,4,17,38...|(29111,[0,4,17,38...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|[this sound like,...|(29111,[188,520,2...|(29111,[188,520,2...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|[if nothing come,...|(29111,[1879,5415...|(29111,[1879,5415...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|[if medicine keep...|(29111,[17,287,99...|(29111,[17,287,99...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|[do you think, yo...|(29111,[6,13,247,...|(29111,[6,13,247,...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|[i do not, do not...|(29111,[0,1069,10...|(29111,[0,1069,10...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|[i dislike the, d...|(29111,[128,331,1...|(29111,[128,331,1...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|[i look forward, ...|(29111,[30,134,30...|(29111,[30,134,30...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|[my visible tatto...|(29111,[8,44,2050...|(29111,[8,44,2050...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|[3 week why, week...|(29111,[2137,3487...|(29111,[2137,3487...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\nDONE caching\n[(88, JavaObject id\u003do339), (124, JavaObject id\u003do340), (77, JavaObject id\u003do341), (95, JavaObject id\u003do342), (114, JavaObject id\u003do343), (100, JavaObject id\u003do344)]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556105044620_368373304",
-      "id": "20190424-112404_1308508179",
-      "dateCreated": "2019-04-24 11:24:04.620",
-      "dateStarted": "2019-04-24 13:57:46.934",
-      "dateFinished": "2019-04-24 13:57:48.366",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\nfrom pyspark.sql.types import IntegerType\n\nlabel_udf \u003d udf(lambda x: 1 if x \u003d\u003d \"True\" else 0, IntegerType())\n\ndf_input \u003d df_tfidf.withColumn(\n    \"label\",\n    label_udf(col(\"removed\")))\n\ndf_input.cache()\ndf_input.show()\nprint(\"DONE caching\")\n\n# df_tfidf.unpersist()\n# print(\"FINISHED\")",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:58:06.614",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+-----+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|label|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+-----+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|[-pron-, have, al...|[-pron- have alwa...|(29111,[105,206,5...|(29111,[105,206,5...|    0|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|[as, a, ece, my, ...|[as a ece, a ece ...|(29111,[90,153,18...|(29111,[90,153,18...|    1|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|[monday, drug, co...|[monday drug comp...|(29111,[12229,177...|(29111,[12229,177...|    1|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|[i, learn, that, ...|[i learn that, le...|(29111,[8170,9091...|(29111,[8170,9091...|    0|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|[well, i, be, wan...|[well i be, i be ...|(29111,[663,4870,...|(29111,[663,4870,...|    0|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|[so, when, we, ca...|[so when we, when...|(29111,[362,625,9...|(29111,[362,625,9...|    0|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|[keep, go, so, cl...|[keep go so, go s...|(29111,[757,1267,...|(29111,[757,1267,...|    1|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|[rains, here, jus...|[rains here just,...|(29111,[455,2783,...|(29111,[455,2783,...|    1|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|[that, explain, i...|[that explain it,...|(29111,[94,221,26...|(29111,[94,221,26...|    1|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|[hi, bocceballer4...|[hi bocceballer42...|(29111,[16,23,25,...|(29111,[16,23,25,...|    0|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|[kinda, what, hap...|[kinda what happe...|(29111,[0,4,17,38...|(29111,[0,4,17,38...|    0|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|[this, sound, lik...|[this sound like,...|(29111,[188,520,2...|(29111,[188,520,2...|    1|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|[if, nothing, com...|[if nothing come,...|(29111,[1879,5415...|(29111,[1879,5415...|    0|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|[if, medicine, ke...|[if medicine keep...|(29111,[17,287,99...|(29111,[17,287,99...|    0|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|[do, you, think, ...|[do you think, yo...|(29111,[6,13,247,...|(29111,[6,13,247,...|    0|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|[i, do, not, unde...|[i do not, do not...|(29111,[0,1069,10...|(29111,[0,1069,10...|    0|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|[i, dislike, the,...|[i dislike the, d...|(29111,[128,331,1...|(29111,[128,331,1...|    1|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|[i, look, forward...|[i look forward, ...|(29111,[30,134,30...|(29111,[30,134,30...|    0|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|[my, visible, tat...|[my visible tatto...|(29111,[8,44,2050...|(29111,[8,44,2050...|    0|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|[3, week, why, on...|[3 week why, week...|(29111,[2137,3487...|(29111,[2137,3487...|    1|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+--------------------+--------------------+--------------------+--------------------+-----+\nonly showing top 20 rows\n\nDONE caching\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556108207770_2038504226",
-      "id": "20190424-121647_580543641",
-      "dateCreated": "2019-04-24 12:16:47.770",
-      "dateStarted": "2019-04-24 13:58:06.662",
-      "dateFinished": "2019-04-24 13:58:07.297",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\nsplits \u003d df_input.select([\u0027body_tfidf\u0027, \u0027label\u0027]).randomSplit([0.8,0.2],seed\u003d100)\ntrain \u003d splits[0].cache()\ntest \u003d splits[1].cache()\nprint(\"DONE caching\")\n\n# df_input.unpersist()\n# print(\"FINISHED\")",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:58:24.712",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "DONE caching\n[(88, JavaObject id\u003do391), (124, JavaObject id\u003do392), (77, JavaObject id\u003do393), (95, JavaObject id\u003do394), (114, JavaObject id\u003do395), (139, JavaObject id\u003do396), (136, JavaObject id\u003do397), (131, JavaObject id\u003do398), (100, JavaObject id\u003do399)]\n"
-          }
-        ]
-      },
-      "apps": [],
       "jobName": "paragraph_1556107967909_1030280264",
       "id": "20190424-121247_530364756",
       "dateCreated": "2019-04-24 12:12:47.909",
-      "dateStarted": "2019-04-24 13:58:18.024",
-      "dateFinished": "2019-04-24 13:58:18.365",
+      "dateStarted": "2019-04-24 14:40:00.070",
+      "dateFinished": "2019-04-24 14:40:00.239",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n\nmax_iter \u003d 10\nreg_param \u003d 0.3\nelastic_net_param \u003d 0.8\n\nlr \u003d LogisticRegression().\\\n        setLabelCol(\u0027label\u0027).\\\n        setFeaturesCol(\u0027body_tfidf\u0027).\\\n        setRegParam(reg_param).\\\n        setMaxIter(max_iter).\\\n        setElasticNetParam(elastic_net_param)\n        \nlr_model \u003d lr.fit(train)\nlr_pred \u003d lr_model.transform(test)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:58:25.689",
+      "dateUpdated": "2019-04-24 14:40:05.871",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -576,15 +448,15 @@
       "jobName": "paragraph_1556108056948_373468350",
       "id": "20190424-121416_1680948410",
       "dateCreated": "2019-04-24 12:14:16.948",
-      "dateStarted": "2019-04-24 13:58:25.731",
-      "dateFinished": "2019-04-24 13:58:27.957",
+      "dateStarted": "2019-04-24 14:40:05.915",
+      "dateFinished": "2019-04-24 14:40:08.399",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nfrom pyspark.ml.evaluation import MulticlassClassificationEvaluator\n\nmodel_eval \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\nlr_score \u003d model_eval.evaluate(lr_pred)\nprint(\"Score: %.4f\" % lr_score)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:58:29.428",
+      "dateUpdated": "2019-04-24 14:40:11.768",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -607,7 +479,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Score: 0.6373\n"
+            "data": "Score: 0.6206\n"
           }
         ]
       },
@@ -615,24 +487,199 @@
       "jobName": "paragraph_1556109914197_372257927",
       "id": "20190424-124514_390313954",
       "dateCreated": "2019-04-24 12:45:14.198",
-      "dateStarted": "2019-04-24 13:58:29.472",
-      "dateFinished": "2019-04-24 13:58:30.330",
+      "dateStarted": "2019-04-24 14:40:11.822",
+      "dateFinished": "2019-04-24 14:40:12.924",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml import Pipeline\n\npipeline \u003d Pipeline(stages\u003d[\n    tokenizer, \n    ngram, \n    cv, \n    idf,\n    lr])\n    \n\nsplits \u003d df_input.randomSplit([0.8,0.2], seed\u003d100)\ntrain \u003d splits[0].cache()\ntest \u003d splits[1].cache()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 15:24:23.347",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556110966630_1699574621",
+      "id": "20190424-130246_910680063",
+      "dateCreated": "2019-04-24 13:02:46.630",
+      "dateStarted": "2019-04-24 15:24:23.394",
+      "dateFinished": "2019-04-24 15:24:23.518",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\npipeline_model \u003d pipeline.fit(train)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 15:24:25.287",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556117262549_-1833139638",
+      "id": "20190424-144742_1374770811",
+      "dateCreated": "2019-04-24 14:47:42.549",
+      "dateStarted": "2019-04-24 15:24:25.339",
+      "dateFinished": "2019-04-24 15:24:32.427",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\npipeline_pred \u003d pipeline_model.transform(test)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 15:12:50.101",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556117278624_402507066",
+      "id": "20190424-144758_1037030750",
+      "dateCreated": "2019-04-24 14:47:58.624",
+      "dateStarted": "2019-04-24 15:12:50.155",
+      "dateFinished": "2019-04-24 15:12:50.394",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\npipeline_eval \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\npipeline_score \u003d pipeline_eval.evaluate(pipeline_pred)\nprint(\"Score: %.4f\" % pipeline_score)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 15:12:55.756",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Score: 0.6167\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556117338993_-1207294821",
+      "id": "20190424-144858_1610760957",
+      "dateCreated": "2019-04-24 14:48:58.993",
+      "dateStarted": "2019-04-24 15:12:55.807",
+      "dateFinished": "2019-04-24 15:13:02.456",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\npipeline_model.save(\"/machinelearning/spark_pipeline.model\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 15:24:34.468",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556117464354_-618245016",
+      "id": "20190424-145104_1024882918",
+      "dateCreated": "2019-04-24 14:51:04.354",
+      "dateStarted": "2019-04-24 15:24:34.517",
+      "dateFinished": "2019-04-24 15:24:38.546",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 13:02:46.631",
+      "dateUpdated": "2019-04-24 14:53:23.022",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1556110966630_1699574621",
-      "id": "20190424-130246_910680063",
-      "dateCreated": "2019-04-24 13:02:46.630",
+      "jobName": "paragraph_1556117603021_-2003078605",
+      "id": "20190424-145323_279644109",
+      "dateCreated": "2019-04-24 14:53:23.021",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
