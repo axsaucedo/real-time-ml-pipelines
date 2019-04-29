@@ -22,6 +22,7 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 172.25.0.12
       KAFKA_ZOOKEEPER_CONNECT: 172.25.0.11:2181
+      KAFKA_CREATE_TOPICS: "reddit_stream:2:2,reddit_processed_stream:2:2,reddit_alerts_stream:2:2"
       KAFKA_ADVERTISED_PORT: 9092
       KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.3.1.jar=8080:/prometheus/kafka-0-8-2.yml 
     volumes:
@@ -135,9 +136,6 @@ services:
       - ./zeppelin/machinelearning:/machinelearning
       - ./zeppelin/pyspark-notebooks:/zeppelin/notebook
       - ./zeppelin/zeppelin-interpreters/interpreter.json:/zeppelin/conf/interpreter.json
-      - ./zeppelin/pyspark-packages/sklearn:/usr/lib/python3.6/site-packages/sklearn
-      - ./zeppelin/pyspark-packages/spark_sklearn:/usr/lib/python3.6/site-packages/spark_skearn
-      - ./zeppelin/pyspark-packages/kafka:/usr/lib/python3.6/site-packages/kafka
     networks:
       kafkanet:
         ipv4_address: 172.25.0.19

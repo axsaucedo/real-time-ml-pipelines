@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%sh\npip install kafka-python",
+      "text": "%sh\npip install kafka-python\npip install elasticsearch",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 17:09:16.785",
+      "dateUpdated": "2019-04-26 17:17:14.039",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -26,7 +26,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Collecting kafka-python\n  Downloading https://files.pythonhosted.org/packages/82/39/aebe3ad518513bbb2260dd84ac21e5c30af860cc4c95b32acbd64b9d9d0d/kafka_python-1.4.6-py2.py3-none-any.whl (259kB)\nInstalling collected packages: kafka-python\nSuccessfully installed kafka-python-1.4.6\nYou are using pip version 8.1.2, however version 19.0.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n"
+            "data": "Collecting kafka-python\n  Downloading https://files.pythonhosted.org/packages/82/39/aebe3ad518513bbb2260dd84ac21e5c30af860cc4c95b32acbd64b9d9d0d/kafka_python-1.4.6-py2.py3-none-any.whl (259kB)\nInstalling collected packages: kafka-python\nSuccessfully installed kafka-python-1.4.6\nYou are using pip version 8.1.2, however version 19.1 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\nCollecting elasticsearch\n  Downloading https://files.pythonhosted.org/packages/a8/27/d3a9ecd9f8f972d99da98672d4766b9f62ef64c323c40bb5e2557e538ea3/elasticsearch-7.0.0-py2.py3-none-any.whl (80kB)\nCollecting urllib3\u003e\u003d1.21.1 (from elasticsearch)\n  Downloading https://files.pythonhosted.org/packages/c0/1f/516c14fd47ced1a2e2882edd776241c5b707ffc9051cd372843579829994/urllib3-1.25.1-py2.py3-none-any.whl (150kB)\nInstalling collected packages: urllib3, elasticsearch\nSuccessfully installed elasticsearch-7.0.0 urllib3-1.25.1\nYou are using pip version 8.1.2, however version 19.1 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n"
           }
         ]
       },
@@ -34,15 +34,16 @@
       "jobName": "paragraph_1556125734883_1828507477",
       "id": "20190424-170854_1492947490",
       "dateCreated": "2019-04-24 17:08:54.883",
-      "dateStarted": "2019-04-24 17:09:16.823",
-      "dateFinished": "2019-04-24 17:09:18.483",
+      "dateStarted": "2019-04-26 17:17:14.133",
+      "dateFinished": "2019-04-26 17:17:18.335",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "",
       "text": "%producer.pyspark\nfrom pyspark.sql.types import IntegerType\nfrom pyspark.sql.functions import udf, col\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"quoteMode\",\"ALL\")\n        .option(\"multiLine\",\"true\")\n        .option(\"wholeFile\",\"true\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/machinelearning/reddit_200k.csv\")).limit(2000)\n        \ndf_list \u003d df.collect()\ndf.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 17:11:24.610",
+      "dateUpdated": "2019-04-25 15:05:48.553",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -54,7 +55,10 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/python"
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "tableHide": false,
+        "title": false
       },
       "settings": {
         "params": {},
@@ -69,34 +73,19 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.25.0.19:4040/jobs/job?id\u003d14",
-            "http://172.25.0.19:4040/jobs/job?id\u003d15",
-            "http://172.25.0.19:4040/jobs/job?id\u003d16",
-            "http://172.25.0.19:4040/jobs/job?id\u003d17"
-          ],
-          "interpreterSettingId": "producer"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1556120282490_1275576273",
       "id": "20190424-153802_2004623441",
       "dateCreated": "2019-04-24 15:38:02.490",
-      "dateStarted": "2019-04-24 16:56:44.498",
-      "dateFinished": "2019-04-24 16:56:46.214",
+      "dateStarted": "2019-04-25 15:05:48.590",
+      "dateFinished": "2019-04-25 15:06:04.893",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%producer.pyspark\nfirst \u003d df_list[0]\nprint(first)\nprint(first[\"body\"])",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 17:01:27.810",
+      "dateUpdated": "2019-04-25 11:21:01.328",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -127,15 +116,15 @@
       "jobName": "paragraph_1556125132106_-1022648648",
       "id": "20190424-165852_1014499771",
       "dateCreated": "2019-04-24 16:58:52.106",
-      "dateStarted": "2019-04-24 17:01:27.845",
-      "dateFinished": "2019-04-24 17:01:27.914",
+      "dateStarted": "2019-04-25 11:21:01.393",
+      "dateFinished": "2019-04-25 11:21:01.939",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%producer.pyspark\nimport time\nimport json\n\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\n\nKAFKA_BROKER \u003d \"172.25.0.12:9092\"\nREDDIT_TOPIC \u003d \"reddit_stream\"\n\nproducer \u003d KafkaProducer(bootstrap_servers\u003d[KAFKA_BROKER])\nindex \u003d 0\n\nwhile True:\n    \n    reddit_row \u003d df_list[index]\n    \n    reddit_id \u003d reddit_row[\"id\"]\n    \n    reddit_dict \u003d {\n        \"body\": reddit_row[\"body\"],\n        \"score\": reddit_row[\"score\"],\n        \"id\": reddit_id,\n        \"parent_id\": reddit_row[\"parent_id\"],\n        \"created_date\": reddit_row[\"created_date\"]\n    }\n    \n    future \u003d producer.send(\n        topic\u003dREDDIT_TOPIC, \n        key\u003dreddit_id.encode(\"utf-8\"),\n        value\u003djson.dumps(reddit_dict).encode(\"utf-8\"))\n    \n    try:\n        record_metadata \u003d future.get(timeout\u003d10)\n    except KafkaError:\n        # Decide what to do if produce request failed...\n        log.exception()\n        pass\n    \n    index +\u003d 1\n    time.sleep(1)",
+      "text": "%producer.pyspark\nimport time\nimport json\nimport random\nimport logging\n\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\n\nKAFKA_BROKER \u003d \"172.25.0.12:9092\"\nREDDIT_TOPIC \u003d \"reddit_stream\"\n\nproducer \u003d KafkaProducer(bootstrap_servers\u003d[KAFKA_BROKER])\nindex \u003d 0\n\nwhile True:\n    \n    reddit_row \u003d df_list[index]\n    \n    reddit_id \u003d reddit_row[\"id\"]\n    \n    reddit_dict \u003d {\n        \"body\": reddit_row[\"body\"],\n        \"score\": reddit_row[\"score\"],\n        \"id\": reddit_id,\n        \"parent_id\": reddit_row[\"parent_id\"],\n        \"created_date\": reddit_row[\"created_date\"]\n    }\n    \n    future \u003d producer.send(\n        topic\u003dREDDIT_TOPIC, \n        key\u003dreddit_id.encode(\"utf-8\"),\n        value\u003djson.dumps(reddit_dict).encode(\"utf-8\"))\n    \n    try:\n        record_metadata \u003d future.get(timeout\u003d10)\n    except KafkaError:\n        # Decide what to do if produce request failed...\n        logging.exception(\"Error\")\n        pass\n    \n    producer.flush()\n    \n    index +\u003d 1\n    time.sleep(random.uniform(0.1,1.0))",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 17:09:29.202",
+      "dateUpdated": "2019-04-25 15:06:17.064",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -158,7 +147,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mKeyboardInterrupt\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-38-9f8ec4d86ae3\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     38\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     39\u001b[0m     \u001b[0mindex\u001b[0m \u001b[0;34m+\u003d\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 40\u001b[0;31m     \u001b[0mtime\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msleep\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\n\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mIndexError\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-6-d908e5ca7ea8\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     15\u001b[0m \u001b[0;32mwhile\u001b[0m \u001b[0mTrue\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     16\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 17\u001b[0;31m     \u001b[0mreddit_row\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mdf_list\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mindex\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     18\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m     \u001b[0mreddit_id\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mreddit_row\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"id\"\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mIndexError\u001b[0m: list index out of range"
           }
         ]
       },
@@ -166,15 +155,15 @@
       "jobName": "paragraph_1556124778874_694089528",
       "id": "20190424-165258_808657351",
       "dateCreated": "2019-04-24 16:52:58.874",
-      "dateStarted": "2019-04-24 17:09:29.245",
-      "dateFinished": "2019-04-24 17:11:09.590",
-      "status": "ABORT",
+      "dateStarted": "2019-04-25 15:06:17.103",
+      "dateFinished": "2019-04-25 23:11:13.667",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%consumer.pyspark\nfrom pyspark.ml import PipelineModel\n\npipeline_model \u003d PipelineModel.load(\"/machinelearning/spark_pipeline.model\")",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 16:44:26.591",
+      "dateUpdated": "2019-04-25 15:06:53.118",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -196,20 +185,19 @@
         "code": "SUCCESS",
         "msg": []
       },
-      "runtimeInfos": {},
       "apps": [],
       "jobName": "paragraph_1556120316432_903153975",
       "id": "20190424-153836_823235289",
       "dateCreated": "2019-04-24 15:38:36.432",
-      "dateStarted": "2019-04-24 16:44:26.629",
-      "dateFinished": "2019-04-24 16:44:34.408",
+      "dateStarted": "2019-04-25 15:06:53.154",
+      "dateFinished": "2019-04-25 15:07:13.094",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%consumer.pyspark\n\npipeline_pred \u003d pipeline_model.transform(df.limit(100))\npipeline_pred.select([\"body\", \"probability\", \"prediction\", \"removed\"]).show()",
+      "text": "%consumer.pyspark\n\ncomment \u003d sc.parallelize([{\"body\":\"my co-workers couldn\\\u0027t even write a simple message in our communication book without making mistakes.\"}]).toDF()\n\npipeline_model.transform(comment).show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 17:15:35.465",
+      "dateUpdated": "2019-04-25 15:07:20.268",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -232,24 +220,23 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------------------+--------------------+----------+-------+\n|                body|         probability|prediction|removed|\n+--------------------+--------------------+----------+-------+\n|I\u0027ve always been ...|[0.97890806118386...|       0.0|  False|\n|\"As an ECE, my fi...|[0.05519537654861...|       1.0|   True|\n|Monday: Drug comp...|[0.22263249881830...|       1.0|   True|\n|i learned that al...|[0.62228857104400...|       0.0|  False|\n|Well i was wantin...|[0.64161513275353...|       0.0|  False|\n|So when we can re...|[0.99421944220081...|       0.0|  False|\n|Keep going! So cl...|[0.25107944048936...|       1.0|   True|\n|Rains here just s...|[0.63600451049168...|       0.0|   True|\n|That explains it,...|[0.62228857104400...|       0.0|   True|\n|Hi BocceBaller42,...|[0.65555868754690...|       0.0|  False|\n|Kinda what happen...|[0.98998335513379...|       0.0|  False|\n|This sounds like ...|[0.00289053182273...|       1.0|   True|\n|If nothing comes ...|[0.99943412443999...|       0.0|  False|\n|If medicine keeps...|[0.99855570624868...|       0.0|  False|\n|do you think the ...|[0.98908706474745...|       0.0|  False|\n|I don\u0027t understan...|[0.65286353161492...|       0.0|  False|\n|I dislike the ton...|[0.00769434050898...|       1.0|   True|\n|I look forward to...|[0.99498457095559...|       0.0|  False|\n|My visible tattoo...|[0.99349613513265...|       0.0|  False|\n|3 weeks?  Why onl...|[0.62228857104400...|       0.0|   True|\n+--------------------+--------------------+----------+-------+\nonly showing top 20 rows\n\n"
+            "data": "/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/sql/session.py:356: UserWarning: Using RDD of dict to inferSchema is deprecated. Use pyspark.sql.Row instead\n+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+----------+\n|                body|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|       rawPrediction|         probability|prediction|\n+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+----------+\n|my co-workers cou...|[my, co-workers, ...|[my co-workers co...|(262144,[33008,73...|(262144,[33008,73...|[-1.4791868102796...|[0.18555027821690...|       1.0|\n+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+----------+\n\n"
           }
         ]
       },
-      "runtimeInfos": {},
       "apps": [],
       "jobName": "paragraph_1556120581420_-171954364",
       "id": "20190424-154301_725115891",
       "dateCreated": "2019-04-24 15:43:01.420",
-      "dateStarted": "2019-04-24 16:47:47.291",
-      "dateFinished": "2019-04-24 16:47:48.845",
+      "dateStarted": "2019-04-25 15:07:20.301",
+      "dateFinished": "2019-04-25 15:07:25.055",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%consumer.pyspark\n\nfrom pyspark.streaming import StreamingContext\n\n# SparkContext Config\nsc.setLogLevel(\"WARN\")\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass\n\nssc \u003d StreamingContext(sc, batchDuration\u003d2)",
+      "text": "%consumer.pyspark\nfrom pyspark.streaming import StreamingContext\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass\n\nssc \u003d StreamingContext(sc, batchDuration\u003d2)\n\n",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:27:07.868",
+      "dateUpdated": "2019-04-25 23:01:47.640",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -275,15 +262,15 @@
       "jobName": "paragraph_1556023399287_172318548",
       "id": "20190423-124319_905844445",
       "dateCreated": "2019-04-23 12:43:19.287",
-      "dateStarted": "2019-04-24 15:27:07.932",
-      "dateFinished": "2019-04-24 15:27:31.162",
+      "dateStarted": "2019-04-25 23:01:48.460",
+      "dateFinished": "2019-04-25 23:01:51.222",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%consumer.pyspark\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\nfrom pyspark.streaming.kafka import KafkaUtils\n\ntopic \u003d \"train\"\nbrokers \u003d \"172.25.0.12:9092,172.25.0.13:9092\"\n\nkvs \u003d KafkaUtils.createDirectStream(ssc, [topic], {\"metadata.broker.list\": brokers})\n\nlines \u003d kvs.map(lambda x: x[1])\n\nwords \u003d lines.flatMap(lambda line: line.split(\" \"))\n\nword_counts \u003d words.map(lambda word: (word, 1)) \\\n                 .reduceByKey(lambda a, b: a+b)\n\n# word_counts.pprint()\n\n\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\n\ndef send_to_kafka(x):\n    producer \u003d KafkaProducer(bootstrap_servers\u003d[\"172.25.0.12:9092\"])\n    future \u003d producer.send(\"test\", str(x).encode(\"utf-8\"))\n    try:\n        record_metadata \u003d future.get(timeout\u003d10)\n    except KafkaError:\n        # Decide what to do if produce request failed...\n        log.exception()\n        pass\n\nword_counts.foreachRDD(lambda x: x.foreach(send_to_kafka))\n\nssc.start()\nssc.awaitTermination()",
+      "text": "%consumer.pyspark\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\nimport json\nfrom pyspark.streaming.kafka import KafkaUtils\nfrom pyspark.sql import SparkSession\nfrom pyspark.streaming import StreamingContext\nimport datetime\n    a\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass\n\nssc \u003d StreamingContext(sc, batchDuration\u003d2)\n\nREDDIT_TOPIC \u003d \"reddit_stream\"\nREDDIT_PREDICTION_TOPIC \u003d \"reddit_prediction_stream\"\nREDDIT_ALERT_TOPIC \u003d \"reddit_alerts_stream\"\nKAFKA_BROKERS \u003d \"172.25.0.12:9092,172.25.0.13:9092\"\n\nclass KafkaMagic():\n    \n    _producer \u003d None\n    \n    @classmethod\n    def get_producer(cls):\n        if not cls._producer:\n            from kafka import KafkaProducer\n            cls._producer \u003d KafkaProducer(bootstrap_servers\u003d[\"172.25.0.12:9092\"])\n        return cls._producer\n\n    @staticmethod\n    def send(topic, value, key\u003dNone):\n        kp \u003d KafkaMagic.get_producer()\n        print(value)\n        future \u003d kp.send(topic, key\u003dkey, value\u003dvalue)\n        future.get(timeout\u003d10)\n\n\nstream \u003d KafkaUtils.createDirectStream(\n                            ssc, \n                            [REDDIT_TOPIC], \n                            {\"metadata.broker.list\": KAFKA_BROKERS})\n\nstream \u003d stream.map(lambda x: json.loads(x[1]))\n\ndef process_inference(rdd):\n    \n    if not rdd.isEmpty():\n        df \u003d rdd.toDF()\n        \n        # Process a prediction on all the rows\n        results \u003d pipeline_model.transform(df)\n        \n        # Convert the results to JSON\n        results_json \u003d results.toJSON().map(lambda x: json.loads(x))\n        \n        def convert_dates(x):\n            x[\"\"]\n        dates_json \u003d results_json.map(convert_dates)\n        \n        # Send ALL the predictions to the processed topic\n        results_json.foreach(lambda x: KafkaMagic.send(\n            REDDIT_PREDICTION_TOPIC, \n            json.dumps(x).encode(\"utf-8\"),\n            key\u003dx[\"id\"].encode(\"utf-8\")))\n            \n        # Send an ALERT to mods for flagged comments \n        alert_json \u003d results_json.filter(lambda x: x[\"probability\"] \u003e 0.5)\n        alert_json.foreach(lambda x: KafkaMagic.send(\n            REDDIT_ALERT_TOPIC,\n            json.dumps(\n                    {k: x[k] for k in (\u0027body\u0027, \u0027probability\u0027, \u0027score\u0027, \u0027id\u0027)}\n                ).encode(\"utf-8\"),\n            key\u003dx[\"id\"].encode(\"utf-8\")))\n    \nstream \u003d stream.foreachRDD(process_inference)\n\nssc.start()\nssc.awaitTermination()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:28:28.404",
+      "dateUpdated": "2019-04-25 23:10:32.613",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -306,7 +293,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Fail to execute line 37: ssc.awaitTermination()\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-3517901777895046841.py\", line 380, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 37, in \u003cmodule\u003e\n  File \"/opt/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/context.py\", line 206, in awaitTermination\n    self._jssc.awaitTermination()\n  File \"/opt/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\", line 1131, in __call__\n    answer \u003d self.gateway_client.send_command(command)\n  File \"/opt/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\", line 883, in send_command\n    response \u003d connection.send_command(command)\n  File \"/opt/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\", line 1028, in send_command\n    answer \u003d smart_decode(self.stream.readline()[:-1])\n  File \"/usr/lib/python3.6/socket.py\", line 586, in readinto\n    return self._sock.recv_into(b)\n  File \"/opt/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/context.py\", line 237, in signal_handler\n    raise KeyboardInterrupt()\nKeyboardInterrupt\n"
+            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mKeyboardInterrupt\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-14-798b0830ad0a\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     74\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     75\u001b[0m \u001b[0mssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstart\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 76\u001b[0;31m \u001b[0mssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mawaitTermination\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/context.py\u001b[0m in \u001b[0;36mawaitTermination\u001b[0;34m(self, timeout)\u001b[0m\n\u001b[1;32m    204\u001b[0m         \"\"\"\n\u001b[1;32m    205\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mtimeout\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 206\u001b[0;31m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mawaitTermination\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    207\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    208\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mawaitTerminationOrTimeout\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtimeout\u001b[0m \u001b[0;34m*\u001b[0m \u001b[0;36m1000\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36m__call__\u001b[0;34m(self, *args)\u001b[0m\n\u001b[1;32m   1129\u001b[0m             \u001b[0mproto\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mEND_COMMAND_PART\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1130\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-\u003e 1131\u001b[0;31m         \u001b[0manswer\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgateway_client\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msend_command\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcommand\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1132\u001b[0m         return_value \u003d get_return_value(\n\u001b[1;32m   1133\u001b[0m             answer, self.gateway_client, self.target_id, self.name)\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36msend_command\u001b[0;34m(self, command, retry, binary)\u001b[0m\n\u001b[1;32m    881\u001b[0m         \u001b[0mconnection\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_get_connection\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    882\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 883\u001b[0;31m             \u001b[0mresponse\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mconnection\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msend_command\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcommand\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    884\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mbinary\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    885\u001b[0m                 \u001b[0;32mreturn\u001b[0m \u001b[0mresponse\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_create_connection_guard\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mconnection\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36msend_command\u001b[0;34m(self, command)\u001b[0m\n\u001b[1;32m   1026\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1027\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-\u003e 1028\u001b[0;31m             \u001b[0manswer\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0msmart_decode\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mreadline\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1029\u001b[0m             \u001b[0mlogger\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdebug\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Answer received: {0}\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mformat\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0manswer\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1030\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0manswer\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstartswith\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mproto\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mRETURN_MESSAGE\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/opt/conda/lib/python2.7/socket.pyc\u001b[0m in \u001b[0;36mreadline\u001b[0;34m(self, size)\u001b[0m\n\u001b[1;32m    449\u001b[0m             \u001b[0;32mwhile\u001b[0m \u001b[0mTrue\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    450\u001b[0m                 \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 451\u001b[0;31m                     \u001b[0mdata\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_sock\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrecv\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_rbufsize\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    452\u001b[0m                 \u001b[0;32mexcept\u001b[0m \u001b[0merror\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    453\u001b[0m                     \u001b[0;32mif\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0margs\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m\u003d\u003d\u001b[0m \u001b[0mEINTR\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mKeyboardInterrupt\u001b[0m: "
           }
         ]
       },
@@ -314,54 +301,15 @@
       "jobName": "paragraph_1556022009133_-1199138898",
       "id": "20190423-122009_873241770",
       "dateCreated": "2019-04-23 12:20:09.133",
-      "dateStarted": "2019-04-23 15:43:50.633",
-      "dateFinished": "2019-04-23 15:52:21.184",
+      "dateStarted": "2019-04-25 23:02:35.035",
+      "dateFinished": "2019-04-25 23:06:57.738",
       "status": "ABORT",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "",
+      "text": "%sink.pyspark\nimport logging\n\nclass ElasticMagic():\n    \n    _conf \u003d {\n        \"host\": \"172.25.0.17\",\n        \"port\": \"9200\",\n        \"scheme\": \"http\"\n    }\n    _client \u003d None\n    \n    @classmethod\n    def get_client(cls):\n        if not cls._client:\n            from elasticsearch import Elasticsearch\n            cls._client \u003d Elasticsearch([cls._conf])\n        return cls._client\n\n    @staticmethod\n    def send(index, doctype, value, key\u003dNone):\n        es \u003d ElasticMagic.get_client()\n        try:\n            es.index(\n                index\u003dindex, \n                doc_type\u003ddoctype, \n                id\u003dkey, \n                body\u003dvalue)\n            failed \u003d response.get(\"_shards\",{}).get(\"failed\")\n\n            if failed:\n                logging.error(\"Elasticsearch request failed with the following error: \" + \\\n                    str(response) + \"The parameters were, id/key: \" + str(key) + \\\n                    \" body/value: \" + str(value))\n\n        except:\n            logging.exception(\"An Elasticsearch exception has been caught :\" + \\\n                \"The parameters are: id/key - \" + str(key) + value)\n\n    \n",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 16:53:09.822",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Fail to execute line 20:     time.sleep(1)\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-4602704695007181253.py\", line 380, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 20, in \u003cmodule\u003e\n  File \"/opt/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/context.py\", line 237, in signal_handler\n    raise KeyboardInterrupt()\nKeyboardInterrupt\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556030536741_-1566643662",
-      "id": "20190423-144216_1146884124",
-      "dateCreated": "2019-04-23 14:42:16.741",
-      "dateStarted": "2019-04-23 15:44:26.674",
-      "dateFinished": "2019-04-23 15:52:17.578",
-      "status": "ABORT",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%python\nimport os\nos.getcwd()",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-23 15:53:32.851",
+      "dateUpdated": "2019-04-25 23:03:01.965",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -381,10 +329,78 @@
       },
       "results": {
         "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556030536741_-1566643662",
+      "id": "20190423-144216_1146884124",
+      "dateCreated": "2019-04-23 14:42:16.741",
+      "dateStarted": "2019-04-25 23:03:02.239",
+      "dateFinished": "2019-04-25 23:03:02.339",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sink.pyspark\n\nfrom pyspark.streaming import StreamingContext\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-25 23:01:15.801",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556137959738_1931188281",
+      "id": "20190424-203239_1965602380",
+      "dateCreated": "2019-04-24 20:32:39.738",
+      "dateStarted": "2019-04-25 23:01:16.616",
+      "dateFinished": "2019-04-25 23:01:19.089",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sink.pyspark\nimport json\nfrom pyspark.streaming.kafka import KafkaUtils\nfrom pyspark.streaming import StreamingContext\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass\nssc \u003d StreamingContext(sc, batchDuration\u003d2)\n\nREDDIT_PREDICTION_TOPIC \u003d \"reddit_prediction_stream\"\nKAFKA_BROKERS \u003d \"172.25.0.12:9092,172.25.0.13:9092\"\n\nstream \u003d KafkaUtils.createDirectStream(\n                            ssc, \n                            [REDDIT_PREDICTION_TOPIC], \n                            {\"metadata.broker.list\": KAFKA_BROKERS})\n\nstream \u003d stream.map(lambda x: json.loads(x[1]))\nstream \u003d stream.foreachRDD(lambda rdd: rdd.foreach(lambda x: ElasticMagic.send(\n    \"reddit\", \n    \"comment\", \n    json.dumps(x), \n    key\u003dx[\"id\"])))\n\nssc.start()\nssc.awaitTermination()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-25 23:03:06.662",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
         "msg": [
           {
             "type": "TEXT",
-            "data": "\u0027/opt/zeppelin\u0027\n"
+            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mPy4JJavaError\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-12-cb5c46889c22\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     26\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     27\u001b[0m \u001b[0mssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstart\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 28\u001b[0;31m \u001b[0mssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mawaitTermination\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/context.py\u001b[0m in \u001b[0;36mawaitTermination\u001b[0;34m(self, timeout)\u001b[0m\n\u001b[1;32m    204\u001b[0m         \"\"\"\n\u001b[1;32m    205\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mtimeout\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 206\u001b[0;31m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mawaitTermination\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    207\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    208\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mawaitTerminationOrTimeout\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtimeout\u001b[0m \u001b[0;34m*\u001b[0m \u001b[0;36m1000\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36m__call__\u001b[0;34m(self, *args)\u001b[0m\n\u001b[1;32m   1131\u001b[0m         \u001b[0manswer\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgateway_client\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msend_command\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcommand\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1132\u001b[0m         return_value \u003d get_return_value(\n\u001b[0;32m-\u003e 1133\u001b[0;31m             answer, self.gateway_client, self.target_id, self.name)\n\u001b[0m\u001b[1;32m   1134\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1135\u001b[0m         \u001b[0;32mfor\u001b[0m \u001b[0mtemp_arg\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mtemp_args\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/sql/utils.py\u001b[0m in \u001b[0;36mdeco\u001b[0;34m(*a, **kw)\u001b[0m\n\u001b[1;32m     61\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mdeco\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     62\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 63\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     64\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mpy4j\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mprotocol\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mPy4JJavaError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     65\u001b[0m             \u001b[0ms\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjava_exception\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtoString\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/protocol.py\u001b[0m in \u001b[0;36mget_return_value\u001b[0;34m(answer, gateway_client, target_id, name)\u001b[0m\n\u001b[1;32m    317\u001b[0m                 raise Py4JJavaError(\n\u001b[1;32m    318\u001b[0m                     \u001b[0;34m\"An error occurred while calling {0}{1}{2}.\\n\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 319\u001b[0;31m                     format(target_id, \".\", name), value)\n\u001b[0m\u001b[1;32m    320\u001b[0m             \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    321\u001b[0m                 raise Py4JError(\n\n\u001b[0;31mPy4JJavaError\u001b[0m: An error occurred while calling o77407.awaitTermination.\n: org.apache.spark.SparkException: An exception was raised by Python:\nTraceback (most recent call last):\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/util.py\", line 65, in call\n    r \u003d self.func(t, *rdds)\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/dstream.py\", line 159, in \u003clambda\u003e\n    func \u003d lambda t, rdd: old_func(rdd)\n  File \"\u003cipython-input-12-cb5c46889c22\u003e\", line 21, in \u003clambda\u003e\n    stream \u003d stream.foreachRDD(lambda rdd: rdd.foreach(lambda x: ElasticMagic.send(\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 782, in foreach\n    self.mapPartitions(processPartition).count()  # Force evaluation\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 1041, in count\n    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 1032, in sum\n    return self.mapPartitions(lambda x: [sum(x)]).fold(0, operator.add)\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 906, in fold\n    vals \u003d self.mapPartitions(func).collect()\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 809, in collect\n    port \u003d self.ctx._jvm.PythonRDD.collectAndServe(self._jrdd.rdd())\n  File \"/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\", line 1133, in __call__\n    answer, self.gateway_client, self.target_id, self.name)\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/sql/utils.py\", line 63, in deco\n    return f(*a, **kw)\n  File \"/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/protocol.py\", line 319, in get_return_value\n    format(target_id, \".\", name), value)\nPy4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.collectAndServe.\n: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 563.0 failed 1 times, most recent failure: Lost task 0.0 in stage 563.0 (TID 1126, localhost, executor driver): org.apache.spark.api.python.PythonException: Traceback (most recent call last):\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/worker.py\", line 177, in main\n    process()\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/worker.py\", line 172, in process\n    serializer.dump_stream(func(split_index, iterator), outfile)\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 2423, in pipeline_func\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 2423, in pipeline_func\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 2423, in pipeline_func\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 346, in func\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 780, in processPartition\n  File \"\u003cipython-input-12-cb5c46889c22\u003e\", line 25, in \u003clambda\u003e\n  File \"\u003cipython-input-10-96716ec3f7e7\u003e\", line 34, in send\nUnicodeEncodeError: \u0027ascii\u0027 codec can\u0027t encode character u\u0027\\u2019\u0027 in position 3: ordinal not in range(128)\n\n\tat org.apache.spark.api.python.PythonRunner$$anon$1.read(PythonRDD.scala:193)\n\tat org.apache.spark.api.python.PythonRunner$$anon$1.\u003cinit\u003e(PythonRDD.scala:234)\n\tat org.apache.spark.api.python.PythonRunner.compute(PythonRDD.scala:152)\n\tat org.apache.spark.api.python.PythonRDD.compute(PythonRDD.scala:63)\n\tat org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:323)\n\tat org.apache.spark.rdd.RDD.iterator(RDD.scala:287)\n\tat org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:87)\n\tat org.apache.spark.scheduler.Task.run(Task.scala:108)\n\tat org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:338)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n\nDriver stacktrace:\n\tat org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1517)\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1505)\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1504)\n\tat scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)\n\tat scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)\n\tat org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1504)\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:814)\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:814)\n\tat scala.Option.foreach(Option.scala:257)\n\tat org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:814)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1732)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1687)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1676)\n\tat org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)\n\tat org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:630)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2029)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2050)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2069)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2094)\n\tat org.apache.spark.rdd.RDD$$anonfun$collect$1.apply(RDD.scala:936)\n\tat org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n\tat org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\n\tat org.apache.spark.rdd.RDD.withScope(RDD.scala:362)\n\tat org.apache.spark.rdd.RDD.collect(RDD.scala:935)\n\tat org.apache.spark.api.python.PythonRDD$.collectAndServe(PythonRDD.scala:467)\n\tat org.apache.spark.api.python.PythonRDD.collectAndServe(PythonRDD.scala)\n\tat sun.reflect.GeneratedMethodAccessor43.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:280)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:214)\n\tat java.lang.Thread.run(Thread.java:748)\nCaused by: org.apache.spark.api.python.PythonException: Traceback (most recent call last):\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/worker.py\", line 177, in main\n    process()\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/worker.py\", line 172, in process\n    serializer.dump_stream(func(split_index, iterator), outfile)\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 2423, in pipeline_func\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 2423, in pipeline_func\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 2423, in pipeline_func\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 346, in func\n  File \"/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/rdd.py\", line 780, in processPartition\n  File \"\u003cipython-input-12-cb5c46889c22\u003e\", line 25, in \u003clambda\u003e\n  File \"\u003cipython-input-10-96716ec3f7e7\u003e\", line 34, in send\nUnicodeEncodeError: \u0027ascii\u0027 codec can\u0027t encode character u\u0027\\u2019\u0027 in position 3: ordinal not in range(128)\n\n\tat org.apache.spark.api.python.PythonRunner$$anon$1.read(PythonRDD.scala:193)\n\tat org.apache.spark.api.python.PythonRunner$$anon$1.\u003cinit\u003e(PythonRDD.scala:234)\n\tat org.apache.spark.api.python.PythonRunner.compute(PythonRDD.scala:152)\n\tat org.apache.spark.api.python.PythonRDD.compute(PythonRDD.scala:63)\n\tat org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:323)\n\tat org.apache.spark.rdd.RDD.iterator(RDD.scala:287)\n\tat org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:87)\n\tat org.apache.spark.scheduler.Task.run(Task.scala:108)\n\tat org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:338)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\t... 1 more\n\n\n\tat org.apache.spark.streaming.api.python.TransformFunction.callPythonTransformFunction(PythonDStream.scala:95)\n\tat org.apache.spark.streaming.api.python.TransformFunction.apply(PythonDStream.scala:78)\n\tat org.apache.spark.streaming.api.python.PythonDStream$$anonfun$callForeachRDD$1.apply(PythonDStream.scala:179)\n\tat org.apache.spark.streaming.api.python.PythonDStream$$anonfun$callForeachRDD$1.apply(PythonDStream.scala:179)\n\tat org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(ForEachDStream.scala:51)\n\tat org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(ForEachDStream.scala:51)\n\tat org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(ForEachDStream.scala:51)\n\tat org.apache.spark.streaming.dstream.DStream.createRDDWithLocalProperties(DStream.scala:416)\n\tat org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply$mcV$sp(ForEachDStream.scala:50)\n\tat org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:50)\n\tat org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:50)\n\tat scala.util.Try$.apply(Try.scala:192)\n\tat org.apache.spark.streaming.scheduler.Job.run(Job.scala:39)\n\tat org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply$mcV$sp(JobScheduler.scala:257)\n\tat org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply(JobScheduler.scala:257)\n\tat org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply(JobScheduler.scala:257)\n\tat scala.util.DynamicVariable.withValue(DynamicVariable.scala:58)\n\tat org.apache.spark.streaming.scheduler.JobScheduler$JobHandler.run(JobScheduler.scala:256)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n"
           }
         ]
       },
@@ -392,24 +408,63 @@
       "jobName": "paragraph_1556032043210_365863747",
       "id": "20190423-150723_1199202103",
       "dateCreated": "2019-04-23 15:07:23.210",
-      "dateStarted": "2019-04-23 15:53:32.895",
-      "dateFinished": "2019-04-23 15:53:32.906",
-      "status": "FINISHED",
+      "dateStarted": "2019-04-25 23:03:06.779",
+      "dateFinished": "2019-04-25 23:03:24.840",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sink.pyspark\nfrom elasticsearch import ElasticSearch",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-24 21:32:33.412",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mImportError\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-14-1f54121e6a9e\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[0;32m----\u003e 1\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0melasticsearch\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mElasticSearch\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\n\u001b[0;31mImportError\u001b[0m: cannot import name ElasticSearch"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556034812851_1853316686",
+      "id": "20190423-155332_470186174",
+      "dateCreated": "2019-04-23 15:53:32.851",
+      "dateStarted": "2019-04-24 21:32:33.708",
+      "dateFinished": "2019-04-24 21:32:35.900",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\n",
       "user": "anonymous",
-      "dateUpdated": "2019-04-23 15:53:32.852",
+      "dateUpdated": "2019-04-24 21:24:45.287",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1556034812851_1853316686",
-      "id": "20190423-155332_470186174",
-      "dateCreated": "2019-04-23 15:53:32.851",
+      "jobName": "paragraph_1556141085284_-1106868813",
+      "id": "20190424-212445_203308515",
+      "dateCreated": "2019-04-24 21:24:45.284",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -419,9 +474,12 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
+    "python:shared_process": [],
     "producer:shared_process": [],
     "sh:shared_process": [],
-    "consumer:shared_process": []
+    "sink:shared_process": [],
+    "consumer:shared_process": [],
+    "spark:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false,

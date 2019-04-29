@@ -1,48 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "// %dep\n\n// z.load(\"JohnSnowLabs:spark-nlp:2.0.1\")",
+      "text": "%sh\npip install spacy seaborn\npython -m spacy download en",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 12:57:06.940",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@77ffa773\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556040657283_-1330756823",
-      "id": "20190423-173057_1819333331",
-      "dateCreated": "2019-04-23 17:30:57.284",
-      "dateStarted": "2019-04-24 09:45:38.538",
-      "dateFinished": "2019-04-24 09:45:55.095",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%sh\npip install spark-nlp\npython -m spacy download en_core_web_sm",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 10:10:09.935",
+      "dateUpdated": "2019-04-27 10:42:52.337",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -65,7 +26,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Requirement already satisfied (use --upgrade to upgrade): spark-nlp in /opt/conda/lib/python2.7/site-packages\nYou are using pip version 8.1.2, however version 19.0.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\nRequirement already satisfied (use --upgrade to upgrade): en_core_web_sm\u003d\u003d2.1.0 from https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz#egg\u003den_core_web_sm\u003d\u003d2.1.0 in /opt/conda/lib/python2.7/site-packages\nYou are using pip version 8.1.2, however version 19.0.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n\u001b[38;5;2m[+] Download and installation successful\u001b[0m\nYou can now load the model via spacy.load(\u0027en_core_web_sm\u0027)\n"
+            "data": "Requirement already satisfied (use --upgrade to upgrade): spacy in /opt/conda/lib/python2.7/site-packages\nCollecting seaborn\n  Downloading https://files.pythonhosted.org/packages/7a/bf/04cfcfc9616cedd4b5dd24dfc40395965ea9f50c1db0d3f3e52b050f74a5/seaborn-0.9.0.tar.gz (198kB)\nRequirement already satisfied (use --upgrade to upgrade): pathlib\u003d\u003d1.0.1; python_version \u003c \"3.4\" in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): wasabi\u003c1.1.0,\u003e\u003d0.2.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): blis\u003c0.3.0,\u003e\u003d0.2.2 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): plac\u003c1.0.0,\u003e\u003d0.9.6 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): murmurhash\u003c1.1.0,\u003e\u003d0.28.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): requests\u003c3.0.0,\u003e\u003d2.13.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): numpy\u003e\u003d1.15.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): srsly\u003c1.1.0,\u003e\u003d0.0.5 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): cymem\u003c2.1.0,\u003e\u003d2.0.2 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): preshed\u003c2.1.0,\u003e\u003d2.0.1 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): jsonschema\u003c3.0.0,\u003e\u003d2.6.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): thinc\u003c7.1.0,\u003e\u003d7.0.2 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): scipy\u003e\u003d0.14.0 in /opt/conda/lib/python2.7/site-packages (from seaborn)\nRequirement already satisfied (use --upgrade to upgrade): pandas\u003e\u003d0.15.2 in /opt/conda/lib/python2.7/site-packages (from seaborn)\nRequirement already satisfied (use --upgrade to upgrade): matplotlib\u003e\u003d1.4.3 in /opt/conda/lib/python2.7/site-packages (from seaborn)\nRequirement already satisfied (use --upgrade to upgrade): functools32; python_version \u003d\u003d \"2.7\" in /opt/conda/lib/python2.7/site-packages (from jsonschema\u003c3.0.0,\u003e\u003d2.6.0-\u003espacy)\nRequirement already satisfied (use --upgrade to upgrade): tqdm\u003c5.0.0,\u003e\u003d4.10.0 in /opt/conda/lib/python2.7/site-packages (from thinc\u003c7.1.0,\u003e\u003d7.0.2-\u003espacy)\nRequirement already satisfied (use --upgrade to upgrade): python-dateutil in /opt/conda/lib/python2.7/site-packages (from pandas\u003e\u003d0.15.2-\u003eseaborn)\nRequirement already satisfied (use --upgrade to upgrade): pytz\u003e\u003d2011k in /opt/conda/lib/python2.7/site-packages (from pandas\u003e\u003d0.15.2-\u003eseaborn)\nRequirement already satisfied (use --upgrade to upgrade): six\u003e\u003d1.10 in /opt/conda/lib/python2.7/site-packages (from matplotlib\u003e\u003d1.4.3-\u003eseaborn)\nRequirement already satisfied (use --upgrade to upgrade): backports.functools_lru_cache in /opt/conda/lib/python2.7/site-packages (from matplotlib\u003e\u003d1.4.3-\u003eseaborn)\nRequirement already satisfied (use --upgrade to upgrade): subprocess32 in /opt/conda/lib/python2.7/site-packages (from matplotlib\u003e\u003d1.4.3-\u003eseaborn)\nRequirement already satisfied (use --upgrade to upgrade): cycler\u003e\u003d0.10 in /opt/conda/lib/python2.7/site-packages (from matplotlib\u003e\u003d1.4.3-\u003eseaborn)\nRequirement already satisfied (use --upgrade to upgrade): pyparsing!\u003d2.0.4,!\u003d2.1.2,!\u003d2.1.6,\u003e\u003d2.0.1 in /opt/conda/lib/python2.7/site-packages (from matplotlib\u003e\u003d1.4.3-\u003eseaborn)\nBuilding wheels for collected packages: seaborn\n  Running setup.py bdist_wheel for seaborn: started\n  Running setup.py bdist_wheel for seaborn: finished with status \u0027done\u0027\n  Stored in directory: /root/.cache/pip/wheels/fc/1c/74/c8f80a532c06a789599b8659b117ec7d7574cac4a06f7dabfe\nSuccessfully built seaborn\nInstalling collected packages: seaborn\nSuccessfully installed seaborn-0.9.0\nYou are using pip version 8.1.2, however version 19.1 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\nRequirement already satisfied (use --upgrade to upgrade): en_core_web_sm\u003d\u003d2.1.0 from https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz#egg\u003den_core_web_sm\u003d\u003d2.1.0 in /opt/conda/lib/python2.7/site-packages\nYou are using pip version 8.1.2, however version 19.1 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n\u001b[38;5;2m[+] Download and installation successful\u001b[0m\nYou can now load the model via spacy.load(\u0027en_core_web_sm\u0027)\n\u001b[38;5;2m[+] Linking successful\u001b[0m\n/opt/conda/lib/python2.7/site-packages/en_core_web_sm --\u003e\n/opt/conda/lib/python2.7/site-packages/spacy/data/en\nYou can now load the model via spacy.load(\u0027en\u0027)\n"
           }
         ]
       },
@@ -73,93 +34,15 @@
       "jobName": "paragraph_1556044125611_1266883969",
       "id": "20190423-182845_473888658",
       "dateCreated": "2019-04-23 18:28:45.611",
-      "dateStarted": "2019-04-24 10:10:10.003",
-      "dateFinished": "2019-04-24 10:10:12.273",
+      "dateStarted": "2019-04-27 10:42:52.387",
+      "dateFinished": "2019-04-27 10:42:54.968",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sh\npip install spacy",
+      "text": "%pyspark\n\nfrom pyspark.sql.types import IntegerType\nfrom pyspark.sql.functions import udf, col\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"quoteMode\",\"ALL\")\n        .option(\"multiLine\",\"true\")\n        .option(\"wholeFile\",\"true\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/machinelearning/reddit_200k.csv\"))\n        \nlabel_udf \u003d udf(lambda x: 1 if x \u003d\u003d \"True\" else 0, IntegerType())\n\ndf_input \u003d df.withColumn(\n    \"label\",\n    label_udf(col(\"removed\")))\n\n# df_input.cache()\ndf_input.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 10:03:19.444",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/sh"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Requirement already satisfied (use --upgrade to upgrade): spacy in /opt/conda/lib/python2.7/site-packages\nRequirement already satisfied (use --upgrade to upgrade): pathlib\u003d\u003d1.0.1; python_version \u003c \"3.4\" in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): wasabi\u003c1.1.0,\u003e\u003d0.2.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): blis\u003c0.3.0,\u003e\u003d0.2.2 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): plac\u003c1.0.0,\u003e\u003d0.9.6 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): murmurhash\u003c1.1.0,\u003e\u003d0.28.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): requests\u003c3.0.0,\u003e\u003d2.13.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): numpy\u003e\u003d1.15.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): srsly\u003c1.1.0,\u003e\u003d0.0.5 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): cymem\u003c2.1.0,\u003e\u003d2.0.2 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): preshed\u003c2.1.0,\u003e\u003d2.0.1 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): jsonschema\u003c3.0.0,\u003e\u003d2.6.0 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): thinc\u003c7.1.0,\u003e\u003d7.0.2 in /opt/conda/lib/python2.7/site-packages (from spacy)\nRequirement already satisfied (use --upgrade to upgrade): functools32; python_version \u003d\u003d \"2.7\" in /opt/conda/lib/python2.7/site-packages (from jsonschema\u003c3.0.0,\u003e\u003d2.6.0-\u003espacy)\nRequirement already satisfied (use --upgrade to upgrade): tqdm\u003c5.0.0,\u003e\u003d4.10.0 in /opt/conda/lib/python2.7/site-packages (from thinc\u003c7.1.0,\u003e\u003d7.0.2-\u003espacy)\nYou are using pip version 8.1.2, however version 19.0.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556099212438_399560176",
-      "id": "20190424-094652_336305029",
-      "dateCreated": "2019-04-24 09:46:52.438",
-      "dateStarted": "2019-04-24 10:03:19.752",
-      "dateFinished": "2019-04-24 10:03:23.862",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"quoteMode\",\"ALL\")\n        .option(\"multiLine\",\"true\")\n        .option(\"wholeFile\",\"true\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/machinelearning/reddit_200k.csv\")).limit(20000)\n        \ndf.cache()\ndf.show()",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:46:54.100",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+\nonly showing top 20 rows\n\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556038381328_-835348963",
-      "id": "20190423-165301_2107108866",
-      "dateCreated": "2019-04-23 16:53:01.328",
-      "dateStarted": "2019-04-24 15:46:54.155",
-      "dateFinished": "2019-04-24 15:47:33.255",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\n\nfrom pyspark.sql.types import IntegerType\nfrom pyspark.sql.functions import udf, col\n\nlabel_udf \u003d udf(lambda x: 1 if x \u003d\u003d \"True\" else 0, IntegerType())\n\ndf_input \u003d df.withColumn(\n    \"label\",\n    label_udf(col(\"removed\")))\n\ndf_input.cache()\ndf_input.show()",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:48:02.908",
+      "dateUpdated": "2019-04-27 17:24:53.546",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -187,18 +70,118 @@
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1556116634821_-1256431770",
-      "id": "20190424-143714_1757490237",
-      "dateCreated": "2019-04-24 14:37:14.821",
-      "dateStarted": "2019-04-24 15:48:02.955",
-      "dateFinished": "2019-04-24 15:48:05.311",
+      "jobName": "paragraph_1556038381328_-835348963",
+      "id": "20190423-165301_2107108866",
+      "dateCreated": "2019-04-23 16:53:01.328",
+      "dateStarted": "2019-04-27 17:24:53.584",
+      "dateFinished": "2019-04-27 17:24:55.449",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\nfrom pyspark import keyword_only \nfrom pyspark.ml import Transformer\nfrom pyspark.ml.param.shared import HasInputCol, HasOutputCol, Param\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import ArrayType, StringType\nfrom pyspark.ml.wrapper import JavaParams\nfrom pyspark.ml.feature import Tokenizer\n\nimport spacy\n\nclass SpacyMagic(object):\n    \"\"\"\n    Simple Spacy Magic to minimize loading time.\n    \u003e\u003e\u003e SpacyMagic.get(\"en\")\n    \u003cspacy.lang.en.English ...\n    \"\"\"\n    _spacys \u003d {}\n    _symbols \u003d set(\"!$%^\u0026*()_+|~-\u003d`{}[]:\\\";\u0027\u003c\u003e?,./-\")\n\n    @classmethod\n    def get(cls, lang):\n        if lang not in cls._spacys:\n            import spacy\n            cls._spacys[lang] \u003d spacy.load(lang, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        return cls._spacys[lang]\n\n    @staticmethod\n    def tokenize(text):\n        nlp \u003d SpacyMagic.get(\"en\")\n        doc \u003d nlp(text, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        tokens \u003d []\n        for token in doc:\n            if token.like_url:\n                clean_token \u003d \"URL\"\n            else:\n                clean_token \u003d token.lemma_.lower().strip()\n                if len(clean_token) \u003c 1 or clean_token in \\\n                        SpacyMagic._symbols: \n                    continue\n            tokens.append(clean_token)\n        return tokens\n\n\nclass SpacyTokenizer(Tokenizer):\n\n    def transform(self, dataset):\n        \n        tokenize_udf \u003d udf(lambda x: SpacyMagic.tokenize(x), \n                                ArrayType(StringType()))\n\n        out_col \u003d self.getOutputCol()\n        in_col \u003d self.getInputCol()\n\n        dataset_tokenized \u003d dataset.withColumn(\n            out_col,\n            tokenize_udf(col(in_col)))\n        \n        return dataset_tokenized\n    ",
+      "text": "%pyspark\nfrom pyspark.sql.functions import sum\nz.show(df_input.groupBy(\"label\").count())",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:48:10.229",
+      "dateUpdated": "2019-04-27 17:25:26.749",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "label": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "label",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "label\tcount\n1\t82533\n0\t140839\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556196137390_-58232681",
+      "id": "20190425-124217_1193386018",
+      "dateCreated": "2019-04-25 12:42:17.390",
+      "dateStarted": "2019-04-27 17:25:23.842",
+      "dateFinished": "2019-04-27 17:25:25.937",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom pyspark import keyword_only \nfrom pyspark.ml import Transformer\nfrom pyspark.ml.param.shared import HasInputCol, HasOutputCol, Param\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import ArrayType, StringType\nfrom pyspark.ml.wrapper import JavaParams\nfrom pyspark.ml.feature import Tokenizer\n\nimport spacy\n\nclass SpacyMagic(object):\n    _spacy \u003d None\n    _symbols \u003d set(\"!$%^\u0026*()_+|~-\u003d`{}[]:\\\";\u0027\u003c\u003e?,./-\")\n\n    @classmethod\n    def get(cls):\n        if not cls._spacy:\n            import spacy\n            cls._spacy \u003d spacy.load(\"en\", disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        return cls._spacy\n\n    @staticmethod\n    def tokenize(text):\n        nlp \u003d SpacyMagic.get()\n        doc \u003d nlp(text, disable\u003d[\u0027parser\u0027, \u0027tagger\u0027, \u0027ner\u0027])\n        tokens \u003d []\n        for token in doc:\n            if token.like_url:\n                clean_token \u003d \"URL\"\n            else:\n                clean_token \u003d token.lemma_.lower().strip()\n                if len(clean_token) \u003c 1 or clean_token in \\\n                        SpacyMagic._symbols: \n                    continue\n            tokens.append(clean_token)\n        return tokens\n\n\nclass SpacyTokenizer(Tokenizer):\n\n    def transform(self, dataset):\n        \n        tokenize_udf \u003d udf(lambda x: SpacyMagic.tokenize(x), \n                                ArrayType(StringType()))\n\n        out_col \u003d self.getOutputCol()\n        in_col \u003d self.getInputCol()\n\n        dataset_tokenized \u003d dataset.withColumn(\n            out_col,\n            tokenize_udf(col(in_col)))\n        \n        return dataset_tokenized\n    ",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 17:25:28.348",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -224,15 +207,15 @@
       "jobName": "paragraph_1556114731533_-803425142",
       "id": "20190424-140531_246570498",
       "dateCreated": "2019-04-24 14:05:31.533",
-      "dateStarted": "2019-04-24 15:48:10.279",
-      "dateFinished": "2019-04-24 15:48:11.232",
+      "dateStarted": "2019-04-27 17:25:28.381",
+      "dateFinished": "2019-04-27 17:25:28.457",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\ntokenizer \u003d SpacyTokenizer(inputCol\u003d\"body\", outputCol\u003d\"body_tokenized\")\ndf_tokenized \u003d tokenizer.transform(df_input)\ndf_tokenized.show()",
+      "text": "%pyspark\ntokenizer \u003d SpacyTokenizer(inputCol\u003d\"body\", outputCol\u003d\"body_tokenized\")\ndf_tokenized \u003d tokenizer.transform(df_input)\ndf_tokenized.cache()\ndf_tokenized.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:24:06.751",
+      "dateUpdated": "2019-04-27 17:25:31.011",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -263,15 +246,120 @@
       "jobName": "paragraph_1556115403161_2089011894",
       "id": "20190424-141643_1633520699",
       "dateCreated": "2019-04-24 14:16:43.161",
-      "dateStarted": "2019-04-24 15:24:06.798",
-      "dateFinished": "2019-04-24 15:24:09.543",
+      "dateStarted": "2019-04-27 17:25:31.052",
+      "dateFinished": "2019-04-27 17:27:03.611",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\nfrom pyspark.ml.feature import NGram\n\nngram \u003d NGram(inputCol\u003d\u0027body_tokenized\u0027, outputCol\u003d\u0027body_ngram\u0027, n\u003d3)\ndf_ngram \u003d ngram.transform(df_tokenized)\n\ndf_ngram.cache()\ndf_ngram.show()\nprint(\"DONE caching\")\n\n# df_tokenized.unpersist()\n# print(\"FINISHED\")",
+      "text": "%pyspark\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import IntegerType\n\nz.show(df_tokenized.withColumn(\n            \"count\",\n            udf(lambda x: len(x), IntegerType())(col(\"body_tokenized\"))\n        ).groupBy(\"count\").count())",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:39:03.462",
+      "dateUpdated": "2019-04-27 17:27:25.460",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "count",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count\tcount\n148\t83\n496\t5\n463\t3\n471\t2\n243\t20\n392\t4\n540\t2\n737\t1\n31\t2462\n516\t1\n137\t119\n85\t396\n451\t4\n251\t26\n580\t1\n65\t681\n458\t5\n883\t1\n53\t1279\n255\t31\n481\t2\n898\t1\n588\t1\n133\t134\n296\t13\n78\t436\n322\t11\n513\t4\n321\t6\n362\t7\n857\t1\n673\t1\n375\t8\n597\t1\n155\t94\n108\t220\n34\t2129\n211\t32\n193\t44\n368\t6\n101\t270\n115\t178\n126\t141\n772\t1\n756\t1\n81\t386\n385\t7\n28\t2837\n183\t44\n210\t34\n436\t3\n497\t1\n300\t16\n412\t6\n3151\t1\n406\t2\n587\t2\n76\t491\n688\t1\n27\t3090\n26\t3274\n577\t1\n332\t8\n501\t1\n384\t3\n44\t1467\n159\t65\n192\t43\n271\t14\n606\t1\n253\t24\n103\t233\n329\t9\n236\t25\n460\t1\n12\t6992\n350\t10\n336\t10\n223\t27\n388\t5\n417\t3\n91\t325\n409\t7\n663\t1\n578\t1\n333\t11\n222\t25\n285\t14\n22\t3961\n128\t114\n209\t42\n330\t12\n372\t9\n1125\t1\n604\t2\n1295\t1\n122\t153\n230\t25\n319\t8\n625\t1\n493\t1\n190\t56\n93\t305\n157\t94\n225\t37\n233\t30\n232\t33\n346\t9\n246\t31\n360\t11\n367\t4\n476\t2\n725\t1\n224\t36\n111\t227\n654\t1\n47\t1403\n140\t113\n177\t42\n416\t7\n711\t1\n556\t1\n132\t121\n152\t74\n444\t1\n671\t1\n355\t7\n305\t21\n185\t50\n353\t6\n696\t1\n325\t9\n386\t9\n291\t16\n435\t3\n603\t1\n581\t1\n473\t1\n146\t103\n259\t26\n512\t3\n1\t510\n206\t48\n52\t1194\n297\t15\n363\t3\n212\t41\n1047\t1\n274\t22\n631\t1\n442\t6\n182\t51\n689\t1\n13\t6781\n348\t13\n218\t32\n280\t21\n734\t1\n440\t1\n16\t5610\n6\t7617\n86\t380\n474\t2\n636\t1\n168\t62\n887\t1\n205\t29\n3\t1331\n178\t68\n142\t90\n308\t16\n328\t9\n20\t4519\n164\t61\n40\t1669\n429\t3\n470\t1\n169\t54\n500\t3\n139\t108\n283\t17\n479\t4\n359\t4\n295\t25\n340\t5\n431\t3\n94\t285\n250\t23\n377\t11\n432\t4\n402\t1\n57\t969\n292\t17\n339\t13\n306\t12\n54\t1029\n120\t190\n559\t5\n491\t2\n96\t298\n235\t22\n545\t1\n452\t1\n48\t1237\n266\t20\n507\t1\n544\t1\n5\t7297\n268\t21\n163\t66\n191\t44\n258\t21\n279\t10\n709\t1\n19\t4764\n430\t4\n397\t6\n92\t309\n419\t6\n553\t1\n542\t3\n560\t1\n836\t1\n415\t3\n299\t13\n257\t17\n64\t731\n117\t156\n227\t33\n1220\t1\n579\t1\n554\t2\n41\t1560\n154\t94\n309\t23\n425\t6\n931\t1\n347\t15\n484\t4\n447\t1\n455\t2\n607\t1\n43\t1918\n15\t5988\n262\t22\n511\t2\n929\t1\n112\t189\n269\t14\n327\t15\n563\t2\n165\t67\n666\t1\n366\t7\n358\t11\n207\t25\n189\t46\n179\t64\n489\t1\n590\t4\n37\t1901\n383\t9\n659\t1\n61\t803\n127\t154\n316\t10\n461\t2\n88\t375\n197\t33\n486\t1\n462\t4\n318\t15\n547\t3\n107\t202\n202\t46\n263\t21\n374\t3\n564\t3\n9\t8035\n17\t5408\n231\t16\n552\t1\n1406\t1\n324\t10\n609\t1\n586\t1\n72\t551\n286\t17\n398\t7\n505\t3\n175\t54\n387\t3\n423\t6\n1159\t1\n695\t1\n381\t12\n498\t2\n35\t2048\n503\t2\n583\t1\n614\t1\n594\t2\n310\t6\n485\t3\n568\t2\n742\t1\n196\t49\n437\t3\n456\t2\n217\t26\n290\t14\n441\t4\n800\t1\n986\t1\n307\t16\n326\t11\n229\t30\n114\t187\n173\t56\n301\t15\n278\t19\n220\t37\n669\t1\n4\t3526\n55\t923\n59\t839\n445\t5\n8\t8073\n100\t280\n241\t18\n450\t3\n161\t76\n555\t1\n1397\t1\n23\t3733\n39\t1719\n679\t2\n719\t1\n176\t49\n49\t1199\n380\t7\n672\t1\n7\t8096\n162\t64\n514\t2\n244\t20\n238\t23\n130\t129\n84\t402\n136\t133\n453\t3\n856\t1\n247\t33\n314\t16\n627\t3\n728\t1\n87\t381\n565\t2\n171\t75\n273\t11\n434\t5\n443\t2\n343\t8\n585\t2\n439\t1\n1620\t1\n51\t1090\n194\t33\n277\t11\n428\t5\n331\t8\n438\t5\n391\t6\n532\t3\n706\t1\n69\t622\n129\t131\n166\t63\n448\t2\n97\t296\n400\t8\n524\t3\n533\t1\n264\t23\n389\t10\n239\t34\n234\t22\n312\t5\n63\t790\n403\t10\n395\t3\n509\t1\n10\t7754\n77\t464\n102\t258\n361\t8\n50\t1104\n518\t3\n951\t1\n293\t15\n404\t3\n267\t10\n45\t1338\n216\t40\n759\t1\n38\t1820\n261\t21\n418\t3\n320\t8\n82\t402\n249\t23\n364\t8\n181\t49\n510\t3\n167\t77\n288\t15\n394\t5\n703\t1\n576\t1\n240\t27\n80\t461\n289\t18\n356\t8\n889\t1\n25\t3362\n73\t569\n427\t9\n245\t20\n591\t2\n113\t189\n237\t18\n1421\t1\n645\t1\n24\t3510\n160\t73\n818\t1\n70\t601\n408\t4\n121\t158\n62\t784\n125\t148\n396\t7\n156\t83\n351\t9\n480\t2\n143\t133\n219\t20\n697\t1\n95\t288\n411\t7\n477\t3\n482\t4\n29\t2720\n651\t2\n226\t29\n390\t5\n528\t3\n526\t2\n558\t3\n464\t4\n21\t4181\n214\t40\n323\t9\n550\t1\n335\t14\n352\t11\n338\t7\n98\t257\n195\t53\n256\t19\n345\t7\n287\t9\n490\t3\n32\t2369\n90\t320\n60\t821\n371\t7\n622\t1\n75\t511\n382\t6\n469\t3\n221\t39\n203\t46\n265\t27\n457\t3\n151\t87\n141\t101\n414\t5\n724\t1\n341\t9\n433\t5\n334\t12\n943\t1\n801\t1\n376\t13\n145\t96\n200\t46\n272\t19\n680\t2\n488\t3\n515\t1\n56\t887\n109\t229\n254\t17\n378\t2\n1040\t1\n487\t1\n213\t41\n228\t23\n655\t1\n534\t2\n478\t2\n718\t1\n303\t15\n426\t5\n574\t1\n749\t1\n170\t72\n354\t10\n612\t2\n304\t16\n536\t2\n611\t1\n105\t230\n370\t10\n298\t12\n58\t873\n188\t44\n33\t2234\n11\t7452\n204\t33\n421\t5\n575\t1\n83\t413\n150\t87\n110\t216\n369\t7\n508\t1\n413\t3\n260\t24\n71\t536\n68\t649\n106\t214\n525\t1\n116\t169\n147\t96\n910\t1\n14\t6387\n317\t12\n198\t43\n546\t1\n600\t2\n344\t6\n349\t6\n424\t4\n123\t150\n373\t7\n379\t5\n342\t13\n454\t1\n284\t18\n270\t16\n158\t76\n242\t31\n199\t40\n135\t105\n248\t32\n499\t4\n522\t2\n42\t1646\n119\t498\n337\t8\n566\t1\n466\t1\n2\t892\n79\t447\n201\t37\n131\t133\n276\t22\n149\t98\n365\t6\n294\t18\n357\t8\n529\t3\n118\t163\n573\t4\n124\t162\n281\t13\n571\t2\n30\t2652\n99\t227\n184\t59\n313\t15\n302\t9\n66\t657\n405\t6\n557\t1\n46\t1329\n67\t630\n186\t51\n275\t13\n282\t14\n605\t1\n311\t11\n535\t5\n616\t1\n1392\t1\n215\t35\n174\t44\n410\t3\n172\t50\n252\t22\n399\t7\n551\t2\n144\t110\n153\t94\n420\t3\n927\t1\n0\t1\n18\t4984\n475\t1\n74\t546\n138\t111\n180\t52\n104\t242\n468\t4\n483\t1\n134\t119\n584\t1\n407\t5\n788\t1\n521\t1\n36\t1988\n187\t49\n315\t14\n393\t7\n208\t32\n89\t395\n401\t6\n422\t3\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556198100092_-259926168",
+      "id": "20190425-131500_1254048945",
+      "dateCreated": "2019-04-25 13:15:00.092",
+      "dateStarted": "2019-04-27 17:27:17.767",
+      "dateFinished": "2019-04-27 17:27:21.700",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import BooleanType\n\nprint(df_tokenized.count())\n\n# Removing instances of just \"URL\"\ndf_tokenized_no_single_url \u003d (df_tokenized.filter(\n            udf(lambda x: not(len(x) \u003c 1 or len(x) \u003d\u003d 1 and x[0] \u003d\u003d \"URL\") , \n        BooleanType())(col(\"body_tokenized\"))))\nprint(df_tokenized_no_single_url.count())",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 17:31:20.896",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -294,7 +382,203 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|[-pron- have alwa...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|[as a ece, a ece ...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|[monday drug comp...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|[i learn that, le...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|[so when we, when...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|[keep go so, go s...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|[kinda what happe...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|[this sound like,...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|[if nothing come,...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|[if medicine keep...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|[do you think, yo...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|[i dislike the, d...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|[i look forward, ...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|[my visible tatto...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+\nonly showing top 20 rows\n\nDONE caching\n"
+            "data": "223372\n223081\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556372302139_-1342765648",
+      "id": "20190427-133822_129571708",
+      "dateCreated": "2019-04-27 13:38:22.139",
+      "dateStarted": "2019-04-27 17:31:20.934",
+      "dateFinished": "2019-04-27 17:31:23.329",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n(df_tokenized_no_single_url.filter(\n            udf(lambda x: \"remove\" in x, \n        BooleanType())(col(\"body\")))).where(\"label \u003d 0\").select(\"body\").show(20, False)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 17:40:03.102",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "label": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "label",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n|body                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |\n+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n|Hi BocceBaller42, your post has been removed for the following reason(s)  It has a sensationalized, editorialized, or biased headline.    *If you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |\n|Hi pierebean, your submission has been removed for the following reason(s)  The impact factor of this journal doesn\u0027t meet our requirements.    *If you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |\n|I don\u0027t think the methodology behind this study is very useful for how ketamine is used in practice. Ketamine, like opiates, largely don\u0027t remove pain. They make you dissociate from it so you don\u0027t care about it anymore. If you\u0027re asked specifically how is your pain before and after these drugs, it\u0027s often no different. But they aren\u0027t screaming and rolling around anymore because it\u0027s not as important to them.  It is interesting that low doses still causes delirium. I wonder how useful it is though to suggest delirium is associated with poor outcomes without looking at what caused it. It wouldn\u0027t surprise many that delirium associated with sepsis or hypoxia is indicative of poorer outcomes, but could the same be said of a drug induced delirium, with a drug primarily used for its disassociate effects?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |\n|Hi Z0idberg_MD, your submission has been removed for the following reason(s)   Your submission has been removed because flair has not been assigned.    *This removal was automatic. If you feel this was done in error, or would like further clarification, please add flair to the post and then  \u0001 \u0002 .*  You can flair this post by replying to this message with  your  flair choice.  It must be an exact match to one of the following words:   Neuroscience, Astronomy,Biology, Health, Engineering, Nanoscience, Paleontology, Cancer, Epidemiology, Social Science, Computer Sci, Physics, Mathematics, Medicine, Animal Science, Environment, Chemistry, Geology, Psychology, Anthropology.   Once flaired, your post will be automatically approved.  Please wait at least 15 minutes before messaging the mods about this post.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |\n|\"In reality, women who wish to have an abortion will have an abortion. The \"\"unsafe\\\"\" part comes into play when safe abortion in a medical facility performed by an experienced doctor is unavailable(there are many different reasons this happens). The procedure itself is incredibly safe. Having wisdom teeth removed is exponentially more risky in terms of possible complications and the procedure itself.   Women who cannot access abortion in a legitimate medical setting end up turning to other options. Some of these include taking untested combinations of herbal supplements and vitamins that can end up damaging your liver/interacting with other medications. Some women order mifepristone over the internet and have no instructions on how to take it and what to look out for                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |\n|Lol every comment got removed someone is super butt hurt ����                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |\n|A note on our (British) recent legislation:  I have the feeling that the two major pieces of legislation (the hiding of tobacco products and the plain packaging) may well be working against each other. Hiding the tobacco was, in my opinion, a good idea, because it removes the contact point for children. Because the packs were easily distinguished, cashiers could find them quickly, and the tobacco wasn\u0027t revealed for very long.  However, now cashiers have to hunt for the correct product. This results in the tobacco being displayed openly for longer, allowing people to ingest what information is behind it. I can\u0027t say specifically that this would cause a problem, but it certainly makes sense that the increased exposure would interest more children than if the cabinet was only very briefly opened.  I do support the increased package sizes, even if I might grumble about them, but the massive price hike I think doesn\u0027t do much more than annoy consumers. Tobacco is in a unique spot that will remain affordable - it\u0027s very easy for a child or teenager to get their hands on a tenner.   I think we had the sweet spot between balancing reduced exposure and keeping consumers happy when we had the tobacco hidden. The price hike wouldn\u0027t really concern many people, neither the increased package sizes, but they might also have a significant effect on low income families where I hear more children become smokers.   |\n|Hi Frederick87843, your post has been removed for the following reason(s)  It does not include references to new, peer-reviewed research. Please feel free to post it in our sister subreddit /r/EverythingScience.     *If you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |\n|Hi lopo2311, your submission has been removed for the following reason(s):  It has a sensationalized, editorialized, or biased headline and is therefore in violation of  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |\n|Why is everything removed here? Science is kinda about letting people voice their views...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |\n|Hi someone-krill-me, your submission has been removed for the following reason   It is a repost of an already submitted and popular story.  http://redd.it/8wbbss  *This removal was automatic, if you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |\n|Why are so many comments being removed? And any way I can read them?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |\n|Hi Leosen, your submission has been removed for the following reason(s):  The research is more than 6 months old (Rule #3). Please feel free to post in our sister subreddit /r/EverythingScience.  *If you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |\n|Hi Jarijari7, your post has been removed for the following reason(s)  The referenced research is more than 6 months old.      *If you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |\n|Does anyone remember that plants remove CO2?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |\n|Hi barcelonaKIZ, your submission has been removed for the following reason(s)  It does not include references to new, peer-reviewed research. Please feel free to post it in our sister subreddit /r/EverythingScience.     *If you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |\n|Hi avogadros_number, your submission has been removed for the following reason   It is a repost of an already submitted and popular story.  http://redd.it/4jlsdr  *This removal was automatic, if you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |\n|Hi The_Cantabrigian, your submission has been removed for the following reason(s):  It does not include references to new, peer-reviewed research. Please feel free to post in our sister subreddit /r/EverythingScience.  *If you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |\n|Hi Sheephurrrdurrr, your submission has been removed for the following reason(s):  The research was presented at a conference and has not yet been published in a scholarly journal which practices the peer-review system. Please feel free to post it in our sister subreddit /r/EverythingScience.  *If you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |\n|Hi pnewell, your post has been removed for the following reason(s)  It does not include references to new, peer-reviewed research. Please feel free to post it in our sister subreddit /r/EverythingScience.     *If you feel this was done in error, or would like further clarification, please don\u0027t hesitate to  \u0001 \u0002 .*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |\n+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556386526715_-1155303013",
+      "id": "20190427-173526_858950598",
+      "dateCreated": "2019-04-27 17:35:26.715",
+      "dateStarted": "2019-04-27 17:40:03.150",
+      "dateFinished": "2019-04-27 17:40:05.395",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import BooleanType\n\nprint(df_tokenized_no_single_url.count())\n\n# Removing instances that contain the word \"remove*\"\ndf_tokenized_no_remove \u003d (df_tokenized_no_single_url.filter(\n            udf(lambda x: not (\"remove\" in x), \n        BooleanType())(col(\"body\"))))\nprint(df_tokenized_no_remove.count())",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 17:42:14.761",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "223081\n219620\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556386297521_-1891011244",
+      "id": "20190427-173137_1918176617",
+      "dateCreated": "2019-04-27 17:31:37.521",
+      "dateStarted": "2019-04-27 17:41:00.992",
+      "dateFinished": "2019-04-27 17:41:16.270",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n%pyspark\n\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import BooleanType\n\nprint(df_tokenized_no_single_url.count())\n\n# Leaving only \"significative\" posts\ndf_tokenized_no_remove \u003d (df_tokenized_no_single_url.filter(\n            udf(lambda x: not (\"remove\" in x), \n        BooleanType())(col(\"body\"))))\nprint(df_tokenized_no_remove.count())",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 17:42:25.225",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1556386918639_-147397217",
+      "id": "20190427-174158_42573026",
+      "dateCreated": "2019-04-27 17:41:58.639",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.feature import NGram\n\nngram \u003d NGram(inputCol\u003d\u0027body_tokenized\u0027, outputCol\u003d\u0027body_ngram\u0027, n\u003d5)\ndf_ngram \u003d ngram.transform(df_tokenized)\n\ndf_ngram.cache()\ndf_ngram.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 17:08:37.349",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|[-pron- have alwa...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|[as a ece, a ece ...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|[monday drug comp...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|[i learn that, le...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|[so when we, when...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|[keep go so, go s...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|[kinda what happe...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|[this sound like,...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|[if nothing come,...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|[if medicine keep...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|[do you think, yo...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|[i dislike the, d...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|[i look forward, ...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|[my visible tatto...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+\nonly showing top 20 rows\n\n"
           }
         ]
       },
@@ -302,15 +586,15 @@
       "jobName": "paragraph_1556104574063_-2031193949",
       "id": "20190424-111614_1710459625",
       "dateCreated": "2019-04-24 11:16:14.063",
-      "dateStarted": "2019-04-24 14:39:03.504",
-      "dateFinished": "2019-04-24 14:39:22.888",
+      "dateStarted": "2019-04-27 17:03:01.668",
+      "dateFinished": "2019-04-27 17:03:03.233",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nfrom pyspark.ml.feature import CountVectorizer\n\ncv \u003d CountVectorizer(inputCol\u003d\u0027body_ngram\u0027, outputCol\u003d\u0027body_tf\u0027)\ncv_model \u003d cv.fit(df_ngram)\ndf_tf \u003d cv_model.transform(df_ngram)\n\ndf_tf.cache()\ndf_tf.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:39:42.388",
+      "dateUpdated": "2019-04-27 17:13:12.797",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -333,7 +617,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|             body_tf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|[-pron- have alwa...|(262144,[154,490,...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|[as a ece, a ece ...|(262144,[90,151,3...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|[monday drug comp...|(262144,[18022,44...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|[i learn that, le...|(262144,[641,3511...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|(262144,[1374,192...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|[so when we, when...|(262144,[940,7987...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|[keep go so, go s...|(262144,[2036,124...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|(262144,[1351,416...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|(262144,[311,769,...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|(262144,[25,41,44...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|[kinda what happe...|(262144,[0,6,11,2...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|[this sound like,...|(262144,[514,852,...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|[if nothing come,...|(262144,[23661,43...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|[if medicine keep...|(262144,[34,402,6...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|[do you think, yo...|(262144,[24,47,11...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|(262144,[0,285,19...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|[i dislike the, d...|(262144,[967,1000...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|[i look forward, ...|(262144,[100,320,...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|[my visible tatto...|(262144,[15,149,1...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|(262144,[67786,11...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\nDONE caching\n"
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|             body_tf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|[-pron- have alwa...|(749345,[117,283,...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|[as a ece, a ece ...|(749345,[126,178,...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|[monday drug comp...|(749345,[14201,10...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|[i learn that, le...|(749345,[1108,128...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|(749345,[2199,245...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|[so when we, when...|(749345,[1136,145...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|[keep go so, go s...|(749345,[2346,130...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|(749345,[1049,315...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|(749345,[501,1171...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|(749345,[25,47,49...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|[kinda what happe...|(749345,[0,4,15,1...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|[this sound like,...|(749345,[814,1209...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|[if nothing come,...|(749345,[18200,64...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|[if medicine keep...|(749345,[34,275,4...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|[do you think, yo...|(749345,[21,50,51...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|(749345,[0,158,20...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|[i dislike the, d...|(749345,[854,988,...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|[i look forward, ...|(749345,[101,360,...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|[my visible tatto...|(749345,[17,97,89...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|(749345,[535726,5...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\n"
           }
         ]
       },
@@ -341,15 +625,15 @@
       "jobName": "paragraph_1556107815631_210268408",
       "id": "20190424-121015_82852057",
       "dateCreated": "2019-04-24 12:10:15.631",
-      "dateStarted": "2019-04-24 14:39:26.922",
-      "dateFinished": "2019-04-24 14:39:35.253",
+      "dateStarted": "2019-04-27 17:09:27.598",
+      "dateFinished": "2019-04-27 17:09:47.125",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nfrom pyspark.ml.feature import IDF\n\nidf \u003d IDF(inputCol\u003d\u0027body_tf\u0027, outputCol\u003d\u0027body_tfidf\u0027)\nidf_model \u003d idf.fit(df_tf)\ndf_tfidf \u003d idf_model.transform(df_tf)\n\ndf_tfidf.cache()\ndf_tfidf.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:51:36.410",
+      "dateUpdated": "2019-04-27 17:10:24.359",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -372,7 +656,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|[-pron- have alwa...|(262144,[154,490,...|(262144,[154,490,...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|[as a ece, a ece ...|(262144,[90,151,3...|(262144,[90,151,3...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|[monday drug comp...|(262144,[18022,44...|(262144,[18022,44...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|[i learn that, le...|(262144,[641,3511...|(262144,[641,3511...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|(262144,[1374,192...|(262144,[1374,192...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|[so when we, when...|(262144,[940,7987...|(262144,[940,7987...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|[keep go so, go s...|(262144,[2036,124...|(262144,[2036,124...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|(262144,[1351,416...|(262144,[1351,416...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|(262144,[311,769,...|(262144,[311,769,...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|(262144,[25,41,44...|(262144,[25,41,44...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|[kinda what happe...|(262144,[0,6,11,2...|(262144,[0,6,11,2...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|[this sound like,...|(262144,[514,852,...|(262144,[514,852,...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|[if nothing come,...|(262144,[23661,43...|(262144,[23661,43...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|[if medicine keep...|(262144,[34,402,6...|(262144,[34,402,6...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|[do you think, yo...|(262144,[24,47,11...|(262144,[24,47,11...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|(262144,[0,285,19...|(262144,[0,285,19...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|[i dislike the, d...|(262144,[967,1000...|(262144,[967,1000...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|[i look forward, ...|(262144,[100,320,...|(262144,[100,320,...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|[my visible tatto...|(262144,[15,149,1...|(262144,[15,149,1...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|(262144,[67786,11...|(262144,[67786,11...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\n"
+            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+\n|       1|I\u0027ve always been ...|    2|t3_81u15i|dv551g6|  1520121101|    1524782256|  False|    0|[-pron-, have, al...|[-pron- have alwa...|(749345,[117,283,...|(749345,[117,283,...|\n|       2|\"As an ECE, my fi...|    2|t3_72sk35|dnl66g6|  1506533157|    1507150439|   True|    1|[as, a, ece, my, ...|[as a ece, a ece ...|(749345,[126,178,...|(749345,[126,178,...|\n|       3|Monday: Drug comp...|    5|t3_8o88yr|e02sjhz|  1528087570|    1532170350|   True|    1|[monday, drug, co...|[monday drug comp...|(749345,[14201,10...|(749345,[14201,10...|\n|       4|i learned that al...|    0|t3_6xg9t8|dmfojjp|  1504290041|    1506407514|  False|    0|[i, learn, that, ...|[i learn that, le...|(749345,[1108,128...|(749345,[1108,128...|\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|(749345,[2199,245...|(749345,[2199,245...|\n|       6|So when we can re...|    4|t3_69fya9|dh6bkbf|  1494006743|    1496285592|  False|    0|[so, when, we, ca...|[so when we, when...|(749345,[1136,145...|(749345,[1136,145...|\n|       7|Keep going! So cl...|  110|t3_926dfb|e33l7ug|  1532647663|    1536705787|   True|    1|[keep, go, so, cl...|[keep go so, go s...|(749345,[2346,130...|(749345,[2346,130...|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|(749345,[1049,315...|(749345,[1049,315...|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|(749345,[501,1171...|(749345,[501,1171...|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|(749345,[25,47,49...|(749345,[25,47,49...|\n|      11|Kinda what happen...|    8|t3_897pfk|dwq79ih|  1522760848|    1525907694|  False|    0|[kinda, what, hap...|[kinda what happe...|(749345,[0,4,15,1...|(749345,[0,4,15,1...|\n|      12|This sounds like ...|   -6|t3_92lntd|e36lekj|  1532781451|    1536789657|   True|    1|[this, sound, lik...|[this sound like,...|(749345,[814,1209...|(749345,[814,1209...|\n|      13|If nothing comes ...|    2|t3_7h4fo1|dqo8bzn|  1512250097|    1514278382|  False|    0|[if, nothing, com...|[if nothing come,...|(749345,[18200,64...|(749345,[18200,64...|\n|      14|If medicine keeps...|    3|t3_6a1n9a|dhcmyqr|  1494371185|    1496395068|  False|    0|[if, medicine, ke...|[if medicine keep...|(749345,[34,275,4...|(749345,[34,275,4...|\n|      15|do you think the ...|   38|t3_6cmkb4|dhvrjpu|  1495453015|    1496726838|  False|    0|[do, you, think, ...|[do you think, yo...|(749345,[21,50,51...|(749345,[21,50,51...|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|(749345,[0,158,20...|(749345,[0,158,20...|\n|      17|I dislike the ton...|    2|t3_68cz07|dgy714f|  1493569268|    1494504338|   True|    1|[i, dislike, the,...|[i dislike the, d...|(749345,[854,988,...|(749345,[854,988,...|\n|      18|I look forward to...|    2|t3_95391g|e3pvpie|  1533583605|    1537146813|  False|    0|[i, look, forward...|[i look forward, ...|(749345,[101,360,...|(749345,[101,360,...|\n|      19|My visible tattoo...|    2|t3_966h9i|e3y8tfx|  1533911117|    1537326805|  False|    0|[my, visible, tat...|[my visible tatto...|(749345,[17,97,89...|(749345,[17,97,89...|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|(749345,[535726,5...|(749345,[535726,5...|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\n"
           }
         ]
       },
@@ -380,15 +664,15 @@
       "jobName": "paragraph_1556105044620_368373304",
       "id": "20190424-112404_1308508179",
       "dateCreated": "2019-04-24 11:24:04.620",
-      "dateStarted": "2019-04-24 14:39:47.136",
-      "dateFinished": "2019-04-24 14:39:48.789",
+      "dateStarted": "2019-04-27 17:10:24.397",
+      "dateFinished": "2019-04-27 17:10:35.054",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nsplits \u003d df_tfidf.select([\u0027body_tfidf\u0027, \u0027label\u0027]).randomSplit([0.8,0.2],seed\u003d100)\ntrain \u003d splits[0].cache()\ntest \u003d splits[1].cache()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:40:00.025",
+      "dateUpdated": "2019-04-27 17:10:39.335",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -414,15 +698,15 @@
       "jobName": "paragraph_1556107967909_1030280264",
       "id": "20190424-121247_530364756",
       "dateCreated": "2019-04-24 12:12:47.909",
-      "dateStarted": "2019-04-24 14:40:00.070",
-      "dateFinished": "2019-04-24 14:40:00.239",
+      "dateStarted": "2019-04-27 17:10:39.372",
+      "dateFinished": "2019-04-27 17:10:39.452",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n\nmax_iter \u003d 10\nreg_param \u003d 0.3\nelastic_net_param \u003d 0.8\n\nlr \u003d LogisticRegression(featuresCol\u003d\u0027body_tfidf\u0027, maxIter\u003d10)\n        \nlr_model \u003d lr.fit(train)\nlr_pred \u003d lr_model.transform(test)",
+      "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n\nmax_iter \u003d 10\nreg_param \u003d 0.3\nelastic_net_param \u003d 0.8\n\nlr \u003d LogisticRegression(featuresCol\u003d\u0027body_tfidf\u0027, maxIter\u003d20, regParam\u003d0.5, elasticNetParam\u003d0.0)\n        \nlr_model \u003d lr.fit(train)\nlr_pred \u003d lr_model.transform(test)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:54:38.668",
+      "dateUpdated": "2019-04-27 17:11:10.883",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -441,22 +725,28 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
-        "msg": []
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "java.net.SocketException: Broken pipe (Write failed)\n\tat java.net.SocketOutputStream.socketWrite0(Native Method)\n\tat java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:111)\n\tat java.net.SocketOutputStream.write(SocketOutputStream.java:155)\n\tat java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)\n\tat java.io.BufferedOutputStream.write(BufferedOutputStream.java:121)\n\tat org.apache.thrift.transport.TIOStreamTransport.write(TIOStreamTransport.java:145)\n\tat org.apache.thrift.protocol.TBinaryProtocol.writeString(TBinaryProtocol.java:202)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterContext$RemoteInterpreterContextStandardScheme.write(RemoteInterpreterContext.java:1228)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterContext$RemoteInterpreterContextStandardScheme.write(RemoteInterpreterContext.java:1074)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterContext.write(RemoteInterpreterContext.java:956)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$interpret_args$interpret_argsStandardScheme.write(RemoteInterpreterService.java:6781)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$interpret_args$interpret_argsStandardScheme.write(RemoteInterpreterService.java:6704)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$interpret_args.write(RemoteInterpreterService.java:6631)\n\tat org.apache.thrift.TServiceClient.sendBase(TServiceClient.java:63)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.send_interpret(RemoteInterpreterService.java:268)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.interpret(RemoteInterpreterService.java:257)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$4.call(RemoteInterpreter.java:233)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$4.call(RemoteInterpreter.java:229)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:135)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.interpret(RemoteInterpreter.java:228)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:437)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:315)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+          }
+        ]
       },
       "apps": [],
       "jobName": "paragraph_1556108056948_373468350",
       "id": "20190424-121416_1680948410",
       "dateCreated": "2019-04-24 12:14:16.948",
-      "dateStarted": "2019-04-24 14:40:05.915",
-      "dateFinished": "2019-04-24 14:40:08.399",
-      "status": "FINISHED",
+      "dateStarted": "2019-04-27 17:11:10.922",
+      "dateFinished": "2019-04-27 17:11:10.926",
+      "status": "ERROR",
+      "errorMessage": "java.net.SocketException: Broken pipe (Write failed)\n\tat java.net.SocketOutputStream.socketWrite0(Native Method)\n\tat java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:111)\n\tat java.net.SocketOutputStream.write(SocketOutputStream.java:155)\n\tat java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)\n\tat java.io.BufferedOutputStream.write(BufferedOutputStream.java:121)\n\tat org.apache.thrift.transport.TIOStreamTransport.write(TIOStreamTransport.java:145)\n\tat org.apache.thrift.protocol.TBinaryProtocol.writeString(TBinaryProtocol.java:202)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterContext$RemoteInterpreterContextStandardScheme.write(RemoteInterpreterContext.java:1228)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterContext$RemoteInterpreterContextStandardScheme.write(RemoteInterpreterContext.java:1074)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterContext.write(RemoteInterpreterContext.java:956)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$interpret_args$interpret_argsStandardScheme.write(RemoteInterpreterService.java:6781)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$interpret_args$interpret_argsStandardScheme.write(RemoteInterpreterService.java:6704)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$interpret_args.write(RemoteInterpreterService.java:6631)\n\tat org.apache.thrift.TServiceClient.sendBase(TServiceClient.java:63)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.send_interpret(RemoteInterpreterService.java:268)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.interpret(RemoteInterpreterService.java:257)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$4.call(RemoteInterpreter.java:233)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$4.call(RemoteInterpreter.java:229)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:135)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.interpret(RemoteInterpreter.java:228)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:437)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:315)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nfrom pyspark.ml.evaluation import MulticlassClassificationEvaluator\n\nmodel_eval \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\nlr_score \u003d model_eval.evaluate(lr_pred)\nprint(\"Score: %.4f\" % lr_score)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:40:11.768",
+      "dateUpdated": "2019-04-27 17:07:30.375",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -479,7 +769,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Score: 0.6206\n"
+            "data": "Score: 0.6222\n"
           }
         ]
       },
@@ -487,15 +777,15 @@
       "jobName": "paragraph_1556109914197_372257927",
       "id": "20190424-124514_390313954",
       "dateCreated": "2019-04-24 12:45:14.198",
-      "dateStarted": "2019-04-24 14:40:11.822",
-      "dateFinished": "2019-04-24 14:40:12.924",
+      "dateStarted": "2019-04-27 17:07:30.410",
+      "dateFinished": "2019-04-27 17:07:37.899",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\nfrom pyspark.ml import Pipeline\nfrom pyspark.ml.feature import NGram, CountVectorizer, IDF\nfrom pyspark.ml.classification import LogisticRegression\n\npipeline \u003d Pipeline(stages\u003d[\n    SpacyTokenizer(inputCol\u003d\"body\", outputCol\u003d\"body_tokenized\"), \n    NGram(inputCol\u003d\u0027body_tokenized\u0027, outputCol\u003d\u0027body_ngram\u0027, n\u003d3), \n    CountVectorizer(inputCol\u003d\u0027body_ngram\u0027, outputCol\u003d\u0027body_tf\u0027), \n    IDF(inputCol\u003d\u0027body_tf\u0027, outputCol\u003d\u0027body_tfidf\u0027),\n    LogisticRegression(featuresCol\u003d\u0027body_tfidf\u0027, maxIter\u003d10)])\n    \n\nsplits \u003d df_input.randomSplit([0.8,0.2], seed\u003d100)\ntrain \u003d splits[0].cache()\ntest \u003d splits[1].cache()",
+      "text": "%pyspark\nfrom pyspark.ml import Pipeline\nfrom pyspark.ml.feature import NGram, CountVectorizer, IDF\nfrom pyspark.ml.classification import LogisticRegression, NaiveBayes, LinearSVC\n\npipeline \u003d Pipeline(stages\u003d[\n    SpacyTokenizer(inputCol\u003d\"body\", outputCol\u003d\"body_tokenized\"), \n    NGram(inputCol\u003d\u0027body_tokenized\u0027, outputCol\u003d\u0027body_ngram\u0027, n\u003d3), \n    CountVectorizer(inputCol\u003d\u0027body_ngram\u0027, outputCol\u003d\u0027body_tf\u0027), \n    IDF(inputCol\u003d\u0027body_tf\u0027, outputCol\u003d\u0027body_tfidf\u0027),\n    LogisticRegression(featuresCol\u003d\u0027body_tfidf\u0027, maxIter\u003d20, regParam\u003d0.5, elasticNetParam\u003d0)])#, maxIter\u003d10)])\n    \n\nsplits \u003d df_input.randomSplit([0.8,0.2], seed\u003d100)\ntrain \u003d splits[0].cache()\ntest \u003d splits[1].cache()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:54:19.353",
+      "dateUpdated": "2019-04-27 17:16:40.740",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -521,15 +811,15 @@
       "jobName": "paragraph_1556110966630_1699574621",
       "id": "20190424-130246_910680063",
       "dateCreated": "2019-04-24 13:02:46.630",
-      "dateStarted": "2019-04-24 15:54:19.400",
-      "dateFinished": "2019-04-24 15:54:19.596",
+      "dateStarted": "2019-04-27 17:16:40.779",
+      "dateFinished": "2019-04-27 17:16:40.866",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\npipeline_model \u003d pipeline.fit(train)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:54:22.008",
+      "dateUpdated": "2019-04-27 17:16:42.479",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -555,15 +845,15 @@
       "jobName": "paragraph_1556117262549_-1833139638",
       "id": "20190424-144742_1374770811",
       "dateCreated": "2019-04-24 14:47:42.549",
-      "dateStarted": "2019-04-24 15:54:22.071",
-      "dateFinished": "2019-04-24 15:55:42.272",
+      "dateStarted": "2019-04-27 17:16:42.511",
+      "dateFinished": "2019-04-27 17:17:34.444",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\npipeline_pred \u003d pipeline_model.transform(test)",
+      "text": "%pyspark\npipeline_pred \u003d pipeline_model.transform(test)\npipeline_pred.select([\"body\", \"prediction\"]).show()",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:57:47.378",
+      "dateUpdated": "2019-04-27 17:16:47.132",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -586,62 +876,23 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+----------+\n|prev_idx|                body|score|parent_id|     id|created_date|retrieved_date|removed|label|      body_tokenized|          body_ngram|             body_tf|          body_tfidf|       rawPrediction|         probability|prediction|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+----------+\n|       5|Well i was wantin...|    3|t3_99wi9m|e4rtew8|  1535140675|    1537893540|  False|    0|[well, i, be, wan...|[well i be, i be ...|(262144,[2050,281...|(262144,[2050,281...|[-1.6801771956811...|[0.15707200668228...|       1.0|\n|       8|Rains here just s...|    2|t3_9dzqzm|e5lmvpe|  1536388817|    1538826252|   True|    1|[rains, here, jus...|[rains here just,...|(262144,[1061,453...|(262144,[1061,453...|[1.39379371046033...|[0.80119719682442...|       0.0|\n|       9|That explains it,...|    5|t3_81yesj|dv63j9z|  1520179348|    1524803905|   True|    1|[that, explain, i...|[that explain it,...|(262144,[504,1178...|(262144,[504,1178...|[0.47017179182358...|[0.61542441640582...|       0.0|\n|      10|Hi BocceBaller42,...|    2|t3_5r1nu1|dd3pv7z|  1485793932|    1486560607|  False|    0|[hi, bocceballer4...|[hi bocceballer42...|(262144,[30,61,63...|(262144,[30,61,63...|[8.32119843849355...|[0.99975675507805...|       0.0|\n|      16|I don\u0027t understan...|   12|t3_63kuuw|dfuzqkt|  1491398216|    1493815055|  False|    0|[i, do, not, unde...|[i do not, do not...|(262144,[0,167,18...|(262144,[0,167,18...|[1.63951250676852...|[0.83746859321900...|       0.0|\n|      20|3 weeks?  Why onl...|   14|t3_90f0in|e2q1bny|  1532093248|    1536306515|   True|    1|[3, week, why, on...|[3 week why, week...|      (262144,[],[])|      (262144,[],[])|[0.49927343712794...|[0.62228857104400...|       0.0|\n|      22|New study shows 9...|   18|t3_7a2pmo|dp6rpcw|  1509542898|    1512014062|   True|    1|[new, study, show...|[new study show, ...|(262144,[760,1878...|(262144,[760,1878...|[-4.1058282714566...|[0.01620929598344...|       1.0|\n|      26|Thank goodness, t...|    2|t3_5rhzw9|dd835v5|  1486012935|    1488495268|   True|    1|[thank, goodness,...|[thank goodness t...|(262144,[15,2229,...|(262144,[15,2229,...|[0.95425867015701...|[0.72197082397532...|       0.0|\n|      27|The post title is...|   43|t3_8axsbq|dx2ce5e|  1523274548|    1526127980|  False|    0|[the, post, title...|[the post title, ...|(262144,[95,132,1...|(262144,[95,132,1...|[14.0253131076134...|[0.99999918925634...|       0.0|\n|      35|\u0027Max Planck from ...|   15|t3_80psqz|duxc8nz|  1519765498|    1520318924|  False|    0|[max, planck, fro...|[max planck from,...|(262144,[247,841,...|(262144,[247,841,...|[2.89779330842830...|[0.94773724441548...|       0.0|\n|      36|Yeah that\u0027s what ...|   -5|t3_8hj5o8|dyk75cx|  1525651444|    1527161414|   True|    1|[yeah, that, have...|[yeah that have, ...|(262144,[0,218,41...|(262144,[0,218,41...|[1.20027998367868...|[0.76857458729422...|       0.0|\n|      41|\"My Strong app ha...|    2|t3_8ivgqb|dyuwanv|  1526126637|    1527378492|  False|    0|[my, strong, app,...|[my strong app, s...|(262144,[86,309,6...|(262144,[86,309,6...|[2.13742324798880...|[0.89448766504480...|       0.0|\n|      50|How did you choos...|    2|t3_81dvbs|dv2q55a|  1520006350|    1524739051|  False|    0|[how, do, you, ch...|[how do you, do y...|(262144,[40,1021,...|(262144,[40,1021,...|[2.44818142400976...|[0.92042836011668...|       0.0|\n|      53|The thumbnail loo...|    2|t3_6qfl2m|dkxz5tl|  1501457255|    1501985168|   True|    1|[the, thumbnail, ...|[the thumbnail lo...|(262144,[116,6471...|(262144,[116,6471...|[-0.3421830781795...|[0.41527927893229...|       1.0|\n|      58|Lipstick as birth...|    2|t3_6mfd6a|dk1l9j6|  1499721082|    1501129496|   True|    1|[lipstick, a, bir...|[lipstick a birth...|(262144,[22893],[...|(262144,[22893],[...|[0.17651307368556...|[0.54401404940302...|       0.0|\n|      63|   My question is...|   -1|t3_6ll02s|djuzmjw|  1499359162|    1501007322|  False|    0|[my, question, be...|[my question be, ...|(262144,[289,1057...|(262144,[289,1057...|[3.24896978401304...|[0.96263607564559...|       0.0|\n|      73|My children will ...|    6|t3_71q0q2|dncphu2|  1506085704|    1506999701|  False|    0|[my, child, will,...|[my child will, c...|(262144,[8462,223...|(262144,[8462,223...|[4.01468326375975...|[0.98227130898572...|       0.0|\n|      75|a more simplified...|   11|t3_7454xh|dnvmhci|  1507084744|    1509286643|   True|    1|[a, much, simplif...|[a much simplify,...|(262144,[3,439,69...|(262144,[3,439,69...|[2.98754239756838...|[0.95200815030676...|       0.0|\n|      85|what if a woman d...|    0|t3_6flqpj|dijtdm0|  1496783902|    1499122474|  False|    0|[what, if, a, wom...|[what if a, if a ...|(262144,[18,376,1...|(262144,[18,376,1...|[2.08998682317081...|[0.88992613487344...|       0.0|\n|      88|Thinking back to ...|    2|t3_6xl6ch|dmgt0bu|  1504358856|    1506427511|   True|    1|[thinking, back, ...|[thinking back to...|(262144,[656,8403...|(262144,[656,8403...|[-0.8706467895190...|[0.29511973638163...|       1.0|\n+--------+--------------------+-----+---------+-------+------------+--------------+-------+-----+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+----------+\nonly showing top 20 rows\n\n"
+            "data": "+--------------------+----------+\n|                body|prediction|\n+--------------------+----------+\n|Well i was wantin...|       1.0|\n|Rains here just s...|       0.0|\n|That explains it,...|       0.0|\n|Hi BocceBaller42,...|       0.0|\n|I don\u0027t understan...|       0.0|\n|3 weeks?  Why onl...|       0.0|\n|New study shows 9...|       1.0|\n|Thank goodness, t...|       0.0|\n|The post title is...|       0.0|\n|\u0027Max Planck from ...|       0.0|\n|Yeah that\u0027s what ...|       0.0|\n|\"My Strong app ha...|       0.0|\n|How did you choos...|       0.0|\n|The thumbnail loo...|       0.0|\n|Lipstick as birth...|       0.0|\n|   My question is...|       0.0|\n|My children will ...|       0.0|\n|a more simplified...|       0.0|\n|what if a woman d...|       0.0|\n|Thinking back to ...|       1.0|\n+--------------------+----------+\nonly showing top 20 rows\n\n"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1556117278624_402507066",
-      "id": "20190424-144758_1037030750",
-      "dateCreated": "2019-04-24 14:47:58.624",
-      "dateStarted": "2019-04-24 15:55:45.135",
-      "dateFinished": "2019-04-24 15:56:23.407",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\npipeline_pred.select([\"body\", \"probability\", \"prediction\"]).show()",
-      "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:58:10.504",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------------------+--------------------+----------+\n|                body|         probability|prediction|\n+--------------------+--------------------+----------+\n|Well i was wantin...|[0.15707200668228...|       1.0|\n|Rains here just s...|[0.80119719682442...|       0.0|\n|That explains it,...|[0.61542441640582...|       0.0|\n|Hi BocceBaller42,...|[0.99975675507805...|       0.0|\n|I don\u0027t understan...|[0.83746859321900...|       0.0|\n|3 weeks?  Why onl...|[0.62228857104400...|       0.0|\n|New study shows 9...|[0.01620929598344...|       1.0|\n|Thank goodness, t...|[0.72197082397532...|       0.0|\n|The post title is...|[0.99999918925634...|       0.0|\n|\u0027Max Planck from ...|[0.94773724441548...|       0.0|\n|Yeah that\u0027s what ...|[0.76857458729422...|       0.0|\n|\"My Strong app ha...|[0.89448766504480...|       0.0|\n|How did you choos...|[0.92042836011668...|       0.0|\n|The thumbnail loo...|[0.41527927893229...|       1.0|\n|Lipstick as birth...|[0.54401404940302...|       0.0|\n|   My question is...|[0.96263607564559...|       0.0|\n|My children will ...|[0.98227130898572...|       0.0|\n|a more simplified...|[0.95200815030676...|       0.0|\n|what if a woman d...|[0.88992613487344...|       0.0|\n|Thinking back to ...|[0.29511973638163...|       1.0|\n+--------------------+--------------------+----------+\nonly showing top 20 rows\n\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1556121460325_1024954747",
-      "id": "20190424-155740_1487288527",
-      "dateCreated": "2019-04-24 15:57:40.325",
-      "dateStarted": "2019-04-24 15:58:10.557",
-      "dateFinished": "2019-04-24 15:58:22.961",
+      "jobName": "paragraph_1556296535994_-1656845874",
+      "id": "20190426-163535_465623438",
+      "dateCreated": "2019-04-26 16:35:35.994",
+      "dateStarted": "2019-04-27 17:17:34.483",
+      "dateFinished": "2019-04-27 17:17:37.949",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nfrom pyspark.ml.evaluation import MulticlassClassificationEvaluator\n\npipeline_eval \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\npipeline_score \u003d pipeline_eval.evaluate(pipeline_pred)\nprint(\"Score: %.4f\" % pipeline_score)",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:58:50.025",
+      "dateUpdated": "2019-04-27 17:16:49.984",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -664,7 +915,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Score: 0.6036\n"
+            "data": "Score: 0.6324\n"
           }
         ]
       },
@@ -672,15 +923,255 @@
       "jobName": "paragraph_1556117338993_-1207294821",
       "id": "20190424-144858_1610760957",
       "dateCreated": "2019-04-24 14:48:58.993",
-      "dateStarted": "2019-04-24 15:58:50.078",
-      "dateFinished": "2019-04-24 15:59:03.394",
+      "dateStarted": "2019-04-27 17:17:37.986",
+      "dateFinished": "2019-04-27 17:17:45.582",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\npred_rdd \u003d pipeline_pred.select(\"prediction\", \"label\").rdd.map(lambda x: (float(x[0]), float(x[1])))\npred_rdd.cache()\npred_rdd.take(5)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 17:16:53.485",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[(1.0, 0.0), (0.0, 1.0), (0.0, 1.0), (0.0, 0.0), (0.0, 0.0)]"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556359567665_-1168326733",
+      "id": "20190427-100607_415264750",
+      "dateCreated": "2019-04-27 10:06:07.666",
+      "dateStarted": "2019-04-27 17:17:45.618",
+      "dateFinished": "2019-04-27 17:17:49.981",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.mllib.evaluation import MulticlassMetrics, BinaryClassificationMetrics\nmetrics \u003d MulticlassMetrics(pred_rdd)\nbinmetrics \u003d BinaryClassificationMetrics(pred_rdd)\n\n# Overall statistics\nprecision \u003d metrics.weightedPrecision\nrecall \u003d metrics.weightedRecall\nf1Score \u003d metrics.weightedFMeasure()\naccuracy \u003d metrics.accuracy\ncm \u003d metrics.confusionMatrix()\nauc \u003d binmetrics.areaUnderROC",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 17:16:57.761",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556359814473_1131556874",
+      "id": "20190427-101014_877045489",
+      "dateCreated": "2019-04-27 10:10:14.474",
+      "dateStarted": "2019-04-27 17:17:50.023",
+      "dateFinished": "2019-04-27 17:17:52.821",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nprint(\"Summary Stats\")\nprint(\"Accuracy \u003d %s\" % accuracy)\nprint(\"Precision \u003d %s\" % precision)\nprint(\"Recall \u003d %s\" % recall)\nprint(\"F1 Score \u003d %s\" % f1Score)\nprint(\"AUC \u003d %s\" % auc)\nprint(cm)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 17:17:00.830",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Summary Stats\nAccuracy \u003d 0.63236030025\nPrecision \u003d 0.599132837938\nRecall \u003d 0.63236030025\nF1 Score \u003d 0.551241850666\nAUC \u003d 0.528140214378\nDenseMatrix([[3522.,  242.],\n             [1962.,  269.]])\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556360892765_2027914855",
+      "id": "20190427-102812_715832514",
+      "dateCreated": "2019-04-27 10:28:12.765",
+      "dateStarted": "2019-04-27 17:17:52.852",
+      "dateFinished": "2019-04-27 17:17:52.926",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport itertools\n\ndef confusion_matrix_plot(\n        confusion, \n        scaled\u003dTrue,\n        label_x_neg\u003d\"PREDICTED NEGATIVE\",\n        label_x_pos\u003d\"PREDICTED POSITIVE\", \n        label_y_neg\u003d\"ACTUAL NEGATIVE\", \n        label_y_pos\u003d\"ACTUAL POSITIVE\"):\n\n    # confusion \u003d confusion_matrix(y_test, pred)\n    columns \u003d [label_y_neg, label_y_pos]\n    index \u003d [label_x_neg, label_x_pos]\n\n    if scaled:\n        confusion_scaled \u003d (confusion.astype(\"float\") / \n                            confusion.sum(axis\u003d1)[:, np.newaxis])\n        confusion \u003d pd.DataFrame(\n                confusion_scaled, \n                index\u003dindex, \n                columns\u003dcolumns)\n    else:\n        confusion \u003d pd.DataFrame(\n                confusion,\n                index\u003dindex,\n                columns\u003dcolumns)\n\n    cmap \u003d plt.get_cmap(\"Blues\")\n    plt.figure()\n    plt.imshow(confusion, interpolation\u003d\"nearest\", cmap\u003dcmap)\n    plt.title(\"Confusion matrix\")\n    plt.colorbar()\n\n    plt.xticks(np.arange(2), columns, rotation\u003d45)\n    plt.yticks(np.arange(2), index, rotation\u003d45)\n\n    threshold \u003d 0.5 if scaled else confusion.max().max() / 2\n    for i, j in itertools.product(\n            range(confusion.shape[0]), \n            range(confusion.shape[1])):\n        txt \u003d \"{:,}\".format(confusion.iloc[i,j])\n        if scaled: txt \u003d \"{:0.4f}\".format(confusion.iloc[i,j])\n        plt.text(j, i, txt,\n                    horizontalalignment\u003d\"center\",\n                    color\u003d(\"white\" if confusion.iloc[i,j] \u003e threshold else \"black\"))\n\n    plt.tight_layout()\n    plt.show()\n\nconfusion_matrix_plot(cm.toArray())\nconfusion_matrix_plot(cm.toArray(), scaled\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 13:52:58.946",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cmatplotlib.figure.Figure at 0x7ff60d990d50\u003e\n"
+          },
+          {
+            "type": "IMG",
+            "data": "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\n\n"
+          },
+          {
+            "type": "IMG",
+            "data": "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\u003d\u003d\n\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "\u003cmatplotlib.figure.Figure at 0x7ff60d88add0\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556361783869_-401702079",
+      "id": "20190427-104303_122625542",
+      "dateCreated": "2019-04-27 10:43:03.869",
+      "dateStarted": "2019-04-27 10:57:55.426",
+      "dateFinished": "2019-04-27 10:57:55.878",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfpr \u003d pipeline_model.stages[-1].summary.roc.select(\u0027FPR\u0027).collect()\ntpr \u003d pipeline_model.stages[-1].summary.roc.select(\u0027TPR\u0027).collect()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 10:59:50.550",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1556362724062_-1772984041",
+      "id": "20190427-105844_540646433",
+      "dateCreated": "2019-04-27 10:58:44.062",
+      "dateStarted": "2019-04-27 10:59:50.594",
+      "dateFinished": "2019-04-27 11:01:28.224",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nplt.figure(figsize\u003d(5,5))\nplt.plot([0, 1], [0, 1], \u0027r--\u0027)\nplt.plot(fpr,tpr)\nplt.xlabel(\u0027FPR\u0027)\nplt.ylabel(\u0027TPR\u0027)\nplt.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-27 11:01:53.561",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cmatplotlib.figure.Figure at 0x7ff60d918b50\u003e\n"
+          },
+          {
+            "type": "IMG",
+            "data": "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\u003d\u003d\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556362806055_1394073056",
+      "id": "20190427-110006_1654563991",
+      "dateCreated": "2019-04-27 11:00:06.055",
+      "dateStarted": "2019-04-27 11:01:53.632",
+      "dateFinished": "2019-04-27 11:01:53.821",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\npipeline_model.save(\"/machinelearning/spark_pipeline.model\")",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 15:59:52.782",
+      "dateUpdated": "2019-04-27 13:50:33.712",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -706,24 +1197,24 @@
       "jobName": "paragraph_1556117464354_-618245016",
       "id": "20190424-145104_1024882918",
       "dateCreated": "2019-04-24 14:51:04.354",
-      "dateStarted": "2019-04-24 15:59:52.842",
-      "dateFinished": "2019-04-24 15:59:57.161",
+      "dateStarted": "2019-04-27 13:50:17.146",
+      "dateFinished": "2019-04-27 13:50:19.649",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n",
       "user": "anonymous",
-      "dateUpdated": "2019-04-24 14:53:23.022",
+      "dateUpdated": "2019-04-27 13:50:17.117",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1556117603021_-2003078605",
-      "id": "20190424-145323_279644109",
-      "dateCreated": "2019-04-24 14:53:23.021",
+      "jobName": "paragraph_1556373017117_-1752080979",
+      "id": "20190427-135017_646218267",
+      "dateCreated": "2019-04-27 13:50:17.117",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
